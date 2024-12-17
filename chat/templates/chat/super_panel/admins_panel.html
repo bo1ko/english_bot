@@ -5,7 +5,7 @@
 {% block content %}
     <div class="admins-container">
         <h1>Список Адміністраторів</h1>
-        <button class="create-admin-btn">Створити Адмін Аккаунт</button>
+        <button class="create-admin-btn"><a href="{% url "chat:create_admin" %}">Створити Адмін Аккаунт </a></button>
         <div class="admins-list">
             {% if custom_users %}
                 {% for custom_user in custom_users %}

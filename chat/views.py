@@ -11,9 +11,18 @@ def index(request):
 
     return render(request, "chat/index.html")
 
+
 @role_required("super_administrator")
 @login_required
 def admins_panel(request):
     custom_users = CustomUser.objects.filter(role="site_administrator")
 
-    return render(request, "chat/super_panel/add_admin.html", {"custom_users": custom_users})
+    return render(
+        request, "chat/super_panel/admins_panel.html", {"custom_users": custom_users}
+    )
+
+
+@role_required("super_administrator")
+@login_required
+def create_admin(request):
+    return render(request, "chat/super_panel/create_admin.html")

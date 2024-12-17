@@ -33,3 +33,41 @@ class CustomUser(AbstractUser):
 
     def is_site_administrator(self):
         return self.role == self.SITE_ADMIN
+
+    class Meta:
+        verbose_name = "CustomUser"
+        verbose_name_plural = "CustomUsers"
+
+
+class TelegramUser(models.Model):
+    tg_id = models.BigIntegerField(null=False, blank=False)
+    username = models.CharField(max_length=264, null=True, blank=True)
+    service_id = models.ForeignKey(
+        CustomUser, on_delete=models.DO_NOTHING, null=True, blank=True
+    )
+
+    def __str__(self):
+        return self.username if self.username else self.tg_id
+
+    class Meta:
+        verbose_name = "TelegramUser"
+        verbose_name_plural = "TelegramUsers"
+
+
+class Chats(models.Model):
+    student_id = models.ForeignKey(
+        CustomUser,
+        on_delete=models.DO_NOTHING,
+        null=False,
+        blank=False,
+        limit_choices_to={"role": CustomUser.STUDENT},
+        related_name="student_chats",
+    )
+    teacher_id = models.ForeignKey(
+        CustomUser,
+        on_delete=models.DO_NOTHING,
+        null=False,
+        blank=False,
+        related_name="teacher_chats",
+    )
+    # admin_list = models.ManyToManyField()

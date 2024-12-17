@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Панель{% endblock %}</title>
+  
+  <!-- Підключення CSS з додатку -->
+  <link rel="stylesheet" href="{% static 'chat/css/style.css' %}">
+  
+  {% comment %} <script src="{% static 'chat/js/script.js' %}"></script> {% endcomment %}
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+        <ul>
+          <li><a href="{% url 'chat:admins_panel' %}">Адміністратори</a></li>
+{#          <li><a href="{% url '' %}">Вчителі</a></li>#}
+{#          <li><a href="{% url '' %}">Учні</a></li>#}
+{#          <li><a href="{% url '' %}">Вхідні повідомлення</a></li>#}
+{#          <li><a href="{% url '' %}">Чати &gt; Вчителі - Учні</a></li>#}
+{#          <li><a href="{% url '' %}">Чати &gt; Адміни - Учні</a></li>#}
+        </ul>
+      </nav>
+  
+      <div class="main-content">
+        {% block content %}{% endblock %}
+      </div>
+  </div>
+</body>
+</html>

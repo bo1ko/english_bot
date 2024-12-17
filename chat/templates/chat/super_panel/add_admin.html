@@ -1,0 +1,20 @@
+{% extends "chat/base.html" %}
+
+{% block title %}Адміністратори{% endblock title %}
+
+{% block content %}
+    <div class="admins-container">
+        <h1>Список Адміністраторів</h1>
+        <button class="create-admin-btn">Створити Адмін Аккаунт</button>
+        <div class="admins-list">
+            {% if custom_users %}
+                {% for custom_user in custom_users %}
+                    <div class="admin">
+                        <span class="admin-name">{{ custom_user.first_name }} {{ custom_user.last_name }} {{ custom_user.username }}</span>
+                        <button class="delete-btn">Видалити</button>
+                    </div>
+                {% endfor %}
+            {% endif %} 
+        </div>
+    </div>
+{% endblock content %}

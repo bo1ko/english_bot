@@ -1,0 +1,36 @@
+{% extends "chat/base.html" %}
+{% load static %}
+
+{% block title %}
+    Результат
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="text-dark">{{ context.success }}</h2>
+        <p>{{ admin_data }}</p>
+
+        {% if context.pwd %}
+            <div class="mb-3">
+                <label for="passwordInput" class="form-label">Пароль:</label>
+                <input type="text" id="passwordInput" class="form-control mb-2" value="{{ context.pwd }}" readonly
+                       style="max-width: 100px;">
+
+                <button class="btn btn-outline-secondary" style="max-width: 100px;" onclick="copyPassword()">Копіювати
+                </button>
+            </div>
+
+        {% endif %}
+
+        <hr>
+
+        <div class="d-flex flex-column">
+            <div class="mb-3">
+                <a href="{% url 'chat:create' %}" class="btn btn-primary">Назад</a>
+            </div>
+            <div>
+                <a href="{% url 'chat:panel' %}" class="btn btn-dark">Панель адміністраторів</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

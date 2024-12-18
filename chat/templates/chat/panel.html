@@ -1,0 +1,102 @@
+{% extends "chat/base.html" %}
+
+{% block title %}Панель{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Список Адміністраторів</h1>
+        <a href="{% url 'chat:create' %}" class="btn btn-primary mb-4">Створити Адмін Аккаунт</a>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div{% if message.tags == "success" %}
+                    class="alert alert-success {{ message.tags }} mb-2"
+                    {% elif message.tags == "error" %}class="alert alert-danger {{ message.tags }} mb-2"
+                    {% else %}class="alert alert-warning {{ message.tags }} mb-2"{% endif %}>{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {% if custom_users %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ім'я & Прізвище</th>
+                    <th>Логін</th>
+                    <th>Телеграм</th>
+                    <th>Послідня активність</th>
+                    <th>Дії</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for custom_user in custom_users %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ custom_user.first_name }} {{ custom_user.last_name }}</td>
+                        <td>{{ custom_user.username }}</td>
+                        <td>{% if custom_user.telegram %}{{ custom_user.telegram }}{% else %}-{% endif %}</td>
+                        <td>{% if custom_user.last_login %}{{ custom_user.last_login }}{% else %}-{% endif %}</td>
+                        <td>
+                            <form method="post" action="{% url 'chat:remove' custom_user.pk %}"
+                                  onsubmit="return confirm('Ви впевнені, що хочете видалити цього адміністратора?');">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Видалити</button>
+                            </form>
+                            <button class="btn btn-warning btn-sm mt-2 change-telegram-btn"
+                                    data-user-id="{{ custom_user.pk }}">Змінити Telegram
+                            </button>
+                        </td>
+                    </tr>
+                    <tr id="telegram-form-{{ custom_user.pk }}" class="d-none">
+                        <td colspan="6">
+                            <form method="post" action="{% url 'chat:update_telegram' custom_user.pk %}">
+                                {% csrf_token %}
+                                <div class="input-group">
+                                    <div class="d-flex flex-row align-items-center">
+                                        {{ update_tg_form.telegram }}
+                                        <button type="submit" class="btn btn-success ms-3">Оновити</button>
+                                        <button type="button" class="btn btn-secondary ms-2 hide-telegram-btn"
+                                                data-user-id="{{ custom_user.pk }}">Сховати
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Немає адміністраторів для відображення.</p>
+        {% endif %}
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const changeButtons = document.querySelectorAll(".change-telegram-btn");
+            const hideButtons = document.querySelectorAll(".hide-telegram-btn");
+
+            // Показати форму
+            changeButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const userId = this.dataset.userId;
+                    const formRow = document.getElementById(`telegram-form-${userId}`);
+                    if (formRow.classList.contains("d-none")) {
+                        formRow.classList.remove("d-none");
+                    } else {
+                        formRow.classList.add("d-none");
+                    }
+                });
+            });
+
+            // Сховати форму
+            hideButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const userId = this.dataset.userId;
+                    const formRow = document.getElementById(`telegram-form-${userId}`);
+                    formRow.classList.add("d-none");
+                });
+            });
+        });
+    </script>
+{% endblock content %}

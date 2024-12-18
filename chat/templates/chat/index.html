@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-</head>
-<body>
-    {% if user %}
-        <h1>Hello admin</h1>
+{% extends "chat/base.html" %}
+
+{% block title %}Головна{% endblock title %}
+
+{% block content %}
+    {% if welcome %}
+        <h1>{{ welcome }}</h1>
+        <p>Виберіть розділ з лівого сайдбару, щоб почати роботу.</p>
     {% endif %}
-</body>
-</html>
+
+{% endblock content %}

@@ -2,6 +2,18 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+class TelegramUser(models.Model):
+    tg_id = models.BigIntegerField(null=False, blank=False)
+    username = models.CharField(max_length=264, null=True, blank=True)
+
+    def __str__(self):
+        return f"Telegram {self.username if self.username else self.tg_id}"
+
+    class Meta:
+        verbose_name = "TelegramUser"
+        verbose_name_plural = "TelegramUsers"
+
+
 class CustomUser(AbstractUser):
     STUDENT = "student"
     TEACHER = "teacher"
@@ -19,6 +31,14 @@ class CustomUser(AbstractUser):
         max_length=20,
         choices=ROLE_CHOICES,
         default=STUDENT,
+    )
+
+    telegram = models.OneToOneField(
+        TelegramUser,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="user",
     )
 
     def __str__(self):
@@ -39,23 +59,8 @@ class CustomUser(AbstractUser):
         verbose_name_plural = "CustomUsers"
 
 
-class TelegramUser(models.Model):
-    tg_id = models.BigIntegerField(null=False, blank=False)
-    username = models.CharField(max_length=264, null=True, blank=True)
-    service_id = models.ForeignKey(
-        CustomUser, on_delete=models.DO_NOTHING, null=True, blank=True
-    )
-
-    def __str__(self):
-        return self.username if self.username else self.tg_id
-
-    class Meta:
-        verbose_name = "TelegramUser"
-        verbose_name_plural = "TelegramUsers"
-
-
 class Chats(models.Model):
-    student_id = models.ForeignKey(
+    student_id = models.OneToOneField(
         CustomUser,
         on_delete=models.DO_NOTHING,
         null=False,
@@ -63,11 +68,19 @@ class Chats(models.Model):
         limit_choices_to={"role": CustomUser.STUDENT},
         related_name="student_chats",
     )
-    teacher_id = models.ForeignKey(
+    teacher_id = models.OneToOneField(
         CustomUser,
         on_delete=models.DO_NOTHING,
         null=False,
         blank=False,
+        limit_choices_to={"role": CustomUser.TEACHER},
         related_name="teacher_chats",
     )
-    # admin_list = models.ManyToManyField()
+    admin_list = models.JSONField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Chat between student {self.student_id.student_chats.last_name}"
+
+    class Meta:
+        verbose_name = "Chat"
+        verbose_name_plural = "Chats"

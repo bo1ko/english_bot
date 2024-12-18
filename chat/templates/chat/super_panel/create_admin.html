@@ -7,23 +7,20 @@
     <div class="admins-container">
         <form method="POST">
             {% csrf_token %}
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Введіть username" required>
-            </div>
-            <div class="form-group">
-                <label for="first_name">First Name</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Введіть ім'я" required>
-            </div>
-            <div class="form-group">
-                <label for="last_name">Last Name</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Введіть прізвище" required>
-            </div>
-            <div class="form-group">
-                <label for="telegram">Telegram</label>
-                <input type="text" id="telegram" name="telegram" placeholder="Введіть Telegram нік" required>
-            </div>
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <div class="text-danger">{{ error }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
             <button type="submit" class="create-admin-btn">Створити</button>
         </form>
+        
     </div>
 {% endblock content %}

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
-    <!-- Bootstrap CSS -->
+    <title>Chat Room</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         #chat-box {
@@ -49,35 +48,40 @@
         </div>
     </div>
 
-    <!-- jQuery and Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Example of adding a message to the chat box
-        function addMessage(username, message, timestamp) {
+        const chatId = "{{ chat.id }}";
+        const userId = "{{ request.user.id }}";
+        const chatSocket = new WebSocket(
+            'ws://' + window.location.host + '/ws/chat/' + chatId + '/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            const message = data.message;
+            const username = data.username;
+            const timestamp = data.timestamp;
+
             const chatBox = document.getElementById('chat-box');
             const messageElement = document.createElement('div');
             messageElement.classList.add('chat-message');
             messageElement.innerHTML = `<span class="username">${username}</span>: ${message} <span class="timestamp">${timestamp}</span>`;
             chatBox.appendChild(messageElement);
             chatBox.scrollTop = chatBox.scrollHeight;
-        }
+        };
 
-        document.getElementById('chat-message-submit').addEventListener('click', function() {
-            const messageInput = document.getElementById('chat-message-input');
-            const message = messageInput.value;
-            if (message.trim() !== '') {
-                // Here you would typically send the message to the server
-                addMessage('You', message, new Date().toLocaleTimeString());
-                messageInput.value = '';
-            }
-        });
+        chatSocket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
 
-        // Example of receiving a message from another user
-        setTimeout(function() {
-            addMessage('Alice', 'Hello, this is Alice!', new Date().toLocaleTimeString());
-        }, 2000);
+        document.getElementById('chat-message-submit').onclick = function(e) {
+            const messageInputDom = document.getElementById('chat-message-input');
+            const message = messageInputDom.value;
+            chatSocket.send(JSON.stringify({
+                'message': message,
+                'user_id': userId
+            }));
+            messageInputDom.value = '';
+        };
     </script>
 </body>
 </html>

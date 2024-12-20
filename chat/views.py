@@ -390,7 +390,9 @@ def telegram_users(request):
     return render(request, "chat/telegram_accounts.html", context)
 
 
-def chat_room(request, room_name):
+@login_required
+def chat_room(request, chat_id):
+    chat = get_object_or_404(StudentAndTeacherChat, id=chat_id)
     return render(request, 'chat/test.html', {
-        'room_name': room_name
+        'chat': chat
     })

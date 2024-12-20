@@ -1,0 +1,261 @@
+2024-12-20 09:34:55,736 - __main__ - INFO - Starting bot...
+2024-12-20 09:34:56,056 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 09:34:56,091 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:35:00,548 - aiogram.event - INFO - Update id=166847730 is handled. Duration 150 ms by bot id=7101171025
+2024-12-20 09:35:04,450 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 09:35:04,710 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:35:09,275 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 09:35:09,310 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:35:10,705 - aiogram.event - INFO - Update id=166847731 is handled. Duration 289 ms by bot id=7101171025
+2024-12-20 09:36:53,050 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 09:36:53,313 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:36:56,464 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 09:36:56,499 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:36:57,306 - aiogram.event - INFO - Update id=166847732 is not handled. Duration 3 ms by bot id=7101171025
+2024-12-20 09:36:57,306 - aiogram.event - ERROR - Cause exception while process update id=166847732 by bot id=7101171025
+SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+Traceback (most recent call last):
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\bot.py", line 52, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\bot.py", line 63, in cmd_start
+    SystemAction(telegram=TelegramUser.objects.get(tg_id=message.from_user.id), action="/start")
+                          ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+    ~~~~~~~~~~~~~~~^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+        chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size
+    )
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1572, in execute_sql
+    cursor = self.connection.cursor()
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\utils\asyncio.py", line 24, in inner
+    raise SynchronousOnlyOperation(message)
+django.core.exceptions.SynchronousOnlyOperation: You cannot call this from an async context - use a thread or sync_to_async.
+2024-12-20 09:39:45,435 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 09:39:45,690 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:39:49,706 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 09:39:49,740 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:39:52,354 - aiogram.event - INFO - Update id=166847733 is handled. Duration 170 ms by bot id=7101171025
+2024-12-20 09:40:26,251 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 09:40:26,518 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:40:29,418 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 09:40:29,452 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:40:30,091 - aiogram.event - INFO - Update id=166847734 is not handled. Duration 4 ms by bot id=7101171025
+2024-12-20 09:40:30,091 - aiogram.event - ERROR - Cause exception while process update id=166847734 by bot id=7101171025
+FieldError: Cannot resolve keyword 'tg_id' into field. Choices are: action, created_at, id, telegram, telegram_id, updated_at
+Traceback (most recent call last):
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        observer=observer, update_type=update_type, event=telegram_event, **data
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\bot.py", line 61, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\bot.py", line 72, in cmd_start
+    await create_system_action(await get_telegram_user(message.from_user.id), "/start")
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\asgiref\sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bybr\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\asgiref\sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "F:\WORKSPACE\english_bot\bot.py", line 45, in create_system_action
+    return SystemAction.objects.get_or_create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tg_id=tg_id, action=text
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 948, in get_or_create
+    return self.get(**kwargs), False
+           ~~~~~~~~^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 635, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+                                                        ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1491, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+                                        ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1303, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+                                ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "F:\WORKSPACE\english_bot\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1768, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'tg_id' into field. Choices are: action, created_at, id, telegram, telegram_id, updated_at
+2024-12-20 09:40:55,043 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 09:40:55,298 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:40:58,558 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 09:40:58,595 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 09:40:59,728 - aiogram.event - INFO - Update id=166847735 is handled. Duration 163 ms by bot id=7101171025
+2024-12-20 10:05:35,542 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 10:05:35,798 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 10:08:28,616 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 10:08:28,649 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 10:08:33,388 - aiogram.event - INFO - Update id=166847736 is handled. Duration 148 ms by bot id=7101171025
+2024-12-20 10:17:45,343 - aiogram.dispatcher - ERROR - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-20 10:17:45,343 - aiogram.dispatcher - WARNING - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 7101171025)
+2024-12-20 10:17:56,479 - aiogram.dispatcher - INFO - Connection established (tryings = 1, bot id = 7101171025)
+2024-12-20 11:19:31,138 - aiogram.event - INFO - Update id=166847737 is handled. Duration 278 ms by bot id=7101171025
+2024-12-20 11:38:08,700 - aiogram.event - INFO - Update id=166847738 is handled. Duration 202 ms by bot id=7101171025
+2024-12-20 13:04:04,884 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 13:04:05,138 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 14:14:34,041 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 14:14:34,086 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 14:14:44,153 - aiogram.event - INFO - Update id=166847739 is handled. Duration 234 ms by bot id=7101171025
+2024-12-20 15:13:47,053 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 15:13:47,317 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 15:29:22,745 - aiogram.dispatcher - INFO - Start polling
+2024-12-20 15:29:22,813 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-20 15:32:16,775 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-20 15:32:17,039 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'

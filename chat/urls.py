@@ -17,5 +17,5 @@ urlpatterns = [
     path("system_actions/", views.system_actions, name="system_actions"),
     path("system_actions/<int:pk>/", views.user_actions, name="user_actions"),
     path("telegram_users/", views.telegram_users, name="telegram_users"),
-    path('chat/<str:room_name>/', views.chat_room, name='chat_room'),
+    path('chat/<int:chat_id>', views.chat_room, name='chat_room'),
 ]

@@ -25,9 +25,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'chat:panel' 'system_actions' %}" class="nav-link align-middle px-0 text-white">
+                <a href="{% url 'chat:system_actions' %}" class="nav-link align-middle px-0 text-white">
                     <i class="fs-4 bi-book-fill"></i>
                     <span class="ms-1 d-none d-sm-inline">Системні дії</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'chat:telegram_users' %}" class="nav-link align-middle px-0 text-white">
+                    <i class="fs-4 bi-telegram"></i>
+                    <span class="ms-1 d-none d-sm-inline">Телеграм</span>
                 </a>
             </li>
         </ul>

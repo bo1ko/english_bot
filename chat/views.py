@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from .decorators import role_required
-from .models import CustomUser, TelegramUser, StudentAndTeacherChat
+from .models import CustomUser, TelegramUser, StudentAndTeacherChat, SystemAction
 from .forms import CreateForm, ChangeTelegramForm, UpdateSettingsForm
 from .utils import send_telegram_message
 
@@ -14,7 +14,7 @@ import secrets
 import string
 
 
-@login_required(login_url='admin/')
+@login_required()
 def index(request):
     context = {}
 
@@ -82,47 +82,61 @@ def create(request, page):
         data = request.POST
 
         try:
-            alphabet = string.ascii_letters + string.digits
-            rand_password = "".join(secrets.choice(alphabet) for i in range(8))
-            hash_rand_password = make_password(rand_password)
-            tg_pk = data.get("telegram")
+            form = CreateForm(data)
 
-            if tg_pk:
-                tg_obj = TelegramUser.objects.get(pk=tg_pk)
+            if form.is_valid():
+                alphabet = string.ascii_letters + string.digits
+                if page == "students":
+                    rand_password = "".join(secrets.choice(alphabet) for i in range(32))
+                else:
+                    rand_password = "".join(secrets.choice(alphabet) for i in range(8))
+                hash_rand_password = make_password(rand_password)
+                tg_pk = data.get("telegram")
+
+                if tg_pk:
+                    tg_obj = TelegramUser.objects.get(pk=tg_pk)
+                else:
+                    tg_obj = None
+
+                create_user = CustomUser(
+                    username=data.get("username"),
+                    first_name=data.get("first_name"),
+                    last_name=data.get("last_name"),
+                    telegram=tg_obj,
+                    role=CustomUser.SITE_ADMIN if page == "admins" else CustomUser.TEACHER if page == "teachers" else CustomUser.STUDENT,
+                    password=hash_rand_password,
+                )
+                create_user.save()
+
+                if tg_obj:
+                    message = f"Ви получили роль {context["create"]}."
+                    send_telegram_message(tg_obj.tg_id, message)
+
+                messages.success(request, "Аккаунт створено")
+                context["admin_data"] = create_user
+
+                if page != "students":
+                    context["pwd"] = rand_password
             else:
-                tg_obj = None
-
-            create_user = CustomUser(
-                username=data.get("username"),
-                first_name=data.get("first_name"),
-                last_name=data.get("last_name"),
-                telegram=tg_obj,
-                role=CustomUser.SITE_ADMIN if page == "admins" else CustomUser.TEACHER if page == "teachers" else CustomUser.STUDENT,
-                password=hash_rand_password,
-            )
-            create_user.save()
-
-            if tg_obj:
-                message = f"Ви получили роль {context["create"]}."
-                send_telegram_message(tg_obj.tg_id, message)
-
-            context["success"] = "Аккаунт створено"
-            context["admin_data"] = create_user
-            context["pwd"] = rand_password
+                messages.error(request, "При створенні студента потрібно вказати телеграм")
 
         except IntegrityError as e:
             if "UNIQUE constraint failed" in str(e):
-                context["success"] = "Користувач з таким ім'ям вже існує"
+                messages.error(request, "Користувач з таким ім'ям вже існує")
             else:
-                context["success"] = "Сталася помилка при створенні користувача"
+                messages.error(request, "Сталася помилка при створенні користувача")
 
         except Exception as e:
             print(e)
-            context["success"] = "Аккаунт не створено"
+            messages.error(request, "Аккаунт не створено")
 
         return render(request, "chat/result.html", {"context": context})
     else:
-        form = CreateForm()
+        form = CreateForm(initial={'role': page})
+
+        if page == "students":
+            form.fields['telegram'].required = True
+
         context["form"] = form
 
     return render(request, "chat/create.html", {"context": context})
@@ -341,3 +355,42 @@ def custom_login(request):
 def custom_logout(request):
     logout(request)
     return redirect("chat:login")
+
+
+@login_required
+def system_actions(request):
+    actions = SystemAction.objects.all()
+
+    context = {
+        'actions': actions
+    }
+
+    return render(request, "chat/system_actions.html", context)
+
+@login_required
+def user_actions(request, pk):
+    action = SystemAction.objects.get(pk=pk)
+
+    context = {
+        'pk': pk,
+        'tg_user': action.telegram.username if action.telegram.username is not None else action.telegram.tg_id,
+        'actions_json': action.action,
+        'update_at': action.updated_at,
+    }
+
+    return render(request, "chat/user_actions.html", context)
+
+@login_required
+def telegram_users(request):
+    users = TelegramUser.objects.all()
+    context = {
+        'tg_users': users,
+    }
+
+    return render(request, "chat/telegram_accounts.html", context)
+
+
+def chat_room(request, room_name):
+    return render(request, 'chat/test.html', {
+        'room_name': room_name
+    })

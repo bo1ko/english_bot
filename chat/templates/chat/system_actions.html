@@ -3,4 +3,32 @@
 {% block title %}Системні дії{% endblock title %}
 
 {% block content %}
+    <div class="container mt-4">
+        <h1>Системні дії</h1>
+        <div class="list-group">
+            {% if actions %}
+                {% for action in actions %}
+                    <a href="{% url 'chat:user_actions' action.pk %}" class="list-group-item list-group-item-action">
+                        <div>
+                            <strong>Telegram:</strong> {{ action.telegram.username|default:action.telegram.tg_id }}
+                        </div>
+                        {% if action.telegram.user %}
+                            <div>
+                                <strong>Ім'я:</strong> {{ action.telegram.user.first_name }}
+                            </div>
+                            <div>
+                                <strong>Прізвище:</strong> {{ action.telegram.user.last_name }}
+                            </div>
+                            <div>
+                                <strong>Роль:</strong> {{ action.telegram.user.get_role_display }}
+                            </div>
+                            <div>
+                                <strong>Логін:</strong> {{ action.telegram.user.username }}
+                            </div>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 {% endblock content %}

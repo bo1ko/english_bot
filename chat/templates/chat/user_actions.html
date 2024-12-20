@@ -1,0 +1,24 @@
+{% extends "chat/layouts/base.html" %}
+
+{% block title %}Системні дії користувача{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Системні дії користувача {{ tg_user }}</h1>
+        <div class="d-flex justify-content-between mb-3">
+            <div><p>Послідня дія {{ update_at }}</p></div>
+            <div><a href="{% url 'chat:system_actions' %}" class="btn btn-primary">Назад</a></div>
+        </div>
+        <div class="list-group">
+            {% if actions_json %}
+                {% for action in actions_json %}
+                    <div class="list-group-item list-group-item-action">
+                        {{ action }}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Немає дій для відображення.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

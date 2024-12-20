@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models import ForeignKey
 
 
 class TelegramUser(models.Model):
@@ -63,16 +64,16 @@ class CustomUser(AbstractUser):
 class StudentAndTeacherChat(models.Model):
     student = models.OneToOneField(
         CustomUser,
-        on_delete=models.DO_NOTHING,
-        null=False,
+        on_delete=models.SET_NULL,
+        null=True,
         blank=False,
         limit_choices_to={"role": CustomUser.STUDENT},
         related_name="student_chats",
     )
     teacher = models.OneToOneField(
         CustomUser,
-        on_delete=models.DO_NOTHING,
-        null=False,
+        on_delete=models.SET_NULL,
+        null=True,
         blank=False,
         limit_choices_to={"role": CustomUser.TEACHER},
         related_name="teacher_chats",
@@ -85,3 +86,16 @@ class StudentAndTeacherChat(models.Model):
     class Meta:
         verbose_name = "StudentAndTeacherChat"
         verbose_name_plural = "StudentAndTeacherChats"
+
+class SystemAction(models.Model):
+    telegram = ForeignKey("TelegramUser", on_delete=models.DO_NOTHING, null=False, blank=False)
+    action = models.JSONField(default=list, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.telegram.username if self.telegram.username else self.telegram.tg_id} {self.action}"
+
+    class Meta:
+        verbose_name = "SystemAction"
+        verbose_name_plural = "SystemActions"

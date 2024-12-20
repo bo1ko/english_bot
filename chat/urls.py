@@ -14,4 +14,8 @@ urlpatterns = [
     path('add_student/', views.add_student, name='add_student'),
     path('remove_student/', views.remove_student, name='remove_student'),
     path('login', views.custom_login, name='login'),
+    path("system_actions/", views.system_actions, name="system_actions"),
+    path("system_actions/<int:pk>/", views.user_actions, name="user_actions"),
+    path("telegram_users/", views.telegram_users, name="telegram_users"),
+    path('chat/<str:room_name>/', views.chat_room, name='chat_room'),
 ]

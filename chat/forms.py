@@ -25,9 +25,23 @@ class CreateForm(forms.Form):
         queryset=TelegramUser.objects.filter(user__isnull=True),
         required=False,
         label="Telegram",
-        empty_label="Необов'язково",
+        empty_label="Необов'язково, якщо не студент",
         widget=forms.Select(attrs={'class': 'form-control'})
     )
+    role = forms.CharField(
+        widget=forms.HiddenInput(),
+        label=""
+    )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        role = cleaned_data.get("role")
+        telegram = cleaned_data.get("telegram")
+
+        if role == 'students' and not telegram:
+            self.add_error('telegram', 'This field is required for students.')
+
+        return cleaned_data
 
 class ChangeTelegramForm(forms.Form):
     telegram = forms.ModelChoiceField(

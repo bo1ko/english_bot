@@ -41,10 +41,11 @@ class CustomUser(AbstractUser):
         related_name="user",
     )
 
+    student_list = models.JSONField(default=list, blank=True, null=True)
+
     def __str__(self):
         return self.username
 
-    # Можна додати додаткові методи для перевірки ролі
     def is_student(self):
         return self.role == self.STUDENT
 
@@ -59,8 +60,8 @@ class CustomUser(AbstractUser):
         verbose_name_plural = "CustomUsers"
 
 
-class Chats(models.Model):
-    student_id = models.OneToOneField(
+class StudentAndTeacherChat(models.Model):
+    student = models.OneToOneField(
         CustomUser,
         on_delete=models.DO_NOTHING,
         null=False,
@@ -68,7 +69,7 @@ class Chats(models.Model):
         limit_choices_to={"role": CustomUser.STUDENT},
         related_name="student_chats",
     )
-    teacher_id = models.OneToOneField(
+    teacher = models.OneToOneField(
         CustomUser,
         on_delete=models.DO_NOTHING,
         null=False,
@@ -79,8 +80,8 @@ class Chats(models.Model):
     admin_list = models.JSONField(blank=True, null=True)
 
     def __str__(self):
-        return f"Chat between student {self.student_id.student_chats.last_name}"
+        return f"Chat between student {self.student.username} and teacher {self.teacher.username}"
 
     class Meta:
-        verbose_name = "Chat"
-        verbose_name_plural = "Chats"
+        verbose_name = "StudentAndTeacherChat"
+        verbose_name_plural = "StudentAndTeacherChats"

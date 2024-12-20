@@ -1,4 +1,4 @@
-{% extends "chat/base.html" %}
+{% extends "chat/layouts/base.html" %}
 {% load static %}
 
 {% block title %}
@@ -26,10 +26,10 @@
 
         <div class="d-flex flex-column">
             <div class="mb-3">
-                <a href="{% url 'chat:create' %}" class="btn btn-primary">Назад</a>
+                <a href="{% url 'chat:create' context.page %}" class="btn btn-primary">Назад</a>
             </div>
             <div>
-                <a href="{% url 'chat:panel' %}" class="btn btn-dark">Панель адміністраторів</a>
+                <a href="{% url 'chat:panel' context.page %}" class="btn btn-dark">Панель {{ context.create }}</a>
             </div>
         </div>
     </div>

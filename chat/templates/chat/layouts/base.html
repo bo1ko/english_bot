@@ -1,0 +1,25 @@
+{% include 'chat/layouts/head.html' %}
+
+<div class="container-fluid base_container">
+    <div class="row flex-nowrap h-100">
+        {% include 'chat/layouts/sidebar.html' %}
+        <div class="col py-3">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+{#<div class="container">#}
+{#    <nav class="sidebar">#}
+{#        <ul>#}
+{#          <li><a href="{% url '' %}">Вхідні повідомлення</a></li>#}
+{#          <li><a href="{% url '' %}">Чати &gt; Вчителі - Учні</a></li>#}
+{#          <li><a href="{% url '' %}">Чати &gt; Адміни - Учні</a></li>#}
+{#        </ul>#}
+{#    </nav>#}
+{##}
+{#    <div class="main-content">#}
+{#        {% block content %}{% endblock %}#}
+{#    </div>#}
+{#</div>#}
+
+{% include "chat/layouts/footer.html" %}

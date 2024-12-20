@@ -1,20 +1,14 @@
-{% extends "chat/base.html" %}
+{% extends "chat/layouts/base.html" %}
+
 
 {% block title %}Панель{% endblock title %}
 
 {% block content %}
     <div class="container mt-4">
-        <h1 class="mb-4">Список Адміністраторів</h1>
-        <a href="{% url 'chat:create' %}" class="btn btn-primary mb-4">Створити Адмін Аккаунт</a>
+        <h1 class="mb-4">Список {{ title }}</h1>
+        <a href="{% url 'chat:create' page %}" class="btn btn-primary mb-4">Створити {{ button_create_name }} Аккаунт</a>
 
-        {% if messages %}
-            {% for message in messages %}
-                <div{% if message.tags == "success" %}
-                    class="alert alert-success {{ message.tags }} mb-2"
-                    {% elif message.tags == "error" %}class="alert alert-danger {{ message.tags }} mb-2"
-                    {% else %}class="alert alert-warning {{ message.tags }} mb-2"{% endif %}>{{ message }}</div>
-            {% endfor %}
-        {% endif %}
+        {% include "chat/layouts/alert.html" %}
 
         {% if custom_users %}
             <table class="table table-striped">
@@ -37,19 +31,25 @@
                         <td>{% if custom_user.telegram %}{{ custom_user.telegram }}{% else %}-{% endif %}</td>
                         <td>{% if custom_user.last_login %}{{ custom_user.last_login }}{% else %}-{% endif %}</td>
                         <td>
-                            <form method="post" action="{% url 'chat:remove' custom_user.pk %}"
-                                  onsubmit="return confirm('Ви впевнені, що хочете видалити цього адміністратора?');">
+                            {% if page == "teachers" %}
+                                <form method="post" action="{% url 'chat:edit_students' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-info btn-sm mb-1">Учні</button>
+                                </form>
+                            {% endif %}
+                            <form method="post" action="{% url 'chat:remove' page custom_user.pk %}"
+                                  onsubmit="return confirm('Ви впевнені, що хочете видалити цей аккаунт?');">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-danger btn-sm">Видалити</button>
+                                <button type="submit" class="btn btn-danger btn-sm mb-1">Видалити</button>
                             </form>
-                            <button class="btn btn-warning btn-sm mt-2 change-telegram-btn"
+                            <button class="btn btn-warning btn-sm change-telegram-btn mb-1"
                                     data-user-id="{{ custom_user.pk }}">Змінити Telegram
                             </button>
                         </td>
                     </tr>
                     <tr id="telegram-form-{{ custom_user.pk }}" class="d-none">
                         <td colspan="6">
-                            <form method="post" action="{% url 'chat:update_telegram' custom_user.pk %}">
+                            <form method="post" action="{% url 'chat:update_telegram' page custom_user.pk %}">
                                 {% csrf_token %}
                                 <div class="input-group">
                                     <div class="d-flex flex-row align-items-center">
@@ -67,7 +67,7 @@
                 </tbody>
             </table>
         {% else %}
-            <p>Немає адміністраторів для відображення.</p>
+            <p>Немає {{ title }} для відображення.</p>
         {% endif %}
     </div>
 

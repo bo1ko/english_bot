@@ -1,7 +1,28 @@
-{% extends "chat/base.html" %}
+{% extends "chat/layouts/base.html" %}
 
-{% block title %}Головна{% endblock title %}
+{% block title %}Налаштування{% endblock title %}
 
 {% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Налаштування профілю</h1>
+        <div class="card mb-4">
+            <div class="card-header">Інформація про профіль</div>
+            <div class="card-body">
+                <p><strong>Ім'я користувача:</strong> {{ user.username }}</p>
+                <p><strong>Ім'я:</strong> {{ user.first_name|default:"Не вказано" }}</p>
+                <p><strong>Прізвище:</strong> {{ user.last_name|default:"Не вказано" }}</p>
+                <p><strong>Остання активність:</strong> {{ user.last_login|date:"d.m.Y H:i" }}</p>
+            </div>
+        </div>
 
+        <h3 class="mb-4">Оновити дані</h3>
+
+        {% include "chat/layouts/alert.html" %}
+
+        <form method="post" action="{% url 'chat:settings' %}">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary mt-2">Зберегти</button>
+        </form>
+    </div>
 {% endblock content %}

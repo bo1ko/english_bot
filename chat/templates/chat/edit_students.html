@@ -1,0 +1,122 @@
+{% extends "chat/layouts/base.html" %}
+{% load custom_filters %}
+
+{% block title %}Вчителі{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Редагування учнів</h2>
+
+        {% include "chat/layouts/alert.html" %}
+
+        {% if context.teachers %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Вчитель</th>
+                    <th>Дії</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for teacher in context.teachers %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ teacher.first_name }} {{ teacher.last_name }}</td>
+                        <td>
+                            <button class="btn btn-info btn-sm toggle-students-btn" data-teacher-id="{{ teacher.id }}">
+                                Показати учнів
+                            </button>
+                        </td>
+                    </tr>
+                    <tr id="students-row-{{ teacher.id }}" class="bg-light d-none">
+                        <td colspan="3">
+                            <div class="ms-4">
+                                <div>
+                                    <button class="btn btn-success btn-sm add-student-btn"
+                                            data-teacher-id="{{ teacher.id }}">
+                                        Додати учня
+                                    </button>
+                                </div>
+                                {% if context.unassigned_students %}
+                                    <form id="add-student-form-{{ teacher.id }}" class="d-none mt-2" method="post"
+                                          action="{% url 'chat:add_student' %}">
+                                        {% csrf_token %}
+                                        <div class="input-group">
+                                            <label>
+                                                <select name="student_id" class="form-select">
+                                                    {% for student in context.unassigned_students %}
+                                                        <option value="{{ student.id }}">{{ student.first_name }} {{ student.last_name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </label>
+                                            <input type="hidden" name="teacher_id" value="{{ teacher.id }}">
+                                            <button type="submit" class="btn btn-primary">Додати</button>
+                                        </div>
+                                    </form>
+                                {% else %}
+                                    <p>Немає студентів</p>
+                                {% endif %}
+                                <ul class="mt-3">
+                                    {% for student in context.assigned_students|get_item:teacher.id %}
+                                        <li class="d-flex justify-content-between">
+                                            {{ student.first_name }} {{ student.last_name }} ({{ student.username }})
+                                            <form method="post" action="{% url 'chat:remove_student' %}"
+                                            style="display:inline;">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="student_id" value="{{ student.id }}">
+                                                <input type="hidden" name="teacher_id" value="{{ teacher.id }}">
+                                                <button type="submit" class="btn btn-danger btn-sm">Видалити</button>
+                                            </form>
+                                        </li>
+                                        <hr>
+                                    {% empty %}
+                                        <li>Немає учнів</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Немає вчителів для відображення.</p>
+        {% endif %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButtons = document.querySelectorAll('.toggle-students-btn');
+            const addStudentButtons = document.querySelectorAll('.add-student-btn');
+
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const teacherId = this.getAttribute('data-teacher-id');
+                    const studentsRow = document.getElementById(`students-row-${teacherId}`);
+
+                    if (studentsRow.classList.contains('d-none')) {
+                        studentsRow.classList.remove('d-none');
+                        this.textContent = 'Сховати учнів';
+                    } else {
+                        studentsRow.classList.add('d-none');
+                        this.textContent = 'Показати учнів';
+                    }
+                });
+            });
+
+            addStudentButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const teacherId = this.getAttribute('data-teacher-id');
+                    const form = document.getElementById(`add-student-form-${teacherId}`);
+
+                    if (form.classList.contains('d-none')) {
+                        form.classList.remove('d-none');
+                    } else {
+                        form.classList.add('d-none');
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock content %}

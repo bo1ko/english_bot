@@ -81,7 +81,33 @@ class StudentAndTeacherChat(models.Model):
     admin_list = models.JSONField(blank=True, null=True)
 
     def __str__(self):
-        return f"Chat between student {self.student.username} and teacher {self.teacher.username}"
+        return f"{self.pk} | Chat between student {self.student.username} and teacher {self.teacher.username}"
+
+    class Meta:
+        verbose_name = "StudentAndTeacherChat"
+        verbose_name_plural = "StudentAndTeacherChats"
+
+class StudentAndAdminChat(models.Model):
+    student = models.OneToOneField(
+        CustomUser,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=False,
+        limit_choices_to={"role": CustomUser.STUDENT},
+        related_name="student_admin_chats",
+    )
+    admin = models.OneToOneField(
+        CustomUser,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=False,
+        limit_choices_to={"role": CustomUser.SITE_ADMIN, "role": CustomUser.SUPER_ADMIN},
+        related_name="admin_student_chats",
+    )
+    admin_list = models.JSONField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.pk} | Chat between student {self.student.username} and admin {self.teacher.username}"
 
     class Meta:
         verbose_name = "StudentAndTeacherChat"

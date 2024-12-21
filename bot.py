@@ -13,7 +13,7 @@ from aiogram.enums import ParseMode
 
 import django_setup
 
-from chat.models import TelegramUser, SystemAction, CustomUser
+from chat.models import TelegramUser, SystemAction, CustomUser, Message, StudentAndTeacherChat
 
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -60,26 +60,26 @@ def create_system_action(telegram: TelegramUser, text: str) -> SystemAction:
 
 
 @sync_to_async
-def create_message(chat_id: int, sender: TelegramUser, content: str) -> None:
-    from chat.models import Message, StudentAndTeacherChat
+def create_message(chat_id: int, sender: TelegramUser, content: str) -> CustomUser:
 
     try:
-        chat = StudentAndTeacherChat.objects.get(id=chat_id)  # Отримайте відповідний чат
+        chat = StudentAndTeacherChat.objects.get(id=chat_id)
         user = CustomUser.objects.get(telegram=sender)
         Message.objects.create(chat=chat, sender=user, content=content)
+
+        return user
     except Exception as e:
         logger.error(f"Create message: {e}")
 
 
-async def send_to_websocket(chat_id: int, username: str, message: str):
+async def send_to_websocket(chat_id: int, user_id: int, message: str):
     import aiohttp
 
     async with aiohttp.ClientSession() as session:
-        async with session.ws_connect('wss://your-websocket-server.com/ws/chat/') as ws:
+        async with session.ws_connect(f'ws://127.0.0.1:8000/ws/chat/{chat_id}/') as ws:
             await ws.send_json({
-                'chat_id': chat_id,
-                'username': username,
-                'message': message
+                'user_id': user_id,
+                'message': message,
             })
 
 
@@ -117,12 +117,13 @@ async def handle_text_message(message: Message):
 
     # Отримайте чат між студентом і вчителем
     # Припустимо, у вас є функція для отримання чату
-    chat_id = 1  # замінить на ваш спосіб визначення чату
+    # chat = StudentAndTeacherChat.objects.get(student=)
+    chat_id = 3  # замінить на ваш спосіб визначення чату
 
-    await create_message(chat_id, tg_user, message.text)
+    user = await create_message(chat_id, tg_user, message.text)
 
     # Надсилання повідомлення до WebSocket
-    await send_to_websocket(chat_id, tg_user.username, message.text)
+    await send_to_websocket(chat_id, user.pk, message.text)
 
     await message.answer("Ваше повідомлення було надіслано в чат на сайті.")
 

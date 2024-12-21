@@ -396,3 +396,11 @@ def chat_room(request, chat_id):
     return render(request, 'chat/test.html', {
         'chat': chat
     })
+
+@role_required(["super_administrator", "site_administrator"])
+@login_required
+def inbox(request):
+    chats = StudentAndTeacherChat.objects.all()
+    return render(request, 'chat/inbox.html', {
+        'chats': chats
+    })

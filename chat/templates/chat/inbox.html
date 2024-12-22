@@ -1,0 +1,23 @@
+{% extends "chat/layouts/base.html" %}
+
+{% block title %}Вхідні повідомлення{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Вхідні повідомлення</h1>
+        <div class="list-group">
+            {% if chats %}
+                {% for chat in chats %}
+                    <a href="{% url 'chat:chat_room' chat.pk %}" class="list-group-item list-group-item-action">
+                        <div>
+                            <strong>{{ chat.telegram_user.username }}</strong>
+                            <p>{{ chat.last_message }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>Вхідних повідомлень немає</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,91 @@
+{% extends "chat/layouts/base.html" %}
+
+{% block title %}Головна{% endblock title %}
+
+{% block content %}
+<div class="row">
+    {% comment %} <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                Список контактів
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Контакт 1</li>
+                <li class="list-group-item">Контакт 2</li>
+                <li class="list-group-item">Контакт 3</li>
+            </ul>
+        </div>
+    </div> {% endcomment %}
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                Чат
+            </div>
+            <div class="card-body" id="chat-box" style="height: 400px; overflow-y: scroll;">
+                {% if obj_messages %}
+                    {% for message in obj_messages %}
+                        <div class="chat-message">
+                            <strong>{{ message.sender }}</strong>
+                            <div class="chat-inner d-flex justify-content-between">
+                                <p>{{ message.text }}</p>
+                                <span class="timestamp">{{ message.created_at|date:"Y-m-d H:i:s" }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No messages yet.</p>
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" id="chat-message-input" class="form-control" placeholder="Введіть повідомлення...">
+                    <div class="input-group-append">
+                        <button id="chat-message-submit" class="btn btn-primary">Надіслати</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const chatId = "{{ chat.id }}";
+    const userId = "{{ request.user.id }}";
+    const chatSocket = new WebSocket(
+        'ws://' + window.location.host + '/ws/chat/' + chatId + '/'
+    );
+
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        const message = data.message;
+        const username = data.username;
+        const timestamp = data.timestamp;
+
+        const chatBox = document.getElementById('chat-box');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message');
+        messageElement.innerHTML = `
+    <strong>${username}</strong>
+    <div class="chat-inner d-flex justify-content-between">
+        <p>${message}</p>
+        <span class="timestamp">${timestamp}</span>
+    </div>`;
+        chatBox.appendChild(messageElement);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+
+    chatSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+
+    document.getElementById('chat-message-submit').onclick = function(e) {
+        const messageInputDom = document.getElementById('chat-message-input');
+        const message = messageInputDom.value;
+        chatSocket.send(JSON.stringify({
+            'message': message,
+            'user_id': userId
+        }));
+        messageInputDom.value = '';
+    };
+</script>
+{% endblock content %}

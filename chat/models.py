@@ -84,17 +84,16 @@ class StudentAndTeacherChat(models.Model):
         return f"{self.pk} | Chat between student {self.student.username} and teacher {self.teacher.username}"
 
     class Meta:
-        verbose_name = "StudentAndTeacherChat"
-        verbose_name_plural = "StudentAndTeacherChats"
+        verbose_name = "Student And Teacher Chat"
+        verbose_name_plural = "Student And Teacher Chats"
 
-class StudentAndAdminChat(models.Model):
-    student = models.OneToOneField(
-        CustomUser,
+class TelegramUserAndAdminChat(models.Model):
+    telegram_user = models.OneToOneField(
+        TelegramUser,
         on_delete=models.SET_NULL,
         null=True,
         blank=False,
-        limit_choices_to={"role": CustomUser.STUDENT},
-        related_name="student_admin_chats",
+        related_name="telegram_user_admin_chats",
     )
     admin = models.OneToOneField(
         CustomUser,
@@ -104,14 +103,15 @@ class StudentAndAdminChat(models.Model):
         limit_choices_to={"role": CustomUser.SITE_ADMIN, "role": CustomUser.SUPER_ADMIN},
         related_name="admin_student_chats",
     )
-    admin_list = models.JSONField(blank=True, null=True)
+    admin_list = models.JSONField(default=list, blank=True, null=True)
+    messages = models.JSONField(default=list, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.pk} | Chat between student {self.student.username} and admin {self.teacher.username}"
+        return f"{self.pk} | Chat between telegram user {self.telegram_user.username} and admin {self.admin.username if self.admin else None}"
 
     class Meta:
-        verbose_name = "StudentAndTeacherChat"
-        verbose_name_plural = "StudentAndTeacherChats"
+        verbose_name = "Telegram User And Admin Chat"
+        verbose_name_plural = "Telegram User And Admin Chats"
 
 class SystemAction(models.Model):
     telegram = ForeignKey("TelegramUser", on_delete=models.DO_NOTHING, null=False, blank=False)
@@ -123,12 +123,12 @@ class SystemAction(models.Model):
         return f"{self.telegram.username if self.telegram.username else self.telegram.tg_id} {self.action}"
 
     class Meta:
-        verbose_name = "SystemAction"
-        verbose_name_plural = "SystemActions"
+        verbose_name = "System Action"
+        verbose_name_plural = "System Actions"
 
-class Message(models.Model):
-    chat = models.ForeignKey(StudentAndTeacherChat, on_delete=models.CASCADE, related_name='messages')
-    sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='sent_messages')
+class StudentAndTeacherMessage(models.Model):
+    chat = models.ForeignKey(StudentAndTeacherChat, on_delete=models.CASCADE, related_name='student_and_teacher_messages')
+    sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='student_and_teacher_sent_messages')
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
@@ -136,6 +136,6 @@ class Message(models.Model):
         return f"Message from {self.sender.username} in chat {self.chat.id}"
 
     class Meta:
-        verbose_name = "Message"
-        verbose_name_plural = "Messages"
+        verbose_name = "Student And eacher Message"
+        verbose_name_plural = "Student And Teachers Messages"
         ordering = ['timestamp']

@@ -9,7 +9,7 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 
 
-async def send_to_websocket(chat_id: int, user_id: int, message: str):
+async def send_to_websocket(chat_id: int, user_id: int, message: str, message_id: int):
     try:
         domain = os.getenv("DOMAIN")
 
@@ -20,7 +20,7 @@ async def send_to_websocket(chat_id: int, user_id: int, message: str):
                         "user_id": user_id,
                         "message": message,
                         "source": "telegram",
-                        "message_id": None,
+                        "message_id": message_id,
                     }
                 )
                 logger.info(f"Message sent to websocket: {chat_id} / {user_id} / {message}")

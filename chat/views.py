@@ -1,7 +1,6 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from django.contrib.auth import logout, authenticate, login
 from django.core.exceptions import PermissionDenied
-from django.db.models import OuterRef, Subquery
 from django.db import IntegrityError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -16,7 +15,10 @@ from .models import (
     SystemAction,
 )
 from .forms import CreateForm, ChangeTelegramForm, UpdateSettingsForm
-from .utils import send_sync_telegram_message
+from .utils import edit_sync_telegram_message, send_sync_telegram_message
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.http import require_POST
 
 import secrets
 import string
@@ -451,3 +453,53 @@ def inbox(request):
 
     context = {"chats": chats}
     return render(request, "chat/inbox.html", context)
+
+
+@csrf_protect
+@login_required
+@require_POST
+def edit_message(request):
+    chat_id = request.POST.get("chat_id")
+    message_id = request.POST.get("message_id")
+
+    if request.user.role == "super_administrator":
+        user_role = f"<blockquote>Головний адміністратор</blockquote>"
+
+    new_text = request.POST.get("message")
+
+    try:
+        tg_chat_id = TelegramUserAndAdminChat.objects.get(pk=chat_id).telegram_user.tg_id
+        tg_edit_result = edit_sync_telegram_message(tg_chat_id, message_id, f"{user_role}\n\n{new_text}")
+        
+        if tg_edit_result:
+            chat = TelegramUserAndAdminChat.objects.get(id=chat_id)
+            messages = chat.messages
+
+            for message in messages:
+                if message.get("message_id") == int(message_id):
+                    if "edited_text" in message:
+                        message["edited_text"].append({
+                            "edit_text": message["text"],
+                            "edit_time": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+                        })
+                    else:
+                        message["edited_text"] = [{
+                            "edit_text": message["text"],
+                            "edit_time": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+                        }]
+                    
+                    message["text"] = new_text
+                    
+                    break
+            else:
+                return JsonResponse({"success": False, "error": "Message not found"})
+
+            chat.messages = messages
+            chat.save()
+            
+
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"success": False, "error": "Could not edit message in telegram"})
+    except TelegramUserAndAdminChat.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Chat does not exist"})

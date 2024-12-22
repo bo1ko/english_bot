@@ -4,18 +4,6 @@
 
 {% block content %}
 <div class="row">
-    {% comment %} <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">
-                Список контактів
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Контакт 1</li>
-                <li class="list-group-item">Контакт 2</li>
-                <li class="list-group-item">Контакт 3</li>
-            </ul>
-        </div>
-    </div> {% endcomment %}
     <div class="col">
         <div class="card">
             <div class="card-header">
@@ -24,12 +12,36 @@
             <div class="card-body" id="chat-box" style="height: 400px; overflow-y: scroll;">
                 {% if obj_messages %}
                     {% for message in obj_messages %}
-                        <div class="chat-message">
+                        <div class="chat-message" data-message-id="{{ message.message_id }}">
                             <strong>{{ message.sender }}</strong>
-                            <div class="chat-inner d-flex justify-content-between">
-                                <p>{{ message.text }}</p>
-                                <span class="timestamp">{{ message.created_at|date:"Y-m-d H:i:s" }}</span>
+                            <div class="chat-inner mb-2">
+                                <div class="d-flex justify-content-between">
+                                    <p class="p-0 m-0">{{ message.text }}</p>
+                                    <span class="timestamp">{{ message.created_at|date:"Y-m-d H:i:s" }}</span>
+                                </div>
+                                <div class="d-flex align-items-end flex-column">
+                                    {% if message.message_id %}
+                                        <button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="edit_message({{ message.message_id }}, '{{ message.text|escapejs }}')">Редагувати</button>
+                                        {% if message.edited_text %}
+                                            <button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="show_edits({{ message.message_id }})">Показати редагування</button>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if message.tg_user_message_id %}
+                                        <button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="reply_message({{ message.message_id }}, '{{ message.tg_user_message_id }}')">Reply</button>
+                                    {% endif %}
+                                </div>
+                                <div id="edit-list-{{ message.message_id }}" class="edit-list d-none">
+                                    <ul class="list-group">
+                                        {% for edit in message.edited_text reversed %}
+                                            <li class="list-group-item d-flex justify-content-between">
+                                                <span>{{ edit.edit_text }}</span>
+                                                <span class="timestamp">{{ edit.edit_time }}</span>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                             </div>
+                            <hr>
                         </div>
                     {% endfor %}
                 {% else %}
@@ -37,6 +49,12 @@
                 {% endif %}
             </div>
             <div class="card-footer">
+                <div id="edit-alert" class="alert alert-warning d-flex justify-content-between p-2 d-none" role="alert" style="font-size: 14px;">
+                    Ви редагуєте повідомлення. <button type="button" class="btn btn-link p-0 m-0" onclick="cancel_edit()" style="font-size: 14px;">Скасувати</button>
+                </div>
+                <div id="reply-alert" class="alert alert-info d-flex justify-content-between p-2 d-none" role="alert" style="font-size: 14px;">
+                    Ви відповідаєте на повідомлення. <button type="button" class="btn btn-link p-0 м-0" onclick="cancel_reply()" style="font-size: 14px;">Скасувати</button>
+                </div>
                 <div class="input-group">
                     <input type="text" id="chat-message-input" class="form-control" placeholder="Введіть повідомлення...">
                     <div class="input-group-append">
@@ -51,25 +69,68 @@
 <script>
     const chatId = "{{ chat.id }}";
     const userId = "{{ request.user.id }}";
+    const csrfToken = '{{ csrf_token }}';
     const chatSocket = new WebSocket(
         'ws://' + window.location.host + '/ws/chat/' + chatId + '/'
     );
 
+    let isEditing = false;
+    let editMessageId = null;
+    let isReplying = false;
+    let replyMessageId = null;
+    let replyTgMessageId = null;
+
+    function resetEditing() {
+        isEditing = false;
+        editMessageId = null;
+
+        const messageInputDom = document.getElementById('chat-message-input');
+        const editAlert = document.getElementById('edit-alert');
+
+        messageInputDom.placeholder = 'Введіть повідомлення...';
+        messageInputDom.value = '';
+        editAlert.classList.add('d-none');
+    }
+
+    function resetReplying() {
+        isReplying = false;
+        replyMessageId = null;
+        replyTgMessageId = null;
+
+        const replyAlert = document.getElementById('reply-alert');
+        replyAlert.classList.add('d-none');
+    }
+
     chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
+        console.log(data);
+        const messageId = data.message_id;
         const message = data.message;
         const username = data.username;
         const timestamp = data.timestamp;
+        const tgUserMessageId = data.tg_user_message_id;
 
         const chatBox = document.getElementById('chat-box');
         const messageElement = document.createElement('div');
         messageElement.classList.add('chat-message');
+        messageElement.setAttribute('data-message-id', messageId);
         messageElement.innerHTML = `
-    <strong>${username}</strong>
-    <div class="chat-inner d-flex justify-content-between">
-        <p>${message}</p>
-        <span class="timestamp">${timestamp}</span>
-    </div>`;
+            <strong>${username}</strong>
+            <div class="chat-inner mb-2">
+                <div class="d-flex justify-content-between">
+                    <p class="p-0 m-0">${message}</p>
+                    <span class="timestamp">${timestamp}</span>
+                </div>
+                <div class="d-flex align-items-end flex-column">
+                    ${messageId ? `<button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="edit_message(${messageId}, '${message.replace(/'/g, "\\'")}')">Редагувати</button>` : ''}
+                    ${tgUserMessageId ? `<button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="reply_message(${messageId}, '${tgUserMessageId}')">Reply</button>` : ''}
+                </div>
+                <div id="edit-list-${messageId}" class="edit-list d-none">
+                    <ul class="list-group">
+                    </ul>
+                </div>
+            </div>
+            <hr>`;
         chatBox.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
     };
@@ -81,11 +142,76 @@
     document.getElementById('chat-message-submit').onclick = function(e) {
         const messageInputDom = document.getElementById('chat-message-input');
         const message = messageInputDom.value;
-        chatSocket.send(JSON.stringify({
-            'message': message,
-            'user_id': userId
-        }));
+
+        if (isEditing) {
+            $.ajax({
+                url: '/edit-message/',
+                method: 'POST',
+                data: {
+                    'chat_id': chatId,
+                    'message_id': editMessageId,
+                    'message': message,
+                    'csrfmiddlewaretoken': csrfToken
+                },
+                success: function(response) {
+                    if (response.success) {
+                        const messageElement = document.querySelector(`.chat-message[data-message-id="${editMessageId}"] p`);
+                        messageElement.textContent = message;
+                        resetEditing();
+                    } else {
+                        console.error('Error updating message');
+                    }
+                }
+            });
+        } else {
+            chatSocket.send(JSON.stringify({
+                'message': message,
+                'user_id': userId,
+                'reply_to': isReplying ? replyTgMessageId : null
+            }));
+            resetReplying();
+        }
+
         messageInputDom.value = '';
     };
+
+    function edit_message(message_id, message_text) {
+        isEditing = true;
+        editMessageId = message_id;
+
+        const messageInputDom = document.getElementById('chat-message-input');
+        const editAlert = document.getElementById('edit-alert');
+
+        messageInputDom.placeholder = 'Редагування повідомлення...';
+        messageInputDom.value = message_text;
+        editAlert.classList.remove('d-none');
+    }
+
+    function cancel_edit() {
+        resetEditing();
+    }
+
+    function show_edits(message_id) {
+        const editList = document.getElementById(`edit-list-${message_id}`);
+        editList.classList.toggle('d-none');
+    }
+
+    function reply_message(message_id, tg_user_message_id) {
+        isReplying = true;
+        replyMessageId = message_id;
+        replyTgMessageId = tg_user_message_id;
+
+        const replyAlert = document.getElementById('reply-alert');
+        replyAlert.classList.remove('d-none');
+    }
+
+    function cancel_reply() {
+        resetReplying();
+    }
+
+    window.onload = function() {
+        resetEditing();
+        resetReplying();
+    }
 </script>
 {% endblock content %}

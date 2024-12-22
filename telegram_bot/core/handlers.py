@@ -35,14 +35,10 @@ async def handle_text_message(message: Message):
         await message.answer("Не вдалося створити чат.")
         return
 
-    user_id, message_created = await db_request.create_message(obj_tg_user, obj_chat, message.text)
+    # user_id, message_created = await db_request.create_message(obj_tg_user, obj_chat, message.text, message.message_id)
+    socket_result = await send_to_websocket(obj_chat.pk, obj_tg_user.pk, message.text, message.message_id)
     
-    if message_created:
-        socket_result = await send_to_websocket(obj_chat.pk, user_id, message.text)
-    else:
-        socket_result = False
-    
-    if message_created and socket_result:
+    if socket_result:
         await message.answer("Ваше повідомлення було надіслано в адміністраторові.")
     else:
         await message.answer("Не вдалося надіслати повідомлення в адміністратора.")

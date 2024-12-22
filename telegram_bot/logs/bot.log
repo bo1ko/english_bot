@@ -419,3 +419,40 @@ aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1
 2024-12-21 19:00:44,167 - aiogram.event - INFO - Update id=166847810 is handled. Duration 94 ms by bot id=7101171025
 2024-12-21 19:00:49,400 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 234
 2024-12-21 19:00:49,511 - aiogram.event - INFO - Update id=166847811 is handled. Duration 121 ms by bot id=7101171025
+2024-12-22 06:46:14,962 - aiogram.dispatcher - INFO - Start polling
+2024-12-22 06:46:15,009 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-22 06:55:00,722 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-22 06:55:00,722 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-22 06:55:00,722 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-22 06:58:14,052 - aiogram.dispatcher - INFO - Start polling
+2024-12-22 06:58:14,101 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-22 06:58:21,397 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / hello
+2024-12-22 06:58:21,596 - aiogram.event - INFO - Update id=166847812 is handled. Duration 210 ms by bot id=7101171025
+2024-12-22 09:11:27,911 - aiogram.dispatcher - INFO - Start polling
+2024-12-22 09:11:27,946 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-22 09:11:33,538 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / teest
+2024-12-22 09:11:33,721 - aiogram.event - INFO - Update id=166847813 is handled. Duration 197 ms by bot id=7101171025
+2024-12-22 09:12:10,873 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 123
+2024-12-22 09:12:11,145 - aiogram.event - INFO - Update id=166847814 is handled. Duration 280 ms by bot id=7101171025
+2024-12-22 09:14:28,831 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-22 09:14:28,831 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-22 09:14:28,831 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-22 09:14:31,686 - aiogram.dispatcher - INFO - Start polling
+2024-12-22 09:14:31,720 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-22 09:14:35,418 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / тест запит
+2024-12-22 09:14:35,653 - aiogram.event - INFO - Update id=166847815 is handled. Duration 247 ms by bot id=7101171025
+2024-12-22 09:15:39,925 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-22 09:15:39,925 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-22 09:15:39,925 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-22 09:15:42,869 - aiogram.dispatcher - INFO - Start polling
+2024-12-22 09:15:42,912 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-22 09:15:45,029 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 234
+2024-12-22 09:15:45,283 - aiogram.event - INFO - Update id=166847816 is handled. Duration 263 ms by bot id=7101171025
+2024-12-22 09:18:14,060 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 234
+2024-12-22 09:18:14,240 - aiogram.event - INFO - Update id=166847817 is handled. Duration 190 ms by bot id=7101171025
+2024-12-22 10:02:28,095 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 235
+2024-12-22 10:02:28,331 - aiogram.event - INFO - Update id=166847818 is handled. Duration 242 ms by bot id=7101171025
+2024-12-22 10:04:37,960 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 3456
+2024-12-22 10:04:38,138 - aiogram.event - INFO - Update id=166847819 is handled. Duration 184 ms by bot id=7101171025
+2024-12-22 10:05:07,743 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 346
+2024-12-22 10:05:07,941 - aiogram.event - INFO - Update id=166847820 is handled. Duration 205 ms by bot id=7101171025

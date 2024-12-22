@@ -56,11 +56,12 @@ def create_system_action(telegram: TelegramUser, text: str) -> SystemAction:
 
 
 @sync_to_async
-def create_message(sender: TelegramUser, chat: TelegramUserAndAdminChat, content: str) -> CustomUser:
+def create_message(sender: TelegramUser, chat: TelegramUserAndAdminChat, content: str, message_id) -> CustomUser:
     try:
         message = {
             "sender": sender.username,
             "text": content,
+            "tg_user_message_id": message_id,
             "created_at": datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
         }
         

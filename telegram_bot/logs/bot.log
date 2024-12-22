@@ -1,0 +1,421 @@
+2024-12-21 09:36:18,982 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 09:36:19,023 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 09:36:20,854 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 09:36:20,855 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 09:36:20,855 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 12:34:13,127 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 12:34:13,162 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:34:43,379 - aiogram.event - INFO - Update id=166847769 is not handled. Duration 148 ms by bot id=7101171025
+2024-12-21 12:34:43,379 - aiogram.event - ERROR - Cause exception while process update id=166847769 by bot id=7101171025
+TypeError: create_message() missing 1 required positional argument: 'user'
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/middlewares.py", line 23, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/handlers.py", line 41, in handle_text_message
+    obj_message, message_created = await db_request.create_message(obj_chat.pk, tg_user, message.text)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_message() missing 1 required positional argument: 'user'
+2024-12-21 12:35:17,421 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 12:35:17,421 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:35:17,422 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 12:35:20,393 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 12:35:20,430 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:35:21,688 - telegram_bot.core.db_request - ERROR - Create message: Cannot assign "'345'": "TelegramUserAndAdminMessage.chat" must be a "TelegramUserAndAdminChat" instance.
+2024-12-21 12:35:21,688 - aiogram.event - INFO - Update id=166847770 is not handled. Duration 6 ms by bot id=7101171025
+2024-12-21 12:35:21,688 - aiogram.event - ERROR - Cause exception while process update id=166847770 by bot id=7101171025
+AttributeError: 'NoneType' object has no attribute 'pk'
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/middlewares.py", line 23, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/handlers.py", line 42, in handle_text_message
+    socket_result = await send_to_websocket(obj_chat.pk, obj_message.pk, message.text)
+                                                         ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'pk'
+2024-12-21 12:36:18,997 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 12:36:18,998 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:36:18,998 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 12:36:21,683 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 12:36:21,723 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:36:22,498 - telegram_bot.core.db_request - ERROR - Create message: Cannot assign "'345'": "TelegramUserAndAdminMessage.chat" must be a "TelegramUserAndAdminChat" instance.
+2024-12-21 12:36:22,663 - aiogram.event - INFO - Update id=166847771 is handled. Duration 171 ms by bot id=7101171025
+2024-12-21 12:37:00,691 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 12:37:00,692 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:37:00,692 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 12:37:03,529 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 12:37:03,587 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:37:04,369 - telegram_bot.core.db_request - ERROR - Create message: Cannot assign "'234'": "TelegramUserAndAdminMessage.chat" must be a "TelegramUserAndAdminChat" instance.
+2024-12-21 12:37:04,576 - aiogram.event - INFO - Update id=166847772 is handled. Duration 214 ms by bot id=7101171025
+2024-12-21 12:37:21,571 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 12:37:21,572 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:37:21,572 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 12:37:25,550 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 12:37:25,586 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:37:26,345 - telegram_bot.core.db_request - ERROR - Create message: Cannot assign "<TelegramUser: Telegram volody015>": "TelegramUserAndAdminMessage.chat" must be a "TelegramUserAndAdminChat" instance.
+2024-12-21 12:37:26,505 - aiogram.event - INFO - Update id=166847773 is handled. Duration 166 ms by bot id=7101171025
+2024-12-21 12:37:56,603 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 12:37:56,603 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:37:56,603 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 12:37:59,391 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 12:37:59,426 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:38:00,255 - telegram_bot.core.db_request - ERROR - Create message: Cannot assign "<TelegramUser: Telegram volody015>": "TelegramUserAndAdminMessage.sender" must be a "CustomUser" instance.
+2024-12-21 12:38:00,407 - aiogram.event - INFO - Update id=166847774 is handled. Duration 159 ms by bot id=7101171025
+2024-12-21 12:40:19,521 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 12:40:19,521 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:40:19,521 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 12:41:52,675 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 12:41:52,713 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 12:41:53,780 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 1 / 1 / 234
+2024-12-21 12:41:53,915 - aiogram.event - INFO - Update id=166847775 is handled. Duration 151 ms by bot id=7101171025
+2024-12-21 13:13:04,619 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:13:04,620 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:13:04,620 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:13:07,519 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:13:07,558 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:13:08,704 - telegram_bot.core.db_request - ERROR - Create message: module 'datetime' has no attribute 'utcnow'
+2024-12-21 13:13:09,215 - aiogram.event - INFO - Update id=166847776 is handled. Duration 517 ms by bot id=7101171025
+2024-12-21 13:13:41,451 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:13:41,452 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:13:41,452 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:13:44,367 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:13:44,443 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:13:46,457 - telegram_bot.core.db_request - ERROR - Create message: 'dict' object has no attribute 'append'
+2024-12-21 13:13:46,626 - aiogram.event - INFO - Update id=166847777 is handled. Duration 175 ms by bot id=7101171025
+2024-12-21 13:14:02,595 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:14:02,596 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:14:02,596 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:14:12,737 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:14:12,775 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:14:13,762 - aiogram.event - INFO - Update id=166847778 is not handled. Duration 8 ms by bot id=7101171025
+2024-12-21 13:14:13,762 - aiogram.event - ERROR - Cause exception while process update id=166847778 by bot id=7101171025
+AttributeError: 'dict' object has no attribute 'pk'
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/middlewares.py", line 23, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/handlers.py", line 44, in handle_text_message
+    socket_result = await send_to_websocket(obj_chat.pk, obj_message.pk, message.text)
+                                                         ^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'pk'
+2024-12-21 13:15:19,713 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:15:19,714 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:15:19,714 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:15:22,512 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:15:22,563 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:15:23,361 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 1 / 1 / 456
+2024-12-21 13:15:23,491 - aiogram.event - INFO - Update id=166847779 is handled. Duration 146 ms by bot id=7101171025
+2024-12-21 13:15:27,639 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 1 / 1 / 345
+2024-12-21 13:15:27,692 - aiogram.event - INFO - Update id=166847780 is handled. Duration 60 ms by bot id=7101171025
+2024-12-21 13:15:31,430 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 1 / 1 / хеллоу
+2024-12-21 13:15:31,485 - aiogram.event - INFO - Update id=166847781 is handled. Duration 65 ms by bot id=7101171025
+2024-12-21 13:17:25,113 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:17:25,113 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:17:25,113 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:17:27,979 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:17:28,018 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:17:29,906 - telegram_bot.core.db_request - ERROR - Create message: 'dict' object has no attribute 'append'
+2024-12-21 13:17:30,139 - aiogram.event - INFO - Update id=166847782 is handled. Duration 239 ms by bot id=7101171025
+2024-12-21 13:18:31,108 - telegram_bot.core.db_request - ERROR - Create system action: database is locked
+2024-12-21 13:18:31,109 - telegram_bot.core.db_request - ERROR - Create message: 'dict' object has no attribute 'append'
+2024-12-21 13:18:31,238 - aiogram.event - INFO - Update id=166847783 is handled. Duration 5141 ms by bot id=7101171025
+2024-12-21 13:18:35,023 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:18:35,024 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:18:35,024 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:18:38,311 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:18:38,357 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:19:03,648 - telegram_bot.core.db_request - ERROR - Create system action: database is locked
+2024-12-21 13:19:03,649 - telegram_bot.core.db_request - ERROR - Create message: 'dict' object has no attribute 'append'
+2024-12-21 13:19:03,785 - aiogram.event - INFO - Update id=166847784 is handled. Duration 5157 ms by bot id=7101171025
+2024-12-21 13:19:20,470 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:19:20,471 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:19:20,471 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:21:44,813 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:21:44,853 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:21:51,465 - telegram_bot.core.db_request - ERROR - Create system action: database is locked
+2024-12-21 13:21:51,467 - telegram_bot.core.db_request - ERROR - Create message: 'dict' object has no attribute 'append'
+2024-12-21 13:21:51,604 - aiogram.event - INFO - Update id=166847785 is handled. Duration 5154 ms by bot id=7101171025
+2024-12-21 13:23:24,634 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:23:24,635 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:23:24,635 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:24:09,346 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:24:09,385 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:24:11,875 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 345
+2024-12-21 13:24:11,950 - aiogram.event - INFO - Update id=166847786 is handled. Duration 273 ms by bot id=7101171025
+2024-12-21 13:24:13,666 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 34
+2024-12-21 13:24:13,727 - aiogram.event - INFO - Update id=166847787 is handled. Duration 68 ms by bot id=7101171025
+2024-12-21 13:24:14,635 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 346
+2024-12-21 13:24:14,711 - aiogram.event - INFO - Update id=166847788 is handled. Duration 83 ms by bot id=7101171025
+2024-12-21 13:24:15,510 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 436
+2024-12-21 13:24:15,579 - aiogram.event - INFO - Update id=166847789 is handled. Duration 76 ms by bot id=7101171025
+2024-12-21 13:24:16,183 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 1243
+2024-12-21 13:24:16,241 - aiogram.event - INFO - Update id=166847790 is handled. Duration 66 ms by bot id=7101171025
+2024-12-21 13:26:57,767 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 13:26:57,768 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:26:57,768 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 13:27:03,376 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:27:03,415 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 13:27:06,483 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / hello
+2024-12-21 13:27:06,612 - aiogram.event - INFO - Update id=166847791 is handled. Duration 142 ms by bot id=7101171025
+2024-12-21 13:27:08,322 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 34534
+2024-12-21 13:27:08,376 - aiogram.event - INFO - Update id=166847792 is handled. Duration 61 ms by bot id=7101171025
+2024-12-21 13:33:08,825 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 13:33:08,858 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 16:45:23,581 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 16:45:23,621 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 16:47:39,739 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 123
+2024-12-21 16:47:39,884 - aiogram.event - INFO - Update id=166847793 is handled. Duration 157 ms by bot id=7101171025
+2024-12-21 16:47:41,996 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 123
+2024-12-21 16:47:42,067 - aiogram.event - INFO - Update id=166847794 is handled. Duration 80 ms by bot id=7101171025
+2024-12-21 16:53:06,012 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 16:53:06,013 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 16:53:06,013 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 16:54:18,358 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 16:54:18,401 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 17:39:03,238 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 17:39:03,283 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 17:39:13,993 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / test
+2024-12-21 17:39:14,131 - aiogram.event - INFO - Update id=166847798 is handled. Duration 149 ms by bot id=7101171025
+2024-12-21 17:39:17,142 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / test
+2024-12-21 17:39:17,195 - aiogram.event - INFO - Update id=166847799 is handled. Duration 61 ms by bot id=7101171025
+2024-12-21 17:40:11,440 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 17:40:11,440 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 17:40:11,441 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 17:40:14,266 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 17:40:14,301 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 17:40:29,443 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / test
+2024-12-21 17:40:29,597 - aiogram.event - INFO - Update id=166847800 is handled. Duration 164 ms by bot id=7101171025
+2024-12-21 17:40:36,713 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / hello
+2024-12-21 17:40:36,803 - aiogram.event - INFO - Update id=166847801 is handled. Duration 98 ms by bot id=7101171025
+2024-12-21 17:41:04,269 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 345
+2024-12-21 17:41:04,483 - aiogram.event - INFO - Update id=166847802 is handled. Duration 222 ms by bot id=7101171025
+2024-12-21 17:41:21,837 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / тест повідомлення
+2024-12-21 17:41:22,231 - aiogram.event - INFO - Update id=166847803 is handled. Duration 401 ms by bot id=7101171025
+2024-12-21 17:52:59,093 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 17:52:59,094 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 17:52:59,094 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 17:53:01,951 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 17:53:01,989 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 17:53:05,357 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-21 17:53:05,357 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-21 17:53:05,359 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-21 17:53:05,359 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-21 17:53:05,605 - aiogram.event - INFO - Update id=166847804 is handled. Duration 256 ms by bot id=7101171025
+2024-12-21 18:08:45,176 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / sdfsf
+2024-12-21 18:08:45,326 - aiogram.event - INFO - Update id=166847805 is handled. Duration 160 ms by bot id=7101171025
+2024-12-21 18:08:56,833 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 3466
+2024-12-21 18:08:57,073 - aiogram.event - INFO - Update id=166847806 is handled. Duration 248 ms by bot id=7101171025
+2024-12-21 18:41:56,883 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 12335
+2024-12-21 18:41:57,020 - aiogram.event - INFO - Update id=166847807 is handled. Duration 144 ms by bot id=7101171025
+2024-12-21 19:00:28,489 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / test
+2024-12-21 19:00:28,654 - aiogram.event - INFO - Update id=166847808 is handled. Duration 176 ms by bot id=7101171025
+2024-12-21 19:00:35,543 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-21 19:00:35,543 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 19:00:35,543 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-21 19:00:38,331 - aiogram.dispatcher - INFO - Start polling
+2024-12-21 19:00:38,375 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-21 19:00:39,722 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 235
+2024-12-21 19:00:39,868 - aiogram.event - INFO - Update id=166847809 is handled. Duration 157 ms by bot id=7101171025
+2024-12-21 19:00:44,082 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 214
+2024-12-21 19:00:44,167 - aiogram.event - INFO - Update id=166847810 is handled. Duration 94 ms by bot id=7101171025
+2024-12-21 19:00:49,400 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 234
+2024-12-21 19:00:49,511 - aiogram.event - INFO - Update id=166847811 is handled. Duration 121 ms by bot id=7101171025

@@ -6,6 +6,7 @@
         </a>
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
             id="menu">
+            {% if user.role == "super_administrator" %}
             <li class="nav-item">
                 <a href="{% url 'chat:panel' 'admins' %}" class="nav-link align-middle px-0 text-white">
                     <i class="fs-4 bi-person-fill"></i>
@@ -25,15 +26,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'chat:system_actions' %}" class="nav-link align-middle px-0 text-white">
-                    <i class="fs-4 bi-book-fill"></i>
-                    <span class="ms-1 d-none d-sm-inline">Системні дії</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a href="{% url 'chat:telegram_users' %}" class="nav-link align-middle px-0 text-white">
                     <i class="fs-4 bi-telegram"></i>
                     <span class="ms-1 d-none d-sm-inline">Телеграм</span>
+                </a>
+            </li>
+            {% endif %}
+            {% if user.role == "site_administrator" or user.role == "super_administrator" %}
+            <li class="nav-item">
+                <a href="{% url 'chat:system_actions' %}" class="nav-link align-middle px-0 text-white">
+                    <i class="fs-4 bi-book-fill"></i>
+                    <span class="ms-1 d-none d-sm-inline">Системні дії</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -42,6 +45,13 @@
                     <span class="ms-1 d-none d-sm-inline">Вхідні повідомлення</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{% url 'chat:chat_list' %}" class="nav-link align-middle px-0 text-white">
+                    <i class="fs-4 bi-chat-fill"></i>
+                    <span class="ms-1 d-none d-sm-inline">Чат з телеграм користувачами</span>
+                </a>
+            </li>
+            {% endif %}
         </ul>
         <hr>
         <div class="dropdown pb-4">

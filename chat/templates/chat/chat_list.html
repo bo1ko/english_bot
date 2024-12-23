@@ -1,0 +1,27 @@
+{% extends "chat/layouts/base.html" %}
+
+{% block title %}Чат з телеграм користувачами{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Чат з телеграм користувачами</h1>
+        <div class="list-group">
+            {% if chats %}
+                {% for chat in chats %}
+                    <a href="{% url 'chat:chat_room' chat.pk %}" class="list-group-item list-group-item-action">
+                        <div>
+                            {% if user.role == "site_administrator"%}
+                                <strong>Користувач №{{ chat.telegram_user.pk }}</strong>
+                            {% elif user.role == "super_administrator" %}
+                                <strong>{{ chat.telegram_user.username }}</strong>
+                            {% endif %}
+                            <p>{{ chat.last_message }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>Вхідних повідомлень немає</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

@@ -95,7 +95,7 @@ class TelegramUserAndAdminChat(models.Model):
         blank=False,
         related_name="telegram_user_admin_chats",
     )
-    admin = models.OneToOneField(
+    admin = models.ForeignKey(
         CustomUser,
         on_delete=models.SET_NULL,
         null=True,

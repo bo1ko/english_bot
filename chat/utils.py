@@ -61,15 +61,4 @@ async def send_async_telegram_message(chat_id: int, text: str, reply_message_id:
 
         return message_id
     except Exception as e:
-        logging.error(f"Error sending message: {e}")
-
-
-def assign_admin(chat: TelegramUserAndAdminChat, admin_id: int):
-    try:
-        chat.admin_id = admin_id
-        chat.save(update_fields=["admin_id"])
-        return True
-    except Exception as e:
-        logging.error("Assign admin error ", e)
-        return False
-        
+        logging.error(f"Error sending message: {e}")  

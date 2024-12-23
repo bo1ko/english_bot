@@ -464,6 +464,8 @@ def edit_message(request):
 
     if request.user.role == "super_administrator":
         user_role = f"<b><i>Головний адміністратор</i></b>"
+    elif request.user.role == "site_administrator":
+        user_role = f"<b><i>Адміністратор {request.user.first_name}</i></b>"
 
     new_text = request.POST.get("message")
 
@@ -503,3 +505,25 @@ def edit_message(request):
             return JsonResponse({"success": False, "error": "Could not edit message in telegram"})
     except TelegramUserAndAdminChat.DoesNotExist:
         return JsonResponse({"success": False, "error": "Chat does not exist"})
+
+
+@role_required(["super_administrator", "site_administrator"])
+@login_required
+def chat_list(request):
+    admin = CustomUser.objects.get(username=request.user.username)
+    
+    if request.user.role == "super_administrator":
+        chats = TelegramUserAndAdminChat.objects.filter(admin__isnull=False)
+    else:
+        chats = TelegramUserAndAdminChat.objects.filter(admin=admin)
+        
+
+    for chat in chats:
+        if chat.messages:
+            last_message = chat.messages[-1].get("text", "")
+        else:
+            last_message = None
+        chat.last_message = last_message
+
+    context = {"chats": chats}
+    return render(request, "chat/chat_list.html", context)

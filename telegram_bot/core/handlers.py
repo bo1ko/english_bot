@@ -30,7 +30,7 @@ async def handle_text_message(message: Message):
     obj_chat, chat_created = await db_request.get_or_create_communication_chat(obj_tg_user)
 
     if chat_created:
-        await message.answer("Чат був створений. Ви можете почати спілкування.")
+        await message.answer("Чат створений. Ви можете почати спілкування.")
     elif chat_created is None:
         await message.answer("Не вдалося створити чат.")
         return

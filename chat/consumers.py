@@ -7,8 +7,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import get_user_model
 from datetime import datetime, timezone
 
-from .models import TelegramUser, TelegramUserAndAdminChat
-from .utils import send_async_telegram_message, assign_admin
+from .models import CustomUser, TelegramUser, TelegramUserAndAdminChat
+from .utils import send_async_telegram_message
 
 User = get_user_model()
 
@@ -61,7 +61,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     return
                 
                 if user.role == "site_administrator" or user.role == "super_administrator" and chat.admin_id is None:
-                    assign_admin(chat, user.pk)
+                    await self.assign_admin(chat, user)
                     
                 telegram_text += f"\n{message}"
                 message_id = await send_async_telegram_message(telegram_id, telegram_text, reply_message_id)
@@ -92,7 +92,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 },
             )
         except Exception as e:
-            logger.info(e)
+            logger.error(e)
 
     async def chat_message(self, event):
         try:
@@ -117,6 +117,16 @@ class ChatConsumer(AsyncWebsocketConsumer):
             )
         except Exception as e:
             logger.info(e)
+    
+    @database_sync_to_async
+    def assign_admin(self, chat: TelegramUserAndAdminChat, admin: CustomUser):
+        try:
+            chat.admin = admin
+            chat.save(update_fields=["admin"])
+            return True
+        except Exception as e:
+            logging.error("Assign admin error ", e)
+            return False
 
     @database_sync_to_async
     def get_user(self, user_id):
@@ -152,6 +162,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             new_message = {
                 "source": source,
                 "sender": user.username,
+                "sender_id": user.pk,
                 "text": message,
                 "message_id": message_id,
                 "created_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),

@@ -628,3 +628,50 @@ aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1
 2024-12-23 05:58:41,327 - aiogram.event - INFO - Update id=166847856 is handled. Duration 177 ms by bot id=7101171025
 2024-12-23 05:59:07,325 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 235
 2024-12-23 05:59:07,492 - aiogram.event - INFO - Update id=166847857 is handled. Duration 173 ms by bot id=7101171025
+2024-12-23 06:58:17,605 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 06:58:17,643 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 06:58:23,241 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 4365
+2024-12-23 06:58:23,422 - aiogram.event - INFO - Update id=166847858 is handled. Duration 189 ms by bot id=7101171025
+2024-12-23 06:59:52,573 - aiogram.event - INFO - Update id=166847859 is handled. Duration 195 ms by bot id=7101171025
+2024-12-23 06:59:55,111 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 3 / 2 / test
+2024-12-23 06:59:55,172 - aiogram.event - INFO - Update id=166847860 is handled. Duration 126 ms by bot id=7101171025
+2024-12-23 07:09:36,348 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 3 / 2 / 6526
+2024-12-23 07:09:36,525 - aiogram.event - INFO - Update id=166847861 is handled. Duration 195 ms by bot id=7101171025
+2024-12-23 07:09:44,146 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 3 / 2 / tes
+2024-12-23 07:09:44,215 - aiogram.event - INFO - Update id=166847862 is handled. Duration 84 ms by bot id=7101171025
+2024-12-23 07:18:21,057 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / est
+2024-12-23 07:18:21,228 - aiogram.event - INFO - Update id=166847863 is handled. Duration 177 ms by bot id=7101171025
+2024-12-23 07:18:27,207 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / 123
+2024-12-23 07:18:27,258 - aiogram.event - INFO - Update id=166847864 is handled. Duration 57 ms by bot id=7101171025
+2024-12-23 07:19:01,034 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 2 / 1 / test1
+2024-12-23 07:19:01,263 - aiogram.event - INFO - Update id=166847865 is handled. Duration 236 ms by bot id=7101171025
+2024-12-23 07:28:40,517 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 4 / 1 / 234
+2024-12-23 07:28:40,649 - aiogram.event - INFO - Update id=166847866 is handled. Duration 356 ms by bot id=7101171025
+2024-12-23 07:28:54,769 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 2354
+2024-12-23 07:28:54,873 - aiogram.event - INFO - Update id=166847867 is handled. Duration 205 ms by bot id=7101171025
+2024-12-23 07:39:43,841 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 546
+2024-12-23 07:39:44,016 - aiogram.event - INFO - Update id=166847868 is handled. Duration 182 ms by bot id=7101171025
+2024-12-23 07:40:32,571 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 234
+2024-12-23 07:40:32,749 - aiogram.event - INFO - Update id=166847869 is handled. Duration 183 ms by bot id=7101171025
+2024-12-23 07:58:56,586 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 234
+2024-12-23 07:58:56,781 - aiogram.event - INFO - Update id=166847870 is handled. Duration 201 ms by bot id=7101171025
+2024-12-23 07:59:14,719 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 345
+2024-12-23 07:59:14,889 - aiogram.event - INFO - Update id=166847871 is handled. Duration 181 ms by bot id=7101171025
+2024-12-23 07:59:34,140 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 324
+2024-12-23 07:59:34,322 - aiogram.event - INFO - Update id=166847872 is handled. Duration 187 ms by bot id=7101171025
+2024-12-23 08:00:33,314 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 345
+2024-12-23 08:00:33,504 - aiogram.event - INFO - Update id=166847873 is handled. Duration 195 ms by bot id=7101171025
+2024-12-23 08:01:18,792 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 345
+2024-12-23 08:01:18,978 - aiogram.event - INFO - Update id=166847874 is handled. Duration 191 ms by bot id=7101171025
+2024-12-23 08:03:24,081 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / Так, можна
+2024-12-23 08:03:24,253 - aiogram.event - INFO - Update id=166847875 is handled. Duration 178 ms by bot id=7101171025
+2024-12-23 08:04:07,050 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 234
+2024-12-23 08:04:07,222 - aiogram.event - INFO - Update id=166847876 is handled. Duration 179 ms by bot id=7101171025
+2024-12-23 08:04:48,667 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 5 / 1 / 234
+2024-12-23 08:04:48,819 - aiogram.event - INFO - Update id=166847877 is handled. Duration 158 ms by bot id=7101171025
+2024-12-23 08:06:40,327 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 6 / 1 / 234
+2024-12-23 08:06:40,432 - aiogram.event - INFO - Update id=166847878 is handled. Duration 290 ms by bot id=7101171025
+2024-12-23 08:07:36,123 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 6 / 1 / 234
+2024-12-23 08:07:36,273 - aiogram.event - INFO - Update id=166847879 is handled. Duration 156 ms by bot id=7101171025
+2024-12-23 08:13:16,605 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 7 / 2 / 124
+2024-12-23 08:13:16,671 - aiogram.event - INFO - Update id=166847880 is handled. Duration 262 ms by bot id=7101171025

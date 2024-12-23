@@ -10,7 +10,11 @@
                 {% for chat in chats %}
                     <a href="{% url 'chat:chat_room' chat.pk %}" class="list-group-item list-group-item-action">
                         <div>
-                            <strong>{{ chat.telegram_user.username }}</strong>
+                            {% if user.role == "site_administrator"%}
+                                <strong>Користувач №{{ chat.telegram_user.pk }}</strong>
+                            {% elif user.role == "super_administrator" %}
+                                <strong>{{ chat.telegram_user.username }}</strong>
+                            {% endif %}
                             <p>{{ chat.last_message }}</p>
                         </div>
                     </a>

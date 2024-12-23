@@ -24,4 +24,5 @@ urlpatterns = [
     path("chat/<int:chat_id>", views.chat_room, name="chat_room"),
     path("inbox/", views.inbox, name="inbox"),
     path("edit-message/", views.edit_message, name="edit_message"),
+    path("chat_list/", views.chat_list, name="chat_list"),
 ]

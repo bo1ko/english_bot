@@ -1,0 +1,798 @@
+Watching for file changes with StatReloader
+[mHTTP GET /chat/2 200 [0.02, 127.0.0.1:60308][0m
+WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:60336]
+WebSocket CONNECT /ws/chat/2/ [127.0.0.1:60336]
+[mHTTP POST /edit-message/ 200 [0.30, 127.0.0.1:46632][0m
+WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:60336]
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:46632][0m
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:46632][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:46632][0m
+[mHTTP GET /telegram_users/ 200 [0.01, 127.0.0.1:46632][0m
+[mHTTP GET /system_actions/ 200 [0.01, 127.0.0.1:46632][0m
+[mHTTP GET /panel/students/ 200 [0.01, 127.0.0.1:46632][0m
+[mHTTP GET /system_actions/ 200 [0.01, 127.0.0.1:46632][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:46632][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53582][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:46158][0m
+[mHTTP GET /system_actions/1/ 200 [0.00, 127.0.0.1:46158][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:46158][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:49342][0m
+[mHTTP GET /system_actions/1/ 200 [0.00, 127.0.0.1:49358][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.00, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.00, 127.0.0.1:53044][0m
+WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:55138]
+WebSocket CONNECT /ws/chat/2/ [127.0.0.1:55138]
+WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:55138]
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:60394]
+WebSocket CONNECT /ws/chat/2/ [127.0.0.1:60394]
+WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:60394]
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.00, 127.0.0.1:53044][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+WebSocket HANDSHAKING /ws/chat/2/ [127.0.0.1:55786]
+WebSocket CONNECT /ws/chat/2/ [127.0.0.1:55786]
+WebSocket DISCONNECT /ws/chat/2/ [127.0.0.1:55786]
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:53044][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /panel/admins/ 200 [0.01, 127.0.0.1:53044][0m
+[mHTTP GET /create/admins/ 200 [0.01, 127.0.0.1:47018][0m
+[mHTTP POST /create/admins/ 200 [0.19, 127.0.0.1:47018][0m
+[mHTTP GET /panel/admins/ 200 [0.01, 127.0.0.1:47018][0m
+[32mHTTP GET /logout/ 302 [0.01, 127.0.0.1:47018][0m
+[mHTTP GET /login 200 [0.00, 127.0.0.1:47018][0m
+[32mHTTP POST /login 302 [0.19, 127.0.0.1:47018][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:47018][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:47018][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:52510][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:57440][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:57446][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:57448][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:57448][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:60552][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:60564][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:60564][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:38498][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:38498][0m
+[mHTTP GET /system_actions/ 200 [0.01, 127.0.0.1:38498][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:53346][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:33122][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:33122][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:50094][0m
+[mHTTP GET /system_actions/ 200 [0.01, 127.0.0.1:50102][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:50102][0m
+[mHTTP GET /system_actions/ 200 [0.01, 127.0.0.1:50102][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:38954][0m
+WebSocket HANDSHAKING /ws/chat/4/ [127.0.0.1:50432]
+WebSocket CONNECT /ws/chat/4/ [127.0.0.1:50432]
+WebSocket DISCONNECT /ws/chat/4/ [127.0.0.1:50432]
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:41920]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:41920]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:41920]
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:48446][0m
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:48462][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:48476]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:48476]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:48476]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:43456][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:43462]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:43462]
+/home/bybr/Desktop/english_bot/chat/consumers.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:42046][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:42062]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:42062]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:42062]
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:35208][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:35208][0m
+[mHTTP GET /chat/5 200 [0.00, 127.0.0.1:35208][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:35218]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:35218]
+Watching for file changes with StatReloader
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:39732][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:39744]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:39744]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:39744]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:39732][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:39748]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:39748]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:39748]
+[mHTTP GET /chat/5 200 [0.00, 127.0.0.1:39732][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:33486]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:33486]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:33486]
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:39732][0m
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:39732][0m
+[mHTTP GET /chat_list/ 200 [0.00, 127.0.0.1:39732][0m
+[mHTTP GET /chat/5 200 [0.00, 127.0.0.1:39732][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:33498]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:33498]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:33498]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:44086][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:44100]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:44100]
+/home/bybr/Desktop/english_bot/chat/consumers.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:53836][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:53852]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:53852]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:53852]
+[mHTTP GET /chat/5 200 [0.00, 127.0.0.1:53860][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:53870]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:53870]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:53870]
+[mHTTP GET /chat/5 200 [0.00, 127.0.0.1:55918][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:55924]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:55924]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:55924]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:55918][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:55940]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:55940]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:55940]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:55918][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:45266]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:45266]
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:45282]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:45282]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:45282]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:45266]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:55918][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:57866]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:57866]
+[33mHTTP GET /static/chat/css/bootstrap.min.css.map 404 [0.00, 127.0.0.1:41644][0m
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:57866]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:41654][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:41654][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:41678][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:41676][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:41670][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:41694]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:41694]
+[33mHTTP GET /static/chat/css/bootstrap.min.css.map 404 [0.00, 127.0.0.1:41644][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.00, 127.0.0.1:41676][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:41702]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:41702]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:41702]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:41694]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:57508][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:57520][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:57524][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:57522][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.01, 127.0.0.1:57508][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:57538]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:57538]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:57522][0m
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:57538]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:59504][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:59506][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:59504][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:59516][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:59528][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:59532]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:59532]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:59516][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:59538]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:59538]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:59538]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:59532]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:59504][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:59528][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:59504][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:59506][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.01, 127.0.0.1:59516][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:56762]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:56762]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.00, 127.0.0.1:59516][0m
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:56762]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:59504][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:59506][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:59516][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:59528][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:59504][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:57154]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:57154]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:59516][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:57168]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:57168]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:57168]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:57154]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:59504][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:59516][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:59528][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:59516][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:59506][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:37602]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:37602]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.00, 127.0.0.1:59516][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:37608]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:37608]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:37608]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:37602]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:59504][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:59506][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:59528][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:59516][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:59516][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:39568]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:39568]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:59516][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:39578]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:39578]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:39578]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:39568]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:59504][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:59516][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:59506][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:59528][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:59504][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:40350]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:40350]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:59516][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:33734]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:33734]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:33734]
+Internal Server Error: /edit-message/
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/views/decorators/http.py", line 64, in inner
+    return func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/chat/views.py", line 472, in edit_message
+    tg_edit_result = edit_sync_telegram_message(int(tg_chat_id), int(message_id), f"{user_role}\n{new_text}")
+                                                                                     ^^^^^^^^^
+UnboundLocalError: cannot access local variable 'user_role' where it is not associated with a value
+[35;1mHTTP POST /edit-message/ 500 [0.02, 127.0.0.1:59504][0m
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP GET /chat/5 200 [0.02, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.01, 127.0.0.1:51792][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:51808][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:51804][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:51820]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:51820]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:51804][0m
+[mHTTP POST /edit-message/ 200 [0.28, 127.0.0.1:51784][0m
+[mHTTP POST /edit-message/ 200 [0.21, 127.0.0.1:51784][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:44924]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:44924]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:44924]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:51820]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:39134][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39118][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:39146]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:39146]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:39118][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:51378]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:51378]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:51378]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:39146]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39134][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:51784][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:51402]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:51402]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:39118][0m
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:51402]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39134][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:46570]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:46570]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:39118][0m
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:46570]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39134][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:46580]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:46580]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:39118][0m
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:46580]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39134][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:51784][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:46592]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:46592]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:39118][0m
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:46592]
+[mHTTP GET /chat/5 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:39134][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39118][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:33632]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:33632]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:39118][0m
+WebSocket HANDSHAKING /ws/chat/5/ [127.0.0.1:39244]
+WebSocket CONNECT /ws/chat/5/ [127.0.0.1:39244]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:39244]
+WebSocket DISCONNECT /ws/chat/5/ [127.0.0.1:33632]
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39134][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:51784][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:39118][0m
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39134][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:51784][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /chat_list/ 200 [0.00, 127.0.0.1:51784][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:39134][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:39104][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:51784][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.00, 127.0.0.1:39118][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43850][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /chat_list/ 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+WebSocket HANDSHAKING /ws/chat/6/ [127.0.0.1:39818]
+WebSocket CONNECT /ws/chat/6/ [127.0.0.1:39818]
+WebSocket DISCONNECT /ws/chat/6/ [127.0.0.1:39818]
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43838][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /chat_list/ 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43850][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /chat/6 200 [0.01, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+WebSocket HANDSHAKING /ws/chat/6/ [127.0.0.1:54064]
+WebSocket CONNECT /ws/chat/6/ [127.0.0.1:54064]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.00, 127.0.0.1:43842][0m
+WebSocket HANDSHAKING /ws/chat/6/ [127.0.0.1:54080]
+WebSocket CONNECT /ws/chat/6/ [127.0.0.1:54080]
+WebSocket DISCONNECT /ws/chat/6/ [127.0.0.1:54080]
+WebSocket DISCONNECT /ws/chat/6/ [127.0.0.1:54064]
+[mHTTP GET /chat_list/ 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43850][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+[mHTTP GET /chat/6 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43838][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43842][0m
+WebSocket HANDSHAKING /ws/chat/6/ [127.0.0.1:34112]
+WebSocket CONNECT /ws/chat/6/ [127.0.0.1:34112]
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:43842][0m
+WebSocket DISCONNECT /ws/chat/6/ [127.0.0.1:34112]
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.00, 127.0.0.1:43850][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.00, 127.0.0.1:43836][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.00, 127.0.0.1:43838][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.00, 127.0.0.1:43842][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:41586][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:41586][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:41586][0m
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/views.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:51914][0m
+[32mHTTP GET /logout/ 302 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /login 200 [0.00, 127.0.0.1:51914][0m
+[32mHTTP POST /login 302 [0.20, 127.0.0.1:51914][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:51914][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:51914][0m
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/chat/views.py", line 33, in index
+    return render(request, "chat/index.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 586, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 9: 'if'. Looking for one of: elif, else, endif.
+[35;1mHTTP GET / 500 [0.03, 127.0.0.1:51914][0m
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/contrib/auth/decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/chat/views.py", line 33, in index
+    return render(request, "chat/index.html", context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 518, in parse
+    raise self.error(token, e)
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 523, in parse
+    self.unclosed_block_tag(parse_until)
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/django/template/base.py", line 586, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 9: 'if'. Looking for one of: elif, else, endif.
+[35;1mHTTP GET / 500 [0.02, 127.0.0.1:51914][0m
+[mHTTP GET / 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /panel/admins/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /create/admins/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP POST /create/admins/ 200 [0.19, 127.0.0.1:51914][0m
+[32mHTTP GET /logout/ 302 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /login 200 [0.00, 127.0.0.1:51914][0m
+[32mHTTP POST /login 302 [0.20, 127.0.0.1:51914][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:51914][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:51914][0m
+WebSocket HANDSHAKING /ws/chat/7/ [127.0.0.1:54646]
+WebSocket CONNECT /ws/chat/7/ [127.0.0.1:54646]
+WebSocket DISCONNECT /ws/chat/7/ [127.0.0.1:54646]
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:51914][0m
+[mHTTP GET /chat/7 200 [0.01, 127.0.0.1:51914][0m
+WebSocket HANDSHAKING /ws/chat/7/ [127.0.0.1:39282]
+WebSocket CONNECT /ws/chat/7/ [127.0.0.1:39282]
+WebSocket DISCONNECT /ws/chat/7/ [127.0.0.1:39282]
+[mHTTP GET /chat_list/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /inbox/ 200 [0.01, 127.0.0.1:51914][0m
+[32mHTTP GET /logout/ 302 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /login 200 [0.00, 127.0.0.1:51914][0m
+[32mHTTP POST /login 302 [0.21, 127.0.0.1:51914][0m
+[mHTTP GET / 200 [0.00, 127.0.0.1:51914][0m
+[mHTTP GET /chat_list/ 200 [0.00, 127.0.0.1:51914][0m
+[mHTTP GET /inbox/ 200 [0.00, 127.0.0.1:51914][0m
+[mHTTP GET /system_actions/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /system_actions/1/ 200 [0.01, 127.0.0.1:51914][0m
+[mHTTP GET /system_actions/2/ 200 [0.00, 127.0.0.1:51914][0m

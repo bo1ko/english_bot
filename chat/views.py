@@ -15,7 +15,7 @@ from .models import (
     SystemAction,
 )
 from .forms import CreateForm, ChangeTelegramForm, UpdateSettingsForm
-from .utils import edit_sync_telegram_message, send_sync_telegram_message
+from .utils import edit_sync_telegram_message, reply_sync_telegram_message, send_sync_telegram_message
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_POST
@@ -463,13 +463,13 @@ def edit_message(request):
     message_id = request.POST.get("message_id")
 
     if request.user.role == "super_administrator":
-        user_role = f"<blockquote>Головний адміністратор</blockquote>"
+        user_role = f"<b><i>Головний адміністратор</i></b>"
 
     new_text = request.POST.get("message")
 
     try:
         tg_chat_id = TelegramUserAndAdminChat.objects.get(pk=chat_id).telegram_user.tg_id
-        tg_edit_result = edit_sync_telegram_message(tg_chat_id, message_id, f"{user_role}\n\n{new_text}")
+        tg_edit_result = edit_sync_telegram_message(int(tg_chat_id), int(message_id), f"{user_role}\n{new_text}")
         
         if tg_edit_result:
             chat = TelegramUserAndAdminChat.objects.get(id=chat_id)

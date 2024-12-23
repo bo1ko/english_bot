@@ -9,6 +9,8 @@ from chat.models import (
     StudentAndTeacherChat,
     TelegramUserAndAdminChat,
     TelegramUser,
+    Rule,
+    Question
 )
 
 logger = logging.getLogger(__name__)
@@ -84,3 +86,48 @@ def create_message(sender: TelegramUser, chat: TelegramUserAndAdminChat, content
     except Exception as e:
         logger.error(f"Create message: {e}")
         return None, False
+
+@sync_to_async
+def get_rules_txt() -> Rule:
+    try:
+        rules = Rule.objects.all()
+        rules_txt = ""
+        
+        for rule in rules:
+            rules_txt += f"{rule.rule}\n"
+        
+        return rules_txt
+    except Exception as e:
+        logger.error(f"Get rules: {e}")
+        return None
+
+@sync_to_async
+def get_rule(pk: id) -> Rule:
+    try:
+        return Rule.objects.get(pk=pk)
+    except Exception as e:
+        logger.error(f"Get rule: {e}")
+        return None
+
+@sync_to_async
+def get_questions_btns() -> Question:
+    try:
+        questions = Question.objects.all()
+        btns = {}
+        
+        for question in questions:
+            btns[question.question] = f"question_{question.pk}"
+        
+        return btns
+        
+    except Exception as e:
+        logger.error(f"Get questions: {e}")
+        return None
+
+@sync_to_async
+def get_question(pk: id) -> Question:
+    try:
+        return Question.objects.get(pk=pk)
+    except Exception as e:
+        logger.error(f"Get question: {e}")
+        return None

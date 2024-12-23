@@ -452,24 +452,32 @@ def inbox(request):
 def edit_message(request):
     chat_id = request.POST.get("chat_id")
     message_id = request.POST.get("message_id")
+    chat_with = request.POST.get("chat_with")
 
     if request.user.role == "super_administrator":
         user_role = f"<b><i>Головний адміністратор</i></b>"
     elif request.user.role == "site_administrator":
         user_role = f"<b><i>Адміністратор {request.user.first_name}</i></b>"
+    elif request.user.role == "teacher":
+        user_role = f"<b><i>Вчитель {request.user.first_name}</i></b>"
 
     new_text = request.POST.get("message")
 
     try:
-        tg_chat_id = TelegramUserAndAdminChat.objects.get(
-            pk=chat_id
-        ).telegram_user.tg_id
+        tg_chat_id = None
+        if chat_with == "telegram_user":
+            obj = TelegramUserAndAdminChat
+            tg_chat_id = obj.objects.get(pk=chat_id).telegram_user.tg_id
+        elif chat_with == "student":
+            obj = StudentAndTeacherChat
+            tg_chat_id = obj.objects.get(pk=chat_id).student.telegram.tg_id
+        
         tg_edit_result = edit_sync_telegram_message(
             int(tg_chat_id), int(message_id), f"{user_role}\n{new_text}"
         )
 
         if tg_edit_result:
-            chat = TelegramUserAndAdminChat.objects.get(id=chat_id)
+            chat = obj.objects.get(id=chat_id)
             messages = chat.messages
 
             for message in messages:
@@ -507,7 +515,8 @@ def edit_message(request):
             return JsonResponse(
                 {"success": False, "error": "Could not edit message in telegram"}
             )
-    except TelegramUserAndAdminChat.DoesNotExist:
+    except Exception as e:
+        print("Edit message error", e)
         return JsonResponse({"success": False, "error": "Chat does not exist"})
 
 

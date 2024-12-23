@@ -88,6 +88,7 @@ class StudentAndTeacherChat(models.Model):
         verbose_name = "Student And Teacher Chat"
         verbose_name_plural = "Student And Teacher Chats"
 
+
 class TelegramUserAndAdminChat(models.Model):
     telegram_user = models.OneToOneField(
         TelegramUser,
@@ -101,7 +102,10 @@ class TelegramUserAndAdminChat(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=False,
-        limit_choices_to={"role": CustomUser.SITE_ADMIN, "role": CustomUser.SUPER_ADMIN},
+        limit_choices_to={
+            "role": CustomUser.SITE_ADMIN,
+            "role": CustomUser.SUPER_ADMIN,
+        },
         related_name="admin_student_chats",
     )
     admin_list = models.JSONField(default=list, blank=True, null=True)
@@ -114,8 +118,11 @@ class TelegramUserAndAdminChat(models.Model):
         verbose_name = "Telegram User And Admin Chat"
         verbose_name_plural = "Telegram User And Admin Chats"
 
+
 class SystemAction(models.Model):
-    telegram = ForeignKey("TelegramUser", on_delete=models.DO_NOTHING, null=False, blank=False)
+    telegram = ForeignKey(
+        "TelegramUser", on_delete=models.DO_NOTHING, null=False, blank=False
+    )
     action = models.JSONField(default=list, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -126,3 +133,24 @@ class SystemAction(models.Model):
     class Meta:
         verbose_name = "System Action"
         verbose_name_plural = "System Actions"
+
+class Question(models.Model):
+    question = models.CharField(max_length=562, null=False, blank=False)
+    answer = models.TextField(null=False, blank=False)
+
+    def __str__(self):
+        return f"{self.question} | {self.answer}"
+
+    class Meta:
+        verbose_name = "Question"
+        verbose_name_plural = "Questions"
+
+class Rule(models.Model):
+    rule = models.TextField(null=False, blank=False)
+
+    def __str__(self):
+        return f"{self.rule}"
+
+    class Meta:
+        verbose_name = "Rule"
+        verbose_name_plural = "Rules"

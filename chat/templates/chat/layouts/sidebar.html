@@ -46,9 +46,17 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'chat:chat_list' %}" class="nav-link align-middle px-0 text-white">
+                <a href="{% url 'chat:chat_list' 'telegram_users' %}" class="nav-link align-middle px-0 text-white">
                     <i class="fs-4 bi-chat-fill"></i>
-                    <span class="ms-1 d-none d-sm-inline">Чат з телеграм користувачами</span>
+                    <span class="ms-1 d-none d-sm-inline">Чати з телеграм користувачами</span>
+                </a>
+            </li>
+            {% endif %}
+            {% if user.role == "site_administrator" or user.role == "super_administrator" or user.role == "teacher" %}
+            <li class="nav-item">
+                <a href="{% url 'chat:chat_list' 'students' %}" class="nav-link align-middle px-0 text-white">
+                    <i class="fs-4 bi-chat-dots-fill"></i>
+                    <span class="ms-1 d-none d-sm-inline">Чати з учнями</span>
                 </a>
             </li>
             {% endif %}

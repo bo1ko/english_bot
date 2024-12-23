@@ -21,8 +21,8 @@ urlpatterns = [
     path("system_actions/", views.system_actions, name="system_actions"),
     path("system_actions/<int:pk>/", views.user_actions, name="user_actions"),
     path("telegram_users/", views.telegram_users, name="telegram_users"),
-    path("chat/<int:chat_id>", views.chat_room, name="chat_room"),
+    path("chat/<str:chat_with>/<int:chat_id>", views.chat_room, name="chat_room"),
     path("inbox/", views.inbox, name="inbox"),
     path("edit-message/", views.edit_message, name="edit_message"),
-    path("chat_list/", views.chat_list, name="chat_list"),
+    path("chat_list/<str:chat_with>", views.chat_list, name="chat_list"),
 ]

@@ -7,7 +7,12 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import get_user_model
 from datetime import datetime, timezone
 
-from .models import CustomUser, TelegramUser, TelegramUserAndAdminChat
+from .models import (
+    CustomUser,
+    TelegramUser,
+    TelegramUserAndAdminChat,
+    StudentAndTeacherChat,
+)
 from .utils import send_async_telegram_message
 
 User = get_user_model()
@@ -28,25 +33,28 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def receive(self, text_data):
         try:
+            logger.info("Get receive", text_data)
             data = json.loads(text_data)
             message = data["message"]
             user_id = data["user_id"]
             source = data.get("source", "site")
             message_id = data.get("message_id")
             reply_message_id = data.get("reply_message_id", False)
-            chat = await self.get_chat(self.chat_id)
+            chat_with = data.get("chat_with")
+            chat = await self.get_chat(self.chat_id, chat_with)
 
             if not chat:
                 logger.error(f"Chat with ID {self.chat_id} not found")
                 return
 
             if source == "site":
-                user = await self.get_user(user_id)
+                user = await self.get_user(int(user_id))
                 if not user:
                     logger.error(f"User with ID {user_id} not found")
                     return
 
-                telegram_id = await self.get_telegram_user_id(chat)
+                telegram_id = await self.get_telegram_user_id(chat, chat_with)
+
                 if not telegram_id:
                     logger.error(f"Telegram user ID not found for chat {self.chat_id}")
                     return
@@ -59,12 +67,29 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     telegram_text = f"<b><i>Вчитель {user.first_name}</i></b>"
                 else:
                     return
-                
-                if user.role == "site_administrator" or user.role == "super_administrator" and chat.admin_id is None:
-                    await self.assign_admin(chat, user)
-                    
+
+                if chat_with == "telegram_user":
+                    if (
+                        user.role == "site_administrator"
+                        or user.role == "super_administrator"
+                        and await self.is_admin_none(chat)
+                    ):
+                        await self.assign_admin(chat, user)
+                elif chat_with == "student":
+                    if (
+                        user.role == "site_administrator"
+                        or user.role == "super_administrator"
+                        or user.role == "teacher"
+                        and await self.is_teacher_none(chat)
+                    ):
+                        await self.assign_teacher(chat, user)
+                else:
+                    return
+
                 telegram_text += f"\n{message}"
-                message_id = await send_async_telegram_message(telegram_id, telegram_text, reply_message_id)
+                message_id = await send_async_telegram_message(
+                    telegram_id, telegram_text, reply_message_id
+                )
             elif source == "telegram":
                 user = await self.get_telegram_user(user_id)
                 if not user:
@@ -72,12 +97,14 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     return
             else:
                 return
-
-            new_message = await self.create_message(chat, user, message, source=source, message_id=message_id)
+            
+            
+            new_message = await self.create_message(
+                chat, user, message, source=source, message_id=message_id
+            )
             if not new_message:
                 logger.error("Failed to create new message")
                 return
-            
 
             await self.channel_layer.group_send(
                 self.chat_group_name,
@@ -92,7 +119,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 },
             )
         except Exception as e:
-            logger.error(e)
+            logger.error("Receive error", exc_info=True)
 
     async def chat_message(self, event):
         try:
@@ -119,17 +146,35 @@ class ChatConsumer(AsyncWebsocketConsumer):
             logger.info(e)
     
     @database_sync_to_async
+    def is_admin_none(self, chat: TelegramUserAndAdminChat):
+        return chat.admin is None
+
+    @database_sync_to_async
+    def is_teacher_none(self, chat: StudentAndTeacherChat):
+        return chat.teacher is None
+
+    @database_sync_to_async
     def assign_admin(self, chat: TelegramUserAndAdminChat, admin: CustomUser):
         try:
             chat.admin = admin
             chat.save(update_fields=["admin"])
             return True
         except Exception as e:
-            logging.error("Assign admin error ", e)
+            logging.error("Assign admin error", e)
             return False
 
     @database_sync_to_async
-    def get_user(self, user_id):
+    def assign_teacher(self, chat: StudentAndTeacherChat, teacher: CustomUser):
+        try:
+            chat.teacher = teacher
+            chat.save(update_fields=["teacher"])
+            return True
+        except Exception as e:
+            logging.error("Assign teacher error", e)
+            return False
+
+    @database_sync_to_async
+    def get_user(self, user_id: int):
         try:
             return User.objects.get(pk=user_id)
         except User.DoesNotExist:
@@ -139,21 +184,36 @@ class ChatConsumer(AsyncWebsocketConsumer):
     def get_telegram_user(self, user_id):
         try:
             return TelegramUser.objects.get(pk=user_id)
-        except TelegramUser.DoesNotExist:
+        except Exception as e:
+            logging.error("get_telegram_user error", e)
             return None
 
     @database_sync_to_async
-    def get_chat(self, chat_id):
+    def get_chat(self, chat_id, chat_with):
         try:
-            return TelegramUserAndAdminChat.objects.get(pk=chat_id)
-        except ObjectDoesNotExist:
+            if chat_with == "telegram_user":
+                return TelegramUserAndAdminChat.objects.get(pk=chat_id)
+            elif chat_with == "student":
+                return StudentAndTeacherChat.objects.get(pk=chat_id)
+            else:
+                print('Exit')
+                return
+        except Exception as e:
+            logger.error("get_chat error", e)
             return None
 
     @database_sync_to_async
-    def get_telegram_user_id(self, chat):
+    def get_telegram_user_id(self, chat, chat_with):
         try:
-            return chat.telegram_user.tg_id
-        except AttributeError:
+            if chat_with == "telegram_user":
+                return chat.telegram_user.tg_id
+            elif chat_with == "student":
+                if chat.student.telegram:
+                    return chat.student.telegram.tg_id
+                else:
+                    return
+        except Exception as e:
+            logger.error("get_telegram_user_id error", e)
             return None
 
     @database_sync_to_async

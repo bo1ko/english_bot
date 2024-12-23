@@ -1,6 +1,6 @@
 {% extends "chat/layouts/base.html" %}
 {% block title %}
-    Головна
+Чат
 {% endblock title %}
 {% block content %}
     <style>
@@ -17,6 +17,7 @@
                      style="height: 400px;
                             overflow-y: scroll">
                     {% if obj_messages %}
+                      {% if chat_with == 'telegram_user' %}
                         {% for message in obj_messages %}
                             <div class="chat-message" data-message-id="{{ message.message_id }}">
                                 {% if user.role == "site_administrator"%}
@@ -68,6 +69,59 @@
                                 <hr>
                             </div>
                         {% endfor %}
+                      {% elif chat_with == "student" %}
+                        {% for message in obj_messages %}
+                          <div class="chat-message" data-message-id="{{ message.message_id }}">
+                              {% if user.role == "site_administrator" or user.role == "teacher" %}
+                                {% if message.source == "telegram" %}
+                                  <strong>Користувач №{{ message.sender_id }}</strong>
+                                {% else %}
+                                  <strong>{{ message.sender }}</strong>
+                                {% endif %}
+                              {% elif user.role == "super_administrator" %}
+                                <strong>{{ message.sender }}</strong>
+                              {% endif %}
+                              <div class="chat-inner mb-2">
+                                  <div class="d-flex justify-content-between">
+                                      <p class="p-0 m-0">{{ message.text }}</p>
+                                      <span class="timestamp">{{ message.created_at|date:"Y-m-d H:i:s" }}</span>
+                                  </div>
+                                  <div class="d-flex align-items-end flex-column">
+                                      {% if message.message_id and message.source == "site" %}
+                                          <button class="btn btn-link p-0 m-0"
+                                                  style="font-size: 10px"
+                                                  onclick="edit_message({{ message.message_id }}, '{{ message.text|escapejs }}')">
+                                              Редагувати
+                                          </button>
+                                          {% if message.edited_text %}
+                                              <button class="btn btn-link p-0 m-0"
+                                                      style="font-size: 10px"
+                                                      onclick="show_edits({{ message.message_id }})">
+                                                  Показати редагування
+                                              </button>
+                                          {% endif %}
+                                      {% endif %}
+                                      {% if message.source == "telegram" %}
+                                          <button class="btn btn-link p-0 m-0"
+                                                  style="font-size: 10px"
+                                                  onclick="reply_message({{ message.message_id }})">Reply</button>
+                                      {% endif %}
+                                  </div>
+                                  <div id="edit-list-{{ message.message_id }}" class="edit-list d-none">
+                                      <ul class="list-group">
+                                          {% for edit in message.edited_text reversed %}
+                                              <li class="list-group-item d-flex justify-content-between">
+                                                  <span>{{ edit.edit_text }}</span>
+                                                  <span class="timestamp">{{ edit.edit_time }}</span>
+                                              </li>
+                                          {% endfor %}
+                                      </ul>
+                                  </div>
+                              </div>
+                              <hr>
+                          </div>
+                        {% endfor %}
+                      {% endif %}
                     {% else %}
                         <p>No messages yet.</p>
                     {% endif %}
@@ -107,165 +161,167 @@
         </div>
     </div>
     <script>
-    const chatId = "{{ chat.id }}";
-const userId = "{{ request.user.id }}";
-const csrfToken = "{{ csrf_token }}";
-const chatSocket = new WebSocket(
-  "ws://" + window.location.host + "/ws/chat/" + chatId + "/"
-);
+      const chatId = "{{ chat.id }}";
+      const userId = "{{ request.user.id }}";
+      const csrfToken = "{{ csrf_token }}";
+      const chatWith = "{{ chat_with }}"
+      const chatSocket = new WebSocket(
+        "ws://" + window.location.host + "/ws/chat/" + chatId + "/"
+      );
 
-let isEditing = false;
-let editMessageId = null;
-let isReplying = false;
-let replyMessageId = null;
+      let isEditing = false;
+      let editMessageId = null;
+      let isReplying = false;
+      let replyMessageId = null;
 
-function resetEditing() {
-  isEditing = false;
-  editMessageId = null;
+      function resetEditing() {
+        isEditing = false;
+        editMessageId = null;
 
-  const messageInputDom = document.getElementById("chat-message-input");
-  const editAlert = document.getElementById("edit-alert");
+        const messageInputDom = document.getElementById("chat-message-input");
+        const editAlert = document.getElementById("edit-alert");
 
-  messageInputDom.placeholder = "Введіть повідомлення...";
-  messageInputDom.value = "";
-  editAlert.classList.add("d-none");
-}
+        messageInputDom.placeholder = "Введіть повідомлення...";
+        messageInputDom.value = "";
+        editAlert.classList.add("d-none");
+      }
 
-function resetReplying() {
-  isReplying = false;
-  replyMessageId = null;
+      function resetReplying() {
+        isReplying = false;
+        replyMessageId = null;
 
-  const replyAlert = document.getElementById("reply-alert");
-  replyAlert.classList.add("d-none");
-}
+        const replyAlert = document.getElementById("reply-alert");
+        replyAlert.classList.add("d-none");
+      }
 
-chatSocket.onmessage = function (e) {
-  const data = JSON.parse(e.data);
-  const messageId = data.message_id;
-  const message = data.message;
-  const username = data.username;
-  const user_id = data.user_id;
-  const timestamp = data.timestamp;
-  const source = data.source;
+      chatSocket.onmessage = function (e) {
+        const data = JSON.parse(e.data);
+        const messageId = data.message_id;
+        const message = data.message;
+        const username = data.username;
+        const user_role = "{{ user.role }}"
+        const user_id = data.user_id;
+        const timestamp = data.timestamp;
+        const source = data.source;
 
-  const chatBox = document.getElementById("chat-box");
-  const messageElement = document.createElement("div");
-  messageElement.classList.add("chat-message");
-  messageElement.setAttribute("data-message-id", messageId);
-  messageElement.innerHTML = `
-            ${source == "telegram" ? `<strong>Користувач №${user_id}</strong`: `<strong>${username}</strong>`}
-            <div class="chat-inner mb-2">
-                <div class="d-flex justify-content-between">
-                    <p class="p-0 m-0">${message}</p>
-                    <span class="timestamp">${timestamp}</span>
-                </div>
-                <div class="d-flex align-items-end flex-column">
-                    ${
-                      messageId && source == "site"
-                        ? `<button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="edit_message(${messageId}, '${message.replace(
-                            /'/g,
-                            "\\'"
-                          )}')">Редагувати</button>`
-                        : ""
-                    }
-                    ${
-                      source == "telegram"
-                        ? `<button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="reply_message(${messageId})">Reply</button>`
-                        : ""
-                    }
-                </div>
-                <div id="edit-list-${messageId}" class="edit-list d-none">
-                    <ul class="list-group">
-                    </ul>
-                </div>
-            </div>
-            <hr>`;
-  chatBox.appendChild(messageElement);
-  chatBox.scrollTop = chatBox.scrollHeight;
-};
+        const chatBox = document.getElementById("chat-box");
+        const messageElement = document.createElement("div");
+        messageElement.classList.add("chat-message");
+        messageElement.setAttribute("data-message-id", messageId);
+        messageElement.innerHTML = `
+                  ${source == "telegram" && user_role != "super_administrator" ? `<strong>Користувач №${user_id}</strong`: `<strong>${username}</strong>`}
+                  <div class="chat-inner mb-2">
+                      <div class="d-flex justify-content-between">
+                          <p class="p-0 m-0">${message}</p>
+                          <span class="timestamp">${timestamp}</span>
+                      </div>
+                      <div class="d-flex align-items-end flex-column">
+                          ${
+                            messageId && source == "site"
+                              ? `<button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="edit_message(${messageId}, '${message.replace(
+                                  /'/g,
+                                  "\\'"
+                                )}')">Редагувати</button>`
+                              : ""
+                          }
+                          ${
+                            source == "telegram"
+                              ? `<button class="btn btn-link p-0 m-0" style="font-size: 10px" onclick="reply_message(${messageId})">Reply</button>`
+                              : ""
+                          }
+                      </div>
+                      <div id="edit-list-${messageId}" class="edit-list d-none">
+                          <ul class="list-group">
+                          </ul>
+                      </div>
+                  </div>
+                  <hr>`;
+        chatBox.appendChild(messageElement);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      };
 
-chatSocket.onclose = function (e) {
-  console.error("Chat socket closed unexpectedly");
-};
+      chatSocket.onclose = function (e) {
+        console.error("Chat socket closed unexpectedly");
+      };
 
-document.getElementById("chat-message-submit").onclick = function (e) {
-  const messageInputDom = document.getElementById("chat-message-input");
-  const message = messageInputDom.value;
+      document.getElementById("chat-message-submit").onclick = function (e) {
+        const messageInputDom = document.getElementById("chat-message-input");
+        const message = messageInputDom.value;
 
-  if (isEditing) {
-    $.ajax({
-      url: "/edit-message/",
-      method: "POST",
-      data: {
-        chat_id: chatId,
-        message_id: editMessageId,
-        message: message,
-        csrfmiddlewaretoken: csrfToken,
-      },
-      success: function (response) {
-        if (response.success) {
-          const messageElement = document.querySelector(
-            `.chat-message[data-message-id="${editMessageId}"] p`
-          );
-          messageElement.textContent = message;
-          resetEditing();
+        if (isEditing) {
+          $.ajax({
+            url: "/edit-message/",
+            method: "POST",
+            data: {
+              chat_id: chatId,
+              message_id: editMessageId,
+              message: message,
+              csrfmiddlewaretoken: csrfToken,
+            },
+            success: function (response) {
+              if (response.success) {
+                const messageElement = document.querySelector(
+                  `.chat-message[data-message-id="${editMessageId}"] p`
+                );
+                messageElement.textContent = message;
+                resetEditing();
+              } else {
+                console.error("Error updating message");
+              }
+            },
+          });
         } else {
-          console.error("Error updating message");
+          chatSocket.send(
+            JSON.stringify({
+              chat_with: chatWith,
+              message: message,
+              user_id: userId,
+              reply_message_id: replyMessageId
+            })
+          );
+          resetReplying();
         }
-      },
-    });
-  } else {
-    chatSocket.send(
-      JSON.stringify({
-        message: message,
-        user_id: userId,
-        reply_message_id: replyMessageId
-      })
-    );
-    resetReplying();
-  }
-  messageInputDom.value = "";
-};
+        messageInputDom.value = "";
+      };
 
-function edit_message(message_id, message_text) {
-  resetReplying(); // Reset replying if editing is initiated
-  isEditing = true;
-  editMessageId = message_id;
+      function edit_message(message_id, message_text) {
+        resetReplying(); // Reset replying if editing is initiated
+        isEditing = true;
+        editMessageId = message_id;
 
-  const messageInputDom = document.getElementById("chat-message-input");
-  const editAlert = document.getElementById("edit-alert");
+        const messageInputDom = document.getElementById("chat-message-input");
+        const editAlert = document.getElementById("edit-alert");
 
-  messageInputDom.placeholder = "Редагування повідомлення...";
-  messageInputDom.value = message_text;
-  editAlert.classList.remove("d-none");
-}
+        messageInputDom.placeholder = "Редагування повідомлення...";
+        messageInputDom.value = message_text;
+        editAlert.classList.remove("d-none");
+      }
 
-function cancel_edit() {
-  resetEditing();
-}
+      function cancel_edit() {
+        resetEditing();
+      }
 
-function show_edits(message_id) {
-  const editList = document.getElementById(`edit-list-${message_id}`);
-  editList.classList.toggle("d-none");
-}
+      function show_edits(message_id) {
+        const editList = document.getElementById(`edit-list-${message_id}`);
+        editList.classList.toggle("d-none");
+      }
 
-function reply_message(message_id) {
-  resetEditing(); // Reset editing if replying is initiated
-  isReplying = true;
-  replyMessageId = message_id;
+      function reply_message(message_id) {
+        resetEditing(); // Reset editing if replying is initiated
+        isReplying = true;
+        replyMessageId = message_id;
 
-  const replyAlert = document.getElementById("reply-alert");
-  replyAlert.classList.remove("d-none");
-}
+        const replyAlert = document.getElementById("reply-alert");
+        replyAlert.classList.remove("d-none");
+      }
 
-function cancel_reply() {
-  resetReplying();
-}
+      function cancel_reply() {
+        resetReplying();
+      }
 
-window.onload = function () {
-  resetEditing();
-  resetReplying();
-};
-
+      window.onload = function () {
+        resetEditing();
+        resetReplying();
+      };
     </script>
 {% endblock content %}

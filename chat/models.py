@@ -68,7 +68,7 @@ class StudentAndTeacherChat(models.Model):
         null=True,
         blank=False,
         limit_choices_to={"role": CustomUser.STUDENT},
-        related_name="student_chats",
+        related_name="student_teacher_chats",
     )
     teacher = models.OneToOneField(
         CustomUser,
@@ -76,9 +76,10 @@ class StudentAndTeacherChat(models.Model):
         null=True,
         blank=False,
         limit_choices_to={"role": CustomUser.TEACHER},
-        related_name="teacher_chats",
+        related_name="teacher_student_chats",
     )
     admin_list = models.JSONField(blank=True, null=True)
+    messages = models.JSONField(default=list, blank=True, null=True)
 
     def __str__(self):
         return f"{self.pk} | Chat between student {self.student.username} and teacher {self.teacher.username}"
@@ -125,17 +126,3 @@ class SystemAction(models.Model):
     class Meta:
         verbose_name = "System Action"
         verbose_name_plural = "System Actions"
-
-class StudentAndTeacherMessage(models.Model):
-    chat = models.ForeignKey(StudentAndTeacherChat, on_delete=models.CASCADE, related_name='student_and_teacher_messages')
-    sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='student_and_teacher_sent_messages')
-    content = models.TextField()
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Message from {self.sender.username} in chat {self.chat.id}"
-
-    class Meta:
-        verbose_name = "Student And eacher Message"
-        verbose_name_plural = "Student And Teachers Messages"
-        ordering = ['timestamp']

@@ -24,12 +24,20 @@ def get_or_create_user(tg_id: int, username: str) -> TelegramUser:
 @sync_to_async
 def get_or_create_communication_chat(
     telegram: TelegramUser,
-) -> TelegramUserAndAdminChat:
+    chat_with: str
+):
     try:
-        obj, created = TelegramUserAndAdminChat.objects.get_or_create(
-            telegram_user=telegram
-        )
-        return obj, created
+        if chat_with == "student":
+            user = CustomUser.objects.get(telegram=telegram)
+            obj, created = StudentAndTeacherChat.objects.get_or_create(
+                student=user
+            )
+            return obj, created
+        elif chat_with == "telegram_user":
+            obj, created = TelegramUserAndAdminChat.objects.get_or_create(
+                telegram_user=telegram
+            )
+            return obj, created
     except Exception as e:
         logger.error(f"Get or create chat student and admin: {e}")
         return None, None

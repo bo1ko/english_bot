@@ -15,7 +15,11 @@ from .models import (
     SystemAction,
 )
 from .forms import CreateForm, ChangeTelegramForm, UpdateSettingsForm
-from .utils import edit_sync_telegram_message, reply_sync_telegram_message, send_sync_telegram_message
+from .utils import (
+    edit_sync_telegram_message,
+    reply_sync_telegram_message,
+    send_sync_telegram_message,
+)
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_POST
@@ -426,19 +430,6 @@ def telegram_users(request):
     return render(request, "chat/telegram_accounts.html", context)
 
 
-@login_required
-def chat_room(request, chat_id):
-    chat = get_object_or_404(TelegramUserAndAdminChat, pk=chat_id)
-
-    obj_messages = chat.messages if chat.messages else []
-
-    for message in obj_messages:
-        message["created_at"] = datetime.fromisoformat(message["created_at"])
-
-    context = {"obj_messages": obj_messages, "chat": chat}
-    return render(request, "chat/chat_room.html", context)
-
-
 @role_required(["super_administrator", "site_administrator"])
 @login_required
 def inbox(request):
@@ -470,9 +461,13 @@ def edit_message(request):
     new_text = request.POST.get("message")
 
     try:
-        tg_chat_id = TelegramUserAndAdminChat.objects.get(pk=chat_id).telegram_user.tg_id
-        tg_edit_result = edit_sync_telegram_message(int(tg_chat_id), int(message_id), f"{user_role}\n{new_text}")
-        
+        tg_chat_id = TelegramUserAndAdminChat.objects.get(
+            pk=chat_id
+        ).telegram_user.tg_id
+        tg_edit_result = edit_sync_telegram_message(
+            int(tg_chat_id), int(message_id), f"{user_role}\n{new_text}"
+        )
+
         if tg_edit_result:
             chat = TelegramUserAndAdminChat.objects.get(id=chat_id)
             messages = chat.messages
@@ -480,50 +475,100 @@ def edit_message(request):
             for message in messages:
                 if message.get("message_id") == int(message_id):
                     if "edited_text" in message:
-                        message["edited_text"].append({
-                            "edit_text": message["text"],
-                            "edit_time": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
-                        })
+                        message["edited_text"].append(
+                            {
+                                "edit_text": message["text"],
+                                "edit_time": datetime.now(timezone.utc).strftime(
+                                    "%Y-%m-%d %H:%M:%S"
+                                ),
+                            }
+                        )
                     else:
-                        message["edited_text"] = [{
-                            "edit_text": message["text"],
-                            "edit_time": datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
-                        }]
-                    
+                        message["edited_text"] = [
+                            {
+                                "edit_text": message["text"],
+                                "edit_time": datetime.now(timezone.utc).strftime(
+                                    "%Y-%m-%d %H:%M:%S"
+                                ),
+                            }
+                        ]
+
                     message["text"] = new_text
-                    
+
                     break
             else:
                 return JsonResponse({"success": False, "error": "Message not found"})
 
             chat.messages = messages
             chat.save()
-            
 
             return JsonResponse({"success": True})
         else:
-            return JsonResponse({"success": False, "error": "Could not edit message in telegram"})
+            return JsonResponse(
+                {"success": False, "error": "Could not edit message in telegram"}
+            )
     except TelegramUserAndAdminChat.DoesNotExist:
         return JsonResponse({"success": False, "error": "Chat does not exist"})
 
 
-@role_required(["super_administrator", "site_administrator"])
 @login_required
-def chat_list(request):
-    admin = CustomUser.objects.get(username=request.user.username)
-    
-    if request.user.role == "super_administrator":
-        chats = TelegramUserAndAdminChat.objects.filter(admin__isnull=False)
-    else:
-        chats = TelegramUserAndAdminChat.objects.filter(admin=admin)
-        
+def chat_list(request, chat_with):
+    context = {}
+
+    if chat_with == "students":
+        if (
+            request.user.role == "super_administrator"
+            or request.user.role == "site_administrator"
+        ):
+            chats = StudentAndTeacherChat.objects.all()
+        elif request.user.role == "teacher":
+            teacher = CustomUser.objects.get(username=request.user.username)
+            chats = StudentAndTeacherChat.objects.filter(teacher=teacher)
+        else:
+            return
+
+        context["title"] = "Чати з учнями"
+
+    elif chat_with == "telegram_users":
+        if request.user.role == "super_administrator":
+            chats = TelegramUserAndAdminChat.objects.filter(admin__isnull=False)
+        elif request.user.role == "site_administrator":
+            admin = CustomUser.objects.get(username=request.user.username)
+            chats = TelegramUserAndAdminChat.objects.filter(admin=admin)
+        else:
+            return
+
+        context["title"] = "Чати з телеграм користувачами"
 
     for chat in chats:
         if chat.messages:
             last_message = chat.messages[-1].get("text", "")
         else:
-            last_message = None
+            last_message = "No messages"
         chat.last_message = last_message
 
-    context = {"chats": chats}
+    context["chats"] = chats
+    context["chat_with"] = chat_with
+
     return render(request, "chat/chat_list.html", context)
+
+
+@login_required
+def chat_room(request, chat_with, chat_id):
+    if chat_with == "telegram_user":
+        chat = get_object_or_404(TelegramUserAndAdminChat, pk=chat_id)
+    elif chat_with == "student":
+        chat = get_object_or_404(StudentAndTeacherChat, pk=chat_id)
+
+    obj_messages = chat.messages if chat.messages else []
+
+    for message in obj_messages:
+        message["created_at"] = datetime.fromisoformat(message["created_at"])
+
+    context = {
+        "obj_messages": obj_messages,
+        "chat": chat,
+        "chat_with": chat_with,
+    }
+
+    return render(request, "chat/chat_room.html", context)

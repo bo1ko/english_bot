@@ -675,3 +675,852 @@ aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1
 2024-12-23 08:07:36,273 - aiogram.event - INFO - Update id=166847879 is handled. Duration 156 ms by bot id=7101171025
 2024-12-23 08:13:16,605 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 7 / 2 / 124
 2024-12-23 08:13:16,671 - aiogram.event - INFO - Update id=166847880 is handled. Duration 262 ms by bot id=7101171025
+2024-12-23 10:58:32,543 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 10:58:32,578 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 10:58:34,292 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 7 / 2 / 2354
+2024-12-23 10:58:34,473 - aiogram.event - INFO - Update id=166847883 is handled. Duration 196 ms by bot id=7101171025
+2024-12-23 10:59:33,056 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 8 / 2 / hello
+2024-12-23 10:59:33,207 - aiogram.event - INFO - Update id=166847884 is handled. Duration 436 ms by bot id=7101171025
+2024-12-23 12:49:00,334 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / test
+2024-12-23 12:49:00,393 - aiogram.event - INFO - Update id=166847885 is handled. Duration 249 ms by bot id=7101171025
+2024-12-23 12:58:47,606 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 12:58:47,606 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 12:58:47,607 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 12:58:50,520 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 12:58:50,582 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 13:09:04,804 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 13:09:04,804 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 13:09:04,804 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 13:09:07,743 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 13:09:07,775 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 13:09:11,993 - aiogram.event - INFO - Update id=166847886 is handled. Duration 195 ms by bot id=7101171025
+2024-12-23 13:09:13,479 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:09:13,575 - aiogram.event - INFO - Update id=166847887 is handled. Duration 99 ms by bot id=7101171025
+2024-12-23 13:12:12,717 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:12:12,717 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:12:12,719 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:12:12,719 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:12:12,907 - aiogram.event - INFO - Update id=166847888 is handled. Duration 192 ms by bot id=7101171025
+2024-12-23 13:12:16,696 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:12:16,696 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:12:16,697 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:12:16,697 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:12:16,756 - aiogram.event - INFO - Update id=166847889 is handled. Duration 61 ms by bot id=7101171025
+2024-12-23 13:12:34,880 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:12:35,100 - aiogram.event - INFO - Update id=166847890 is handled. Duration 239 ms by bot id=7101171025
+2024-12-23 13:13:32,414 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:13:32,594 - aiogram.event - INFO - Update id=166847891 is handled. Duration 188 ms by bot id=7101171025
+2024-12-23 13:13:53,236 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 234
+2024-12-23 13:13:53,436 - aiogram.event - INFO - Update id=166847892 is handled. Duration 208 ms by bot id=7101171025
+2024-12-23 13:14:35,949 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:14:36,174 - aiogram.event - INFO - Update id=166847893 is handled. Duration 229 ms by bot id=7101171025
+2024-12-23 13:15:39,878 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:15:40,051 - aiogram.event - INFO - Update id=166847894 is handled. Duration 194 ms by bot id=7101171025
+2024-12-23 13:19:03,355 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 13:19:03,355 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 13:19:03,355 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 13:19:06,313 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 13:19:06,349 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 13:19:11,493 - aiogram.event - INFO - Update id=166847895 is not handled. Duration 0 ms by bot id=7101171025
+2024-12-23 13:19:15,786 - aiogram.event - INFO - Update id=166847896 is not handled. Duration 0 ms by bot id=7101171025
+2024-12-23 13:19:19,907 - aiogram.event - INFO - Update id=166847897 is not handled. Duration 0 ms by bot id=7101171025
+2024-12-23 13:19:29,340 - aiogram.event - INFO - Update id=166847898 is not handled. Duration 0 ms by bot id=7101171025
+2024-12-23 13:19:38,583 - aiogram.event - INFO - Update id=166847899 is handled. Duration 184 ms by bot id=7101171025
+2024-12-23 13:19:39,243 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:19:39,298 - aiogram.event - INFO - Update id=166847900 is handled. Duration 62 ms by bot id=7101171025
+2024-12-23 13:20:16,169 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:20:16,416 - aiogram.event - INFO - Update id=166847901 is handled. Duration 255 ms by bot id=7101171025
+2024-12-23 13:20:32,599 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:20:32,771 - aiogram.event - INFO - Update id=166847902 is handled. Duration 181 ms by bot id=7101171025
+2024-12-23 13:20:43,492 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:20:43,633 - aiogram.event - INFO - Update id=166847903 is handled. Duration 148 ms by bot id=7101171025
+2024-12-23 13:20:50,642 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:20:50,642 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:20:50,644 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:20:50,644 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:20:50,719 - aiogram.event - INFO - Update id=166847904 is handled. Duration 78 ms by bot id=7101171025
+2024-12-23 13:20:51,721 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:20:51,777 - aiogram.event - INFO - Update id=166847905 is handled. Duration 64 ms by bot id=7101171025
+2024-12-23 13:22:27,665 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:22:27,849 - aiogram.event - INFO - Update id=166847906 is handled. Duration 193 ms by bot id=7101171025
+2024-12-23 13:22:51,140 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:22:51,312 - aiogram.event - INFO - Update id=166847907 is handled. Duration 180 ms by bot id=7101171025
+2024-12-23 13:23:03,630 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:23:03,751 - aiogram.event - INFO - Update id=166847908 is handled. Duration 130 ms by bot id=7101171025
+2024-12-23 13:23:34,898 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:23:35,138 - aiogram.event - INFO - Update id=166847909 is handled. Duration 249 ms by bot id=7101171025
+2024-12-23 13:23:50,567 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:23:50,742 - aiogram.event - INFO - Update id=166847910 is handled. Duration 184 ms by bot id=7101171025
+2024-12-23 13:24:11,077 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:24:11,077 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:24:11,078 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:24:11,078 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:24:11,302 - aiogram.event - INFO - Update id=166847911 is handled. Duration 226 ms by bot id=7101171025
+2024-12-23 13:24:12,400 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:24:12,576 - aiogram.event - INFO - Update id=166847912 is handled. Duration 184 ms by bot id=7101171025
+2024-12-23 13:24:39,392 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:24:39,603 - aiogram.event - INFO - Update id=166847913 is handled. Duration 221 ms by bot id=7101171025
+2024-12-23 13:25:01,792 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:25:01,792 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:25:01,793 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:25:01,793 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:25:01,981 - aiogram.event - INFO - Update id=166847914 is handled. Duration 190 ms by bot id=7101171025
+2024-12-23 13:25:02,797 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:25:02,797 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:25:02,798 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:25:02,798 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:25:02,863 - aiogram.event - INFO - Update id=166847915 is handled. Duration 67 ms by bot id=7101171025
+2024-12-23 13:25:03,997 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:25:04,075 - aiogram.event - INFO - Update id=166847916 is handled. Duration 85 ms by bot id=7101171025
+2024-12-23 13:25:42,707 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 13
+2024-12-23 13:25:42,885 - aiogram.event - INFO - Update id=166847917 is handled. Duration 188 ms by bot id=7101171025
+2024-12-23 13:25:52,152 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:25:52,304 - aiogram.event - INFO - Update id=166847918 is handled. Duration 161 ms by bot id=7101171025
+2024-12-23 13:26:15,012 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:26:15,212 - aiogram.event - INFO - Update id=166847919 is handled. Duration 208 ms by bot id=7101171025
+2024-12-23 13:26:49,912 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:26:49,912 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:26:49,913 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:26:49,913 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:26:50,085 - aiogram.event - INFO - Update id=166847920 is handled. Duration 174 ms by bot id=7101171025
+2024-12-23 13:26:51,468 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:26:51,578 - aiogram.event - INFO - Update id=166847921 is handled. Duration 119 ms by bot id=7101171025
+2024-12-23 13:26:59,245 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:26:59,245 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:26:59,246 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:26:59,246 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:26:59,381 - aiogram.event - INFO - Update id=166847922 is handled. Duration 138 ms by bot id=7101171025
+2024-12-23 13:27:00,079 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:27:00,079 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:27:00,080 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:27:00,080 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:27:00,179 - aiogram.event - INFO - Update id=166847923 is handled. Duration 101 ms by bot id=7101171025
+2024-12-23 13:27:01,147 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:27:01,147 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:27:01,148 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:27:01,148 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:27:01,241 - aiogram.event - INFO - Update id=166847924 is handled. Duration 95 ms by bot id=7101171025
+2024-12-23 13:27:02,145 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 12
+2024-12-23 13:27:02,240 - aiogram.event - INFO - Update id=166847925 is handled. Duration 104 ms by bot id=7101171025
+2024-12-23 13:27:16,483 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:27:16,537 - aiogram.event - INFO - Update id=166847926 is handled. Duration 62 ms by bot id=7101171025
+2024-12-23 13:28:38,753 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 213
+2024-12-23 13:28:38,902 - aiogram.event - INFO - Update id=166847927 is handled. Duration 158 ms by bot id=7101171025
+2024-12-23 13:28:54,479 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:28:54,708 - aiogram.event - INFO - Update id=166847928 is handled. Duration 237 ms by bot id=7101171025
+2024-12-23 13:29:47,053 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:29:47,327 - aiogram.event - INFO - Update id=166847929 is handled. Duration 283 ms by bot id=7101171025
+2024-12-23 13:29:52,047 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:29:52,317 - aiogram.event - INFO - Update id=166847930 is handled. Duration 279 ms by bot id=7101171025
+2024-12-23 13:30:12,438 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:30:12,438 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 13:30:12,438 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 13:30:12,438 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 13:30:12,622 - aiogram.event - INFO - Update id=166847931 is handled. Duration 186 ms by bot id=7101171025
+2024-12-23 13:30:13,568 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:30:13,629 - aiogram.event - INFO - Update id=166847932 is handled. Duration 69 ms by bot id=7101171025
+2024-12-23 13:32:11,397 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / test
+2024-12-23 13:32:11,673 - aiogram.event - INFO - Update id=166847933 is handled. Duration 279 ms by bot id=7101171025
+2024-12-23 13:34:06,710 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:34:06,902 - aiogram.event - INFO - Update id=166847934 is handled. Duration 195 ms by bot id=7101171025
+2024-12-23 13:34:22,071 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:34:22,323 - aiogram.event - INFO - Update id=166847935 is handled. Duration 255 ms by bot id=7101171025
+2024-12-23 13:34:25,557 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / test
+2024-12-23 13:34:25,729 - aiogram.event - INFO - Update id=166847936 is handled. Duration 175 ms by bot id=7101171025
+2024-12-23 13:35:15,555 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:35:15,722 - aiogram.event - INFO - Update id=166847937 is handled. Duration 171 ms by bot id=7101171025
+2024-12-23 13:55:02,929 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 13:55:02,930 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 13:55:02,930 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 13:55:06,819 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 13:55:06,855 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 13:55:15,756 - aiogram.event - INFO - Update id=166847938 is handled. Duration 185 ms by bot id=7101171025
+2024-12-23 13:55:24,223 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:55:24,325 - aiogram.event - INFO - Update id=166847939 is handled. Duration 113 ms by bot id=7101171025
+2024-12-23 13:59:10,208 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:59:10,461 - aiogram.event - INFO - Update id=166847940 is handled. Duration 261 ms by bot id=7101171025
+2024-12-23 13:59:23,684 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 13:59:23,792 - aiogram.event - INFO - Update id=166847941 is handled. Duration 115 ms by bot id=7101171025
+2024-12-23 14:00:39,792 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 14:00:40,076 - aiogram.event - INFO - Update id=166847942 is handled. Duration 287 ms by bot id=7101171025
+2024-12-23 14:00:42,484 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / test
+2024-12-23 14:00:42,615 - aiogram.event - INFO - Update id=166847943 is handled. Duration 134 ms by bot id=7101171025
+2024-12-23 14:03:11,637 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 14:03:11,920 - aiogram.event - INFO - Update id=166847944 is handled. Duration 291 ms by bot id=7101171025
+2024-12-23 14:03:25,052 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 14:03:25,115 - aiogram.event - INFO - Update id=166847945 is handled. Duration 72 ms by bot id=7101171025
+2024-12-23 14:03:26,355 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 14:03:26,441 - aiogram.event - INFO - Update id=166847946 is handled. Duration 89 ms by bot id=7101171025
+2024-12-23 14:03:27,827 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 13
+2024-12-23 14:03:27,926 - aiogram.event - INFO - Update id=166847947 is handled. Duration 103 ms by bot id=7101171025
+2024-12-23 14:03:33,386 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 14:03:33,386 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 14:03:33,387 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 14:03:33,387 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 14:03:33,840 - aiogram.event - INFO - Update id=166847948 is handled. Duration 549 ms by bot id=7101171025
+2024-12-23 14:03:35,043 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 14:03:35,043 - telegram_bot.core.websocket_request - ERROR - Send to websocket: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+2024-12-23 14:03:35,044 - telegram_bot.core.websocket_request - ERROR - Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1109, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 104, in start_connection
+    raise first_exception
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 82, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohappyeyeballs/impl.py", line 174, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 651, in sock_connect
+    return await fut
+           ^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 691, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bybr/Desktop/english_bot/telegram_bot/core/websocket_request.py", line 17, in send_to_websocket
+    async with session.ws_connect(f"ws://{domain}/ws/chat/{chat_id}/") as ws:
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 1360, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 938, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/client.py", line 663, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 538, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1050, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1384, in _create_direct_connection
+    raise last_exc
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1353, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bybr/Desktop/english_bot/.venv/lib/python3.12/site-packages/aiohttp/connector.py", line 1124, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host 127.0.0.1:8000 ssl:default [Connect call failed ('127.0.0.1', 8000)]
+
+2024-12-23 14:03:35,044 - telegram_bot.core.websocket_request - ERROR - ##################################################
+2024-12-23 14:03:35,248 - aiogram.event - INFO - Update id=166847949 is handled. Duration 206 ms by bot id=7101171025
+2024-12-23 14:03:36,970 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 34
+2024-12-23 14:03:37,049 - aiogram.event - INFO - Update id=166847950 is handled. Duration 86 ms by bot id=7101171025
+2024-12-23 14:04:32,698 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 14:04:32,699 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:04:32,699 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 14:04:35,561 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 14:04:35,597 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:04:36,902 - aiogram.event - INFO - Update id=166847951 is not handled. Duration 0 ms by bot id=7101171025
+2024-12-23 14:04:40,423 - aiogram.event - INFO - Update id=166847952 is handled. Duration 318 ms by bot id=7101171025
+2024-12-23 14:04:41,556 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / test
+2024-12-23 14:04:41,680 - aiogram.event - INFO - Update id=166847953 is handled. Duration 133 ms by bot id=7101171025
+2024-12-23 14:09:11,733 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 14:09:11,733 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:09:11,733 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 14:09:15,064 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 14:09:15,103 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:09:18,160 - aiogram.event - INFO - Update id=166847954 is not handled. Duration 0 ms by bot id=7101171025
+2024-12-23 14:09:21,552 - aiogram.event - INFO - Update id=166847955 is handled. Duration 267 ms by bot id=7101171025
+2024-12-23 14:09:22,509 - telegram_bot.core.db_request - ERROR - Get or create chat student and admin: Cannot resolve keyword 'telegram_user' into field. Choices are: admin_list, id, messages, student, student_id, teacher, teacher_id
+2024-12-23 14:09:22,642 - aiogram.event - INFO - Update id=166847956 is handled. Duration 134 ms by bot id=7101171025
+2024-12-23 14:10:02,340 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 14:10:02,340 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:10:02,340 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 14:10:05,661 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 14:10:05,695 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:10:09,591 - aiogram.event - INFO - Update id=166847957 is handled. Duration 208 ms by bot id=7101171025
+2024-12-23 14:10:10,799 - telegram_bot.core.db_request - ERROR - Get or create chat student and admin: Cannot query "Telegram volody015": Must be "CustomUser" instance.
+2024-12-23 14:10:10,884 - aiogram.event - INFO - Update id=166847958 is handled. Duration 86 ms by bot id=7101171025
+2024-12-23 14:14:29,024 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 14:14:29,024 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:14:29,024 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 14:14:32,091 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 14:14:32,135 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:14:36,830 - aiogram.event - INFO - Update id=166847959 is handled. Duration 279 ms by bot id=7101171025
+2024-12-23 14:14:38,017 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 1 / 1 / 123
+2024-12-23 14:14:38,118 - aiogram.event - INFO - Update id=166847960 is handled. Duration 110 ms by bot id=7101171025
+2024-12-23 14:14:52,478 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 235
+2024-12-23 14:14:52,583 - aiogram.event - INFO - Update id=166847961 is handled. Duration 109 ms by bot id=7101171025
+2024-12-23 14:15:23,444 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / /teacher
+2024-12-23 14:15:23,631 - aiogram.event - INFO - Update id=166847962 is handled. Duration 196 ms by bot id=7101171025
+2024-12-23 14:15:24,399 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / test
+2024-12-23 14:15:24,473 - aiogram.event - INFO - Update id=166847963 is handled. Duration 78 ms by bot id=7101171025
+2024-12-23 14:15:39,638 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / /teacher
+2024-12-23 14:15:39,835 - aiogram.event - INFO - Update id=166847964 is handled. Duration 201 ms by bot id=7101171025
+2024-12-23 14:16:16,222 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 14:16:16,222 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:16:16,222 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 14:16:19,135 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 14:16:19,176 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:16:20,101 - aiogram.event - INFO - Update id=166847965 is handled. Duration 262 ms by bot id=7101171025
+2024-12-23 14:16:27,469 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 1 / 1 / hello
+2024-12-23 14:16:27,628 - aiogram.event - INFO - Update id=166847966 is handled. Duration 163 ms by bot id=7101171025
+2024-12-23 14:18:45,836 - aiogram.dispatcher - WARNING - Received SIGINT signal
+2024-12-23 14:18:45,836 - aiogram.dispatcher - INFO - Polling stopped for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:18:45,836 - aiogram.dispatcher - INFO - Polling stopped
+2024-12-23 14:18:48,873 - aiogram.dispatcher - INFO - Start polling
+2024-12-23 14:18:48,960 - aiogram.dispatcher - INFO - Run polling for bot @dofgd345borbot id=7101171025 - 'bobr123'
+2024-12-23 14:19:05,535 - aiogram.event - INFO - Update id=166847967 is handled. Duration 245 ms by bot id=7101171025
+2024-12-23 14:19:07,392 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 1 / 1 / test
+2024-12-23 14:19:07,541 - aiogram.event - INFO - Update id=166847968 is handled. Duration 153 ms by bot id=7101171025
+2024-12-23 14:19:32,860 - aiogram.event - INFO - Update id=166847969 is handled. Duration 244 ms by bot id=7101171025
+2024-12-23 14:19:35,103 - telegram_bot.core.websocket_request - INFO - Message sent to websocket: 9 / 1 / 123
+2024-12-23 14:19:35,259 - aiogram.event - INFO - Update id=166847970 is handled. Duration 159 ms by bot id=7101171025

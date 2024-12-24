@@ -3,14 +3,14 @@ import logging
 from asgiref.sync import sync_to_async
 
 from chat.models import (
-    TelegramUser,
     SystemAction,
     CustomUser,
     StudentAndTeacherChat,
     TelegramUserAndAdminChat,
     TelegramUser,
     Rule,
-    Question
+    Question,
+    Course,
 )
 
 logger = logging.getLogger(__name__)
@@ -130,4 +130,57 @@ def get_question(pk: id) -> Question:
         return Question.objects.get(pk=pk)
     except Exception as e:
         logger.error(f"Get question: {e}")
+        return None
+
+@sync_to_async
+def get_courses_btns() -> Course:
+    try:
+        courses = Course.objects.all()
+        btns = {}
+
+        for course in courses:
+            btns[course.name] = f"course_{course.pk}"
+
+        return btns
+    except Exception as e:
+        logger.error(f"Get courses: {e}")
+        return None
+
+@sync_to_async
+def get_course(pk: id) -> Course:
+    try:
+        return Course.objects.get(pk=pk)
+    except Exception as e:
+        logger.error(f"Get course: {e}")
+        return None
+
+@sync_to_async
+def update_contact(tg_id: int, phone_number: str, first_name: str, last_name: str) -> bool:
+    try:
+        telegram = TelegramUser.objects.get(tg_id=tg_id)
+
+        if phone_number:
+            telegram.phone_number = phone_number
+        if first_name:
+            telegram.first_name = first_name
+        if last_name:
+            telegram.last_name = last_name
+
+        telegram.save()
+        return True
+    except Exception as e:
+        logger.error(f"Update contact: {e}")
+        return False
+
+@sync_to_async
+def check_registration(tg_id: int) -> bool:
+    try:
+        telegram = TelegramUser.objects.get(tg_id=tg_id)
+
+        if telegram.phone_number:
+            return True
+        else:
+            return False
+    except Exception as e:
+        logger.error(f"Check_registration: {e}")
         return None

@@ -6,6 +6,9 @@ from django.db.models import ForeignKey
 class TelegramUser(models.Model):
     tg_id = models.BigIntegerField(null=False, blank=False)
     username = models.CharField(max_length=264, null=True, blank=True)
+    first_name = models.CharField(max_length=264, null=True, blank=True)
+    last_name = models.CharField(max_length=264, null=True, blank=True)
+    phone_number = models.CharField(max_length=264, null=True, blank=True)
 
     def __str__(self):
         return f"Telegram {self.username if self.username else self.tg_id}"
@@ -156,11 +159,12 @@ class Rule(models.Model):
         verbose_name_plural = "Rules"
 
 class Course(models.Model):
-    course = models.TextField(null=False, blank=False)
+    name = models.CharField(max_length=562, null=False, blank=True)
+    description = models.TextField(null=False, blank=False)
     image_url = models.ImageField(upload_to="images/", null=True, blank=True)
 
     def __str__(self):
-        return f"{self.course}"
+        return f"{self.name}"
 
     class Meta:
         verbose_name = "Course"

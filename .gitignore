@@ -3,3 +3,11 @@ __pycache__
 .idea/
 .env
 bot.log
+debug.log
+media/images/*
+static/
+migrations/
+.vscode
+db.sqlite3
+logs/*
+debug.log

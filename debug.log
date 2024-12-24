@@ -4426,3 +4426,1175 @@ Watching for file changes with StatReloader
 [32mHTTP POST /admin/chat/course/ 302 [0.01, 127.0.0.1:41374][0m
 [mHTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:41374][0m
 [mHTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:41374][0m
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+[32mHTTP GET / 302 [0.01, 127.0.0.1:55990][0m
+[mHTTP GET /login?next=/ 200 [0.01, 127.0.0.1:55990][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.01, 127.0.0.1:56018][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.02, 127.0.0.1:55990][0m
+[mHTTP GET /static/chat/js/bootstrap.bundle.min.js 200 [0.01, 127.0.0.1:56008][0m
+[mHTTP GET /static/chat/css/style.css 200 [0.02, 127.0.0.1:55998][0m
+Not Found: /favicon.ico
+[33mHTTP GET /favicon.ico 404 [0.01, 127.0.0.1:56008][0m
+[32mHTTP GET /admin/ 302 [0.01, 127.0.0.1:56008][0m
+[mHTTP GET /admin/login/?next=/admin/ 200 [0.01, 127.0.0.1:56008][0m
+[mHTTP GET /static/admin/css/login.css 200 [0.01, 127.0.0.1:38052][0m
+[mHTTP GET /static/admin/css/base.css 200 [0.01, 127.0.0.1:56008][0m
+[mHTTP GET /static/admin/css/dark_mode.css 200 [0.01, 127.0.0.1:55990][0m
+[mHTTP GET /static/admin/css/responsive.css 200 [0.01, 127.0.0.1:38068][0m
+[mHTTP GET /static/admin/css/nav_sidebar.css 200 [0.01, 127.0.0.1:56018][0m
+[mHTTP GET /static/admin/js/theme.js 200 [0.01, 127.0.0.1:55998][0m
+[mHTTP GET /static/admin/js/nav_sidebar.js 200 [0.00, 127.0.0.1:55998][0m
+[32mHTTP POST /admin/login/?next=/admin/ 302 [0.18, 127.0.0.1:55998][0m
+[mHTTP GET /admin/ 200 [0.01, 127.0.0.1:55998][0m
+[36mHTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:38068][0m
+[36mHTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:56008][0m
+[36mHTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:56018][0m
+[36mHTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:38052][0m
+[36mHTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:55990][0m
+[mHTTP GET /static/admin/css/dashboard.css 200 [0.01, 127.0.0.1:55998][0m
+[36mHTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:55998][0m
+[mHTTP GET /static/admin/img/icon-changelink.svg 200 [0.00, 127.0.0.1:38052][0m
+[mHTTP GET /static/admin/img/icon-deletelink.svg 200 [0.00, 127.0.0.1:55998][0m
+[mHTTP GET /static/admin/img/icon-addlink.svg 200 [0.00, 127.0.0.1:55990][0m
+Internal Server Error: /admin/chat/course/
+Traceback (most recent call last):
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: chat_course.name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 2140, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: chat_course.name
+[35;1mHTTP GET /admin/chat/course/ 500 [0.02, 127.0.0.1:55990][0m
+/home/user/projects/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/user/projects/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Internal Server Error: /admin/chat/course/
+Traceback (most recent call last):
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/sessions/backends/base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 229, in inner
+    if not self.has_permission(request):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 202, in has_permission
+    return request.user.is_active and request.user.is_staff
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/functional.py", line 251, in inner
+    self._setup()
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/utils/functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/auth/middleware.py", line 37, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/auth/middleware.py", line 17, in get_user
+    request._cached_user = auth.get_user(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/auth/__init__.py", line 209, in get_user
+    user_id = _get_user_session_key(request)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/auth/__init__.py", line 62, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/sessions/backends/base.py", line 55, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/sessions/backends/base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/sessions/backends/db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/contrib/sessions/backends/db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/projects/english_bot/.venv/lib/python3.12/site-packages/django/db/backends/sqlite3/base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: django_session
+HTTP GET /admin/chat/course/ 500 [0.06, 127.0.0.1:57986]
+/home/user/projects/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/user/projects/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/user/projects/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+HTTP GET / 302 [0.01, 127.0.0.1:60662]
+HTTP GET /login?next=/ 200 [0.01, 127.0.0.1:60662]
+HTTP GET /static/chat/css/bootstrap.min.css 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/chat/css/style.css 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/chat/js/script.js 304 [0.00, 127.0.0.1:60682]
+HTTP POST /login?next=/ 302 [0.19, 127.0.0.1:60682]
+HTTP GET /login 200 [0.00, 127.0.0.1:60682]
+HTTP GET /static/chat/css/bootstrap.min.css 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/chat/css/style.css 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/chat/js/script.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:60668]
+HTTP GET /admin/ 200 [0.02, 127.0.0.1:60668]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:60662]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/css/dashboard.css 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/img/icon-changelink.svg 304 [0.00, 127.0.0.1:48112]
+HTTP GET /admin/chat/customuser/ 200 [0.02, 127.0.0.1:48112]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.02, 127.0.0.1:48106]
+HTTP GET /static/admin/js/jquery.init.js 200 [0.02, 127.0.0.1:60682]
+HTTP GET /static/admin/css/changelists.css 200 [0.02, 127.0.0.1:48112]
+HTTP GET /static/admin/js/core.js 200 [0.02, 127.0.0.1:60662]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.02, 127.0.0.1:60668]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/js/prepopulate.js 200 [0.01, 127.0.0.1:60662]
+HTTP GET /static/admin/js/urlify.js 200 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/actions.js 200 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.01, 127.0.0.1:60668]
+HTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/js/filters.js 200 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/img/tooltag-add.svg 200 [0.00, 127.0.0.1:60668]
+HTTP GET /admin/chat/customuser/1/change/ 200 [0.03, 127.0.0.1:60668]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/calendar.js 200 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/css/forms.css 200 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/admin/DateTimeShortcuts.js 200 [0.01, 127.0.0.1:60662]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/css/widgets.css 200 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/prepopulate_init.js 200 [0.01, 127.0.0.1:60668]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:60682]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/img/icon-deletelink.svg 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/img/icon-changelink.svg 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/change_form.js 200 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/img/icon-viewlink.svg 200 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/img/icon-calendar.svg 200 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/img/icon-clock.svg 200 [0.00, 127.0.0.1:60676]
+HTTP POST /admin/chat/customuser/1/change/ 302 [0.01, 127.0.0.1:60676]
+HTTP GET /admin/chat/customuser/ 200 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:48106]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/img/icon-yes.svg 200 [0.00, 127.0.0.1:48106]
+HTTP GET /admin/chat/studentandteacherchat/ 200 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/actions.js 304 [0.07, 127.0.0.1:60682]
+HTTP GET /static/admin/js/urlify.js 304 [0.07, 127.0.0.1:60676]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.07, 127.0.0.1:48112]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /admin/jsi18n/ 200 [0.09, 127.0.0.1:60662]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:60668]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /admin/chat/course/add/ 200 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:60662]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:60676]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:60676]
+HTTP POST /admin/chat/course/add/ 302 [0.03, 127.0.0.1:60676]
+HTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:60662]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:60668]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:60682]
+HTTP GET /admin/chat/course/1/change/ 200 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:60662]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:60662]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.01, 127.0.0.1:60682]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:48112]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:48112]
+HTTP GET /admin/chat/course/add/ 200 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:48112]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:48106]
+HTTP GET /admin/jsi18n/ 200 [0.03, 127.0.0.1:60662]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:48106]
+HTTP POST /admin/chat/course/add/ 302 [0.01, 127.0.0.1:48106]
+HTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:60668]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:60662]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:60682]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:60676]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:48106]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:60662]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:60668]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:60682]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:60676]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:48112]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:48106]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:48112]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:48112]
+HTTP GET / 200 [0.01, 127.0.0.1:46010]
+HTTP GET /static/chat/css/style.css 304 [0.00, 127.0.0.1:46020]
+HTTP GET /static/chat/css/bootstrap.min.css 304 [0.00, 127.0.0.1:46010]
+HTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:46032]
+HTTP GET /static/chat/js/script.js 304 [0.00, 127.0.0.1:46038]
+HTTP GET /admin/chat/rule/ 200 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49232]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:49232]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.01, 127.0.0.1:49232]
+HTTP GET /admin/chat/rule/add/ 200 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49262]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:49262]
+HTTP POST /admin/chat/rule/add/ 302 [0.01, 127.0.0.1:49262]
+HTTP GET /admin/chat/rule/ 200 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49232]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:49236]
+HTTP GET /admin/chat/rule/add/ 200 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49248]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:49248]
+HTTP POST /admin/chat/rule/add/ 302 [0.01, 127.0.0.1:49248]
+HTTP GET /admin/chat/rule/ 200 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49258]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:49258]
+HTTP GET /admin/chat/rule/add/ 200 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49252]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:49232]
+HTTP POST /admin/chat/rule/add/ 302 [0.01, 127.0.0.1:49232]
+HTTP GET /admin/chat/rule/ 200 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49248]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:49252]
+HTTP GET /admin/chat/question/ 200 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49252]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49236]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /admin/chat/question/add/ 200 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49232]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49232]
+HTTP POST /admin/chat/question/add/ 302 [0.01, 127.0.0.1:49232]
+HTTP GET /admin/chat/question/add/ 200 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49252]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:49232]
+HTTP POST /admin/chat/question/add/ 302 [0.01, 127.0.0.1:49232]
+HTTP GET /admin/chat/question/ 200 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49258]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:49236]
+HTTP GET /admin/chat/question/add/ 200 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:49258]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49262]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:49236]
+HTTP POST /admin/chat/question/add/ 302 [0.01, 127.0.0.1:49236]
+HTTP GET /admin/chat/question/ 200 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:49262]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:49236]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:49252]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:49232]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:49262]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:49236]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:49252]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:49232]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:49248]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:49258]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:49248]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:49258]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:49258]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:53112]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:53112]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:53112]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:58652]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:58652]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:58652]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:53356]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:53356]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:53356]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:47136]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:47136]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:47136]
+HTTP GET / 200 [0.01, 127.0.0.1:47140]
+HTTP GET /static/chat/css/bootstrap.min.css 304 [0.00, 127.0.0.1:47140]
+HTTP GET /static/chat/css/style.css 304 [0.00, 127.0.0.1:47152]
+HTTP GET /static/chat/js/script.js 304 [0.00, 127.0.0.1:47164]
+HTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:47154]
+HTTP GET /inbox/ 200 [0.01, 127.0.0.1:47154]
+HTTP GET /static/chat/css/style.css 304 [0.00, 127.0.0.1:47164]
+HTTP GET /static/chat/css/bootstrap.min.css 304 [0.00, 127.0.0.1:47154]
+HTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:47152]
+HTTP GET /static/chat/js/script.js 304 [0.00, 127.0.0.1:47140]
+HTTP GET /chat/telegram_user/1 200 [0.01, 127.0.0.1:47140]
+HTTP GET /static/chat/css/bootstrap.min.css 304 [0.00, 127.0.0.1:47140]
+HTTP GET /static/chat/css/style.css 304 [0.00, 127.0.0.1:47152]
+HTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:47154]
+HTTP GET /static/chat/js/script.js 304 [0.00, 127.0.0.1:47164]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:42590]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:42590]
+HTTP GET /chat_list/telegram_users 200 [0.01, 127.0.0.1:47164]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:42590]
+HTTP GET /static/chat/css/bootstrap.min.css 304 [0.00, 127.0.0.1:47164]
+HTTP GET /static/chat/css/style.css 304 [0.00, 127.0.0.1:47154]
+HTTP GET /static/chat/js/script.js 304 [0.00, 127.0.0.1:47140]
+HTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:47152]
+/home/user/projects/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/user/projects/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP GET /admin/chat/customuser/ 200 [0.03, 127.0.0.1:57088]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:57088]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:57098]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:57100]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:57126]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:57138]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:57098]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:57100]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:57126]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:57138]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:57098]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:57100]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:57116]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:57088]
+HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:57088]
+HTTP GET /admin/chat/telegramuser/ 200 [0.01, 127.0.0.1:57088]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:57100]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:57098]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:57088]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:57138]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:57116]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:57100]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:57098]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:57088]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:57138]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:57098]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:57100]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:57088]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:57088]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:57126]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:57126]
+HTTP GET /admin/chat/telegramuser/1/change/ 200 [0.01, 127.0.0.1:57126]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:57088]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:57126]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:57100]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:57098]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:57126]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:57100]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:57088]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:57098]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:57116]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:57100]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:57126]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:57098]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:57088]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:57116]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:57100]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:57138]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:57100]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:57138]
+HTTP GET /admin/chat/telegramuser/1/change/ 200 [0.01, 127.0.0.1:54458]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:54458]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:54462]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:54496]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:54482]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:54476]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:54484]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:54462]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:54496]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:54482]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:54476]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:54484]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:54462]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:54496]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:54476]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.01, 127.0.0.1:54484]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:54482]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:54458]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:54482]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:54458]
+HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:54458]
+HTTP POST /admin/chat/telegramuser/1/change/ 302 [0.01, 127.0.0.1:54458]
+HTTP GET /admin/chat/telegramuser/ 200 [0.01, 127.0.0.1:54458]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:54484]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:54476]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:54496]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:54482]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:54458]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:54476]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:54482]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:54484]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:54458]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:54496]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:54476]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:54482]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:54458]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:54484]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:54484]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:54462]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:54484]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:54484]
+HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:54462]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:42268]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:42268]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:42268]
+HTTP GET /admin/chat/telegramuser/1/change/ 200 [0.01, 127.0.0.1:35540]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:35540]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:35562]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:35552]
+HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:35576]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:35586]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:35582]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:35562]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:35552]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:35576]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:35586]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:35582]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:35552]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:35576]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:35582]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:35562]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:35586]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:35586]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:35540]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:35586]
+HTTP POST /admin/chat/telegramuser/1/change/ 302 [0.01, 127.0.0.1:35586]
+HTTP GET /admin/chat/telegramuser/ 200 [0.01, 127.0.0.1:35586]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:35586]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:35562]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:35540]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:35582]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:35576]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:35586]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:35562]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:35540]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:35582]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:35576]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:35586]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:35540]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:35582]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:35562]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:35562]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:35552]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:35552]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:35552]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:46698]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:46698]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:46698]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:46196]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:46196]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:46196]
+Watching for file changes with StatReloader
+HTTP GET / 200 [0.02, 127.0.0.1:51302]
+HTTP GET /static/chat/css/bootstrap.min.css 304 [0.00, 127.0.0.1:51302]
+HTTP GET /static/chat/css/style.css 304 [0.00, 127.0.0.1:51306]
+HTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:51302]
+HTTP GET /static/chat/js/script.js 304 [0.00, 127.0.0.1:51322]
+Not Found: /favicon.ico
+HTTP GET /favicon.ico 404 [0.01, 127.0.0.1:51322]
+HTTP GET /admin/ 200 [0.02, 127.0.0.1:51332]
+HTTP GET /static/admin/css/dashboard.css 304 [0.00, 127.0.0.1:51332]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:51342]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:51344]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:51354]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:51362]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:51362]
+HTTP GET /static/admin/img/icon-addlink.svg 304 [0.00, 127.0.0.1:51362]
+HTTP GET /static/admin/img/icon-changelink.svg 304 [0.00, 127.0.0.1:51354]
+HTTP GET /admin/chat/telegramuser/ 200 [0.02, 127.0.0.1:51354]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:51354]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:51362]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:51350]
+HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:51342]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:51344]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:51354]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:51362]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:51344]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:51342]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:51362]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:51354]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:51344]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:51332]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:51332]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:51344]
+HTTP GET /static/admin/img/tooltag-add.svg 304 [0.00, 127.0.0.1:51344]
+HTTP GET /admin/chat/telegramuser/1/change/ 200 [0.02, 127.0.0.1:51344]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:51344]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:51354]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:51332]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:51362]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:51344]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:51354]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:51332]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:51362]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:51354]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:51344]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:51362]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:51332]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:51350]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:51342]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:51342]
+HTTP POST /admin/chat/telegramuser/1/change/ 302 [0.01, 127.0.0.1:51342]
+HTTP GET /admin/chat/telegramuser/ 200 [0.01, 127.0.0.1:51342]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:51342]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:51362]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:51332]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:51344]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:51350]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:51362]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:51342]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:51344]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:51332]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:51342]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:51362]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:51350]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:51344]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:51344]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:51354]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:51344]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:51344]
+Watching for file changes with StatReloader
+HTTP GET /admin/chat/telegramuser/ 200 [0.06, 127.0.0.1:53894]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:53894]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:53910]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.02, 127.0.0.1:53916]
+HTTP GET /static/admin/css/changelists.css 304 [0.02, 127.0.0.1:53924]
+HTTP GET /static/admin/css/responsive.css 304 [0.02, 127.0.0.1:53938]
+HTTP GET /static/admin/js/theme.js 304 [0.02, 127.0.0.1:53944]
+HTTP GET /static/admin/js/core.js 304 [0.02, 127.0.0.1:53924]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:53938]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.02, 127.0.0.1:53916]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.02, 127.0.0.1:53910]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:53944]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:53916]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:53924]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:53938]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:53938]
+HTTP GET /admin/jsi18n/ 200 [0.06, 127.0.0.1:53894]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:53894]
+HTTP GET /admin/chat/telegramuser/1/change/ 200 [0.01, 127.0.0.1:53894]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:53894]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:53924]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:53938]
+HTTP GET /static/admin/css/forms.css 304 [0.00, 127.0.0.1:53944]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:53916]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:53938]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:53916]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:53924]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:53894]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:53944]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:53938]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:53916]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:53944]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:53894]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:53924]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:53938]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:53910]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:53938]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:53938]
+HTTP POST /admin/chat/telegramuser/1/change/ 302 [0.01, 127.0.0.1:53938]
+HTTP GET /admin/chat/telegramuser/ 200 [0.01, 127.0.0.1:53938]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:53938]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:53924]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:53894]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.00, 127.0.0.1:53910]
+HTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:53944]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:53924]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:53894]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:53938]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:53910]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:53944]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:53924]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:53938]
+HTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:53894]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:53910]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:53910]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:53916]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:53910]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:53910]
+Watching for file changes with StatReloader
+HTTP GET /admin/chat/telegramuser/ 200 [0.03, 127.0.0.1:51196]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:51196]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:51212]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:51238]
+HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:51234]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:51228]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:51244]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:51212]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:51238]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:51234]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:51228]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:51244]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:51212]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:51238]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:51234]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:51234]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:51234]
+HTTP GET /admin/jsi18n/ 200 [0.04, 127.0.0.1:51196]
+HTTP GET /admin/chat/telegramuser/1/change/ 200 [0.01, 127.0.0.1:51196]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:51196]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:51238]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:51234]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:51212]
+HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:51244]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:51238]
+HTTP GET /static/admin/js/core.js 304 [0.01, 127.0.0.1:51212]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:51196]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.01, 127.0.0.1:51234]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:51244]
+HTTP GET /static/admin/js/actions.js 304 [0.01, 127.0.0.1:51212]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:51234]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:51196]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:51238]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:51244]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:51212]
+HTTP GET /admin/jsi18n/ 200 [0.03, 127.0.0.1:51228]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:51212]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:51228]
+HTTP POST /admin/chat/telegramuser/1/change/ 302 [0.01, 127.0.0.1:51228]
+HTTP GET /admin/chat/telegramuser/ 200 [0.01, 127.0.0.1:51228]
+HTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:51244]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.00, 127.0.0.1:51238]
+HTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:51228]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:51212]
+HTTP GET /static/admin/css/changelists.css 304 [0.01, 127.0.0.1:51196]
+HTTP GET /static/admin/css/responsive.css 304 [0.00, 127.0.0.1:51244]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:51238]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:51228]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:51212]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.01, 127.0.0.1:51196]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:51244]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:51238]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:51228]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:51212]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:51234]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:51212]
+HTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:51212]
+HTTP GET /static/admin/img/icon-yes.svg 304 [0.00, 127.0.0.1:51212]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:45984]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:45984]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:45984]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:41272]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:41272]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:41272]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:41282]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:41282]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:41282]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:41296]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:41296]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:41296]
+WebSocket HANDSHAKING /ws/chat/1/ [127.0.0.1:49926]
+WebSocket CONNECT /ws/chat/1/ [127.0.0.1:49926]
+WebSocket DISCONNECT /ws/chat/1/ [127.0.0.1:49926]
+HTTP GET /admin/chat/telegramuser/1/change/ 200 [0.01, 127.0.0.1:45964]
+HTTP GET /static/admin/css/base.css 304 [0.00, 127.0.0.1:45964]
+HTTP GET /static/admin/css/dark_mode.css 304 [0.01, 127.0.0.1:45976]
+HTTP GET /static/admin/js/theme.js 304 [0.01, 127.0.0.1:46004]
+HTTP GET /static/admin/css/nav_sidebar.css 304 [0.01, 127.0.0.1:45992]
+HTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:46010]
+HTTP GET /static/admin/css/responsive.css 304 [0.01, 127.0.0.1:46014]
+HTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:45992]
+HTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:46004]
+HTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.01, 127.0.0.1:45976]
+HTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:46010]
+HTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:46014]
+HTTP GET /static/admin/css/widgets.css 304 [0.01, 127.0.0.1:45992]
+HTTP GET /static/admin/js/urlify.js 304 [0.01, 127.0.0.1:46004]
+HTTP GET /static/admin/js/prepopulate.js 304 [0.01, 127.0.0.1:45976]
+HTTP GET /static/admin/js/prepopulate_init.js 304 [0.00, 127.0.0.1:46014]
+HTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.01, 127.0.0.1:46010]
+HTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:46010]
+HTTP GET /admin/jsi18n/ 200 [0.02, 127.0.0.1:45964]
+HTTP GET /static/admin/js/change_form.js 304 [0.00, 127.0.0.1:46010]

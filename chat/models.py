@@ -154,3 +154,14 @@ class Rule(models.Model):
     class Meta:
         verbose_name = "Rule"
         verbose_name_plural = "Rules"
+
+class Course(models.Model):
+    course = models.TextField(null=False, blank=False)
+    image_url = models.ImageField(upload_to="images/", null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.course}"
+
+    class Meta:
+        verbose_name = "Course"
+        verbose_name_plural = "Courses"

@@ -6,7 +6,8 @@ from .models import (
     TelegramUserAndAdminChat,
     SystemAction,
     Rule,
-    Question
+    Question,
+    Course
 )
 
 admin.site.register(
@@ -17,6 +18,7 @@ admin.site.register(
         TelegramUserAndAdminChat,
         SystemAction,
         Rule,
-        Question
+        Question,
+        Course
     ]
 )

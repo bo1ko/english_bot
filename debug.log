@@ -4322,3 +4322,107 @@ Watching for file changes with StatReloader
 [32mHTTP POST /admin/chat/question/9/change/ 302 [0.01, 127.0.0.1:53294][0m
 [mHTTP GET /admin/chat/question/ 200 [0.01, 127.0.0.1:53294][0m
 [mHTTP GET /admin/jsi18n/ 200 [0.00, 127.0.0.1:38892][0m
+Watching for file changes with StatReloader
+[mHTTP GET / 200 [0.01, 127.0.0.1:55894][0m
+[36mHTTP GET /static/chat/css/style.css 304 [0.01, 127.0.0.1:55912][0m
+[mHTTP GET /static/chat/js/script.js 200 [0.01, 127.0.0.1:55910][0m
+[36mHTTP GET /static/chat/js/bootstrap.bundle.min.js 304 [0.00, 127.0.0.1:55920][0m
+[mHTTP GET /static/chat/css/bootstrap.min.css 200 [0.01, 127.0.0.1:55894][0m
+[mHTTP GET /admin/ 200 [0.02, 127.0.0.1:55894][0m
+[36mHTTP GET /static/admin/js/theme.js 304 [0.00, 127.0.0.1:55922][0m
+[36mHTTP GET /static/admin/css/base.css 304 [0.01, 127.0.0.1:55912][0m
+[mHTTP GET /static/admin/css/dashboard.css 200 [0.00, 127.0.0.1:55934][0m
+[mHTTP GET /static/admin/css/dark_mode.css 200 [0.01, 127.0.0.1:55920][0m
+[mHTTP GET /static/admin/css/nav_sidebar.css 200 [0.01, 127.0.0.1:55894][0m
+[mHTTP GET /static/admin/css/responsive.css 200 [0.01, 127.0.0.1:55946][0m
+[36mHTTP GET /static/admin/js/nav_sidebar.js 304 [0.00, 127.0.0.1:55922][0m
+[mHTTP GET /static/admin/img/icon-addlink.svg 200 [0.00, 127.0.0.1:55946][0m
+[mHTTP GET /static/admin/img/icon-changelink.svg 200 [0.00, 127.0.0.1:55920][0m
+/home/bybr/Desktop/english_bot/chat/admin.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/admin.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP GET /admin/ 200 [0.02, 127.0.0.1:60456][0m
+[mHTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:60456][0m
+[36mHTTP GET /static/admin/css/changelists.css 304 [0.00, 127.0.0.1:60456][0m
+[36mHTTP GET /static/admin/js/core.js 304 [0.00, 127.0.0.1:60500][0m
+[36mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 304 [0.00, 127.0.0.1:60502][0m
+[36mHTTP GET /static/admin/js/jquery.init.js 304 [0.00, 127.0.0.1:60496][0m
+[36mHTTP GET /static/admin/js/vendor/jquery/jquery.js 304 [0.00, 127.0.0.1:60480][0m
+[36mHTTP GET /static/admin/js/actions.js 304 [0.00, 127.0.0.1:60456][0m
+[36mHTTP GET /static/admin/js/urlify.js 304 [0.00, 127.0.0.1:60500][0m
+[36mHTTP GET /static/admin/js/vendor/xregexp/xregexp.js 304 [0.00, 127.0.0.1:60496][0m
+[36mHTTP GET /static/admin/js/filters.js 304 [0.00, 127.0.0.1:60480][0m
+[36mHTTP GET /static/admin/js/prepopulate.js 304 [0.00, 127.0.0.1:60502][0m
+[mHTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:60464][0m
+[mHTTP GET /static/admin/img/tooltag-add.svg 200 [0.00, 127.0.0.1:60464][0m
+[mHTTP GET /admin/chat/course/add/ 200 [0.02, 127.0.0.1:60456][0m
+[mHTTP GET /static/admin/css/forms.css 200 [0.00, 127.0.0.1:60500][0m
+[mHTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:60464][0m
+[mHTTP GET /static/admin/js/prepopulate_init.js 200 [0.00, 127.0.0.1:60496][0m
+[mHTTP GET /static/admin/js/change_form.js 200 [0.00, 127.0.0.1:60500][0m
+[mHTTP GET /static/admin/css/widgets.css 200 [0.00, 127.0.0.1:60500][0m
+[32mHTTP GET / 302 [0.00, 127.0.0.1:60510][0m
+/home/bybr/Desktop/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+[mHTTP GET /admin/chat/course/add/ 200 [0.03, 127.0.0.1:60498][0m
+[mHTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:60498][0m
+[32mHTTP POST /admin/chat/course/add/ 302 [0.03, 127.0.0.1:60498][0m
+[mHTTP GET /admin/chat/course/ 200 [0.02, 127.0.0.1:60498][0m
+[mHTTP GET /admin/jsi18n/ 200 [0.00, 127.0.0.1:60498][0m
+[mHTTP GET /static/admin/img/icon-yes.svg 200 [0.00, 127.0.0.1:45308][0m
+/home/bybr/Desktop/english_bot/app/settings.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP POST /admin/chat/course/ 200 [0.02, 127.0.0.1:45654][0m
+[mHTTP GET /static/admin/js/cancel.js 200 [0.00, 127.0.0.1:45654][0m
+[32mHTTP POST /admin/chat/course/ 302 [0.01, 127.0.0.1:42302][0m
+[mHTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:42302][0m
+[mHTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:42302][0m
+[mHTTP GET /admin/chat/course/add/ 200 [0.01, 127.0.0.1:42302][0m
+[mHTTP GET /admin/jsi18n/ 200 [0.00, 127.0.0.1:42318][0m
+[32mHTTP POST /admin/chat/course/add/ 302 [0.04, 127.0.0.1:42302][0m
+[mHTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:42302][0m
+[mHTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:42302][0m
+/home/bybr/Desktop/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/chat/models.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/bybr/Desktop/english_bot/app/urls.py changed, reloading.
+Watching for file changes with StatReloader
+[mHTTP POST /admin/chat/course/ 200 [0.02, 127.0.0.1:41374][0m
+[32mHTTP POST /admin/chat/course/ 302 [0.01, 127.0.0.1:41374][0m
+[mHTTP GET /admin/chat/course/ 200 [0.01, 127.0.0.1:41374][0m
+[mHTTP GET /admin/jsi18n/ 200 [0.01, 127.0.0.1:41374][0m

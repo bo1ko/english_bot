@@ -44,6 +44,20 @@ def get_or_create_communication_chat(
         logger.error(f"Get or create chat student and admin: {e}")
         return None, None
 
+@sync_to_async
+def check_student(tg_id: int) -> StudentAndTeacherChat:
+    try:
+        telegram = TelegramUser.objects.get(tg_id=tg_id)
+        user = CustomUser.objects.get(telegram=telegram)
+        chat = StudentAndTeacherChat.objects.get(student=user)
+        
+        if chat:
+            return True
+        
+        return False
+    except Exception as e:
+        logger.error(f"Check student: {e}")
+        return False
 
 @sync_to_async
 def get_telegram_user(tg_id: int) -> TelegramUser:

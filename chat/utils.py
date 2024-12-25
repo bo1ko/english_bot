@@ -6,7 +6,7 @@ from aiogram import Bot
 from aiogram.enums.parse_mode import ParseMode
 from dotenv import load_dotenv
 from .models import TelegramUserAndAdminChat
-
+from telegram_bot.core.keyboards import get_callback_btns
 
 load_dotenv()
 
@@ -25,9 +25,10 @@ def send_sync_telegram_message(user_telegram_id, message):
 
 def edit_sync_telegram_message(chat_id: int, message_id: int, new_text: str):
     try:
-        telebot_bot.edit_message_text(
-            chat_id=chat_id, message_id=message_id, text=new_text, parse_mode="HTML"
-        )
+        telebot_bot.edit_message_text(chat_id=chat_id,
+                                      message_id=message_id,
+                                      text=new_text,
+                                      parse_mode="HTML")
         logging.info(f"Message edited: {chat_id} | {message_id}")
         return True
     except Exception as e:
@@ -37,9 +38,10 @@ def edit_sync_telegram_message(chat_id: int, message_id: int, new_text: str):
 
 def reply_sync_telegram_message(chat_id, message_id, reply_text):
     try:
-        telebot_bot.send_message(
-            chat_id, reply_text, reply_to_message_id=message_id, parse_mode="HTML"
-        )
+        telebot_bot.send_message(chat_id,
+                                 reply_text,
+                                 reply_to_message_id=message_id,
+                                 parse_mode="HTML")
         logging.info(f"Reply sent to message {message_id} in chat {chat_id}")
         return True
     except Exception as e:
@@ -47,18 +49,29 @@ def reply_sync_telegram_message(chat_id, message_id, reply_text):
         return False
 
 
-async def send_async_telegram_message(chat_id: int, text: str, reply_message_id: int = False):
+async def send_async_telegram_message(chat_id: int,
+                                      text: str,
+                                      reply_message_id: int = False):
     try:
+        btns = {
+            "Відповісти": f"admin",
+        }
         if reply_message_id:
             sent_message = await aiogram_bot.send_message(
-                chat_id=chat_id, text=text, reply_to_message_id=reply_message_id, parse_mode=ParseMode.HTML
-            )
+                chat_id=chat_id,
+                text=text,
+                reply_to_message_id=reply_message_id,
+                parse_mode=ParseMode.HTML,
+                reply_markup=get_callback_btns(btns=btns))
         else:
             sent_message = await aiogram_bot.send_message(
-                chat_id=chat_id, text=text, parse_mode=ParseMode.HTML
+                chat_id=chat_id,
+                text=text,
+                parse_mode=ParseMode.HTML,
+                reply_markup=get_callback_btns(btns=btns),
             )
         message_id = sent_message.message_id
 
         return message_id
     except Exception as e:
-        logging.error(f"Error sending message: {e}")  
+        logging.error(f"Error sending message: {e}")

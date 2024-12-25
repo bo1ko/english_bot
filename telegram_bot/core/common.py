@@ -7,4 +7,5 @@ private = [
     BotCommand(command="questions", description="Найпоширеніші запитання"),
     BotCommand(command="rules", description="Правила школи"),
     BotCommand(command="admin", description="Написати адміністраторові"),
+    BotCommand(command="teacher", description="Зв'язатися з викладачем"),
 ]

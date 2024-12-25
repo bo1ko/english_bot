@@ -7,7 +7,7 @@ debug.log
 media/images/*
 static/
 migrations/
-.vscode
+.vscode/
 db.sqlite3
 logs/*
 debug.log

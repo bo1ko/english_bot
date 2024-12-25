@@ -22,6 +22,7 @@ main_btns = {
     "Найпоширеніші запитання 🤔": "questions",
     "Правила школи 📜": "rules",
     "Написати адміністраторові 👨🏻‍💻": "admin",
+    "Зв'язок з вчителем": "teacher",
 }
 
 admin_btn = {
@@ -248,7 +249,7 @@ async def cmd_admin(message: Message, state: FSMContext, loop=False):
         if is_registered is None:
             await message.answer("Виникла помилка при провірці на реєстрацію...")
             return
-        elif is_registered:
+        elif is_registered is False:
             await message.answer("Для початку потрібно зареєструватись 👌")
             await registration(message)
 
@@ -289,11 +290,30 @@ async def cmd_admin_first(message: Message, state: FSMContext):
                              reply_markup=get_callback_btns(btns=back_to_menu))
 
 
+@router.callback_query(F.data == "teacher")
+async def teacher(callback: CallbackQuery, state: FSMContext, loop=False):
+    if loop:
+        await state.clear()
+    else:
+        await callback.message.delete()
+        result = await db_request.check_student(callback.from_user.id)
+        if not result:
+            await callback.message.answer("Ви не є студентом нашої школи. Для початку потрібно зареєструватись 👌", reply_markup=get_callback_btns(btns=back_to_menu))
+            return
+        
+        await callback.message.answer("Введіть повідомлення для вчителя", reply_markup=get_callback_btns(btns=back_to_menu))
+
+    await state.set_state(TeacherMessage.message)
+
 @router.message(Command("teacher"))
 async def cmd_teacher(message: Message, state: FSMContext, loop=False):
     if loop:
         await state.clear()
     else:
+        result = await db_request.check_student(message.from_user.id)
+        if not result:
+            await message.answer("Ви не є студентом нашої школи. Для початку потрібно зареєструватись 👌", reply_markup=get_callback_btns(btns=back_to_menu))
+            return
         await message.answer("Введіть повідомлення для вчителя")
 
     await state.set_state(TeacherMessage.message)
@@ -321,10 +341,10 @@ async def cmd_teacher_first(message: Message, state: FSMContext):
     )
 
     if socket_result:
-        await message.answer("Ваше повідомлення було надіслано вчителю.")
+        await message.answer("Ваше повідомлення було надіслано вчителю.", reply_markup=get_callback_btns(btns=back_to_menu))
         await cmd_teacher(message, state, loop=True)
     else:
-        await message.answer("Не вдалося надіслати повідомлення вчителю.")
+        await message.answer("Не вдалося надіслати повідомлення вчителю.", reply_markup=get_callback_btns(btns=back_to_menu))
 
 
 @router.callback_query(or_f(F.data == "rules"))
@@ -371,4 +391,5 @@ async def registration_result(message: Message, state: FSMContext):
     result = await get_contact_info(message)
     if result:
         await message.answer('Реєстрація пройшла успішно!', reply_markup=ReplyKeyboardRemove())
+        await message.answer('Введіть повідомлення для адміністрації', reply_markup=get_callback_btns(btns=back_to_menu))
         await cmd_admin(message, state, True)

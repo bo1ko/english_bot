@@ -11,6 +11,7 @@
                     <tr>
                         <th>Telegram ID</th>
                         <th>Username</th>
+                        <th>Зв'язок з учнем</th>
                         <th>Роль</th>
                     </tr>
                 </thead>
@@ -20,6 +21,9 @@
                             <tr>
                                 <td>{{ user.tg_id }}</td>
                                 <td>{{ user.username }}</td>
+                                <td>
+                                    <a href="{% url 'chat:chat_room' 'telegram_user' user.pk %}" class="btn btn-primary">Написати</a>
+                                </td>
                                 <td>
                                     {% if user.user %}
                                         {{ user.user.get_role_display }}

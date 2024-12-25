@@ -15,11 +15,17 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Ім'я & Прізвище</th>
+                    {% if request.user.role == "super_administrator" %}
                     <th>Логін</th>
                     <th>Телеграм</th>
                     <th>Послідня активність</th>
                     <th>Дії</th>
+                    {% else %}
+                    <th>Ім'я & Прізвище</th>
+                    {% endif %}
+                    {% if page == "teachers" %}
+                    <th>Зв'язок з вчителем</th>
+                    {% endif %}
                 </tr>
                 </thead>
                 <tbody>
@@ -27,8 +33,16 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>{{ custom_user.first_name }} {{ custom_user.last_name }}</td>
-                        <td>{{ custom_user.username }}</td>
-                        <td>{% if custom_user.telegram %}{{ custom_user.telegram }}{% else %}-{% endif %}</td>
+                        {% if request.user.role == "super_administrator" %}
+                            <td>{{ custom_user.username }}</td>
+                            <td>{% if custom_user.telegram %}{{ custom_user.telegram }}{% else %}-{% endif %}</td>
+                        {% endif %}
+                        {% if page == "teachers" %}
+                        <td>
+                            <a href="{% url 'chat:chat_room' 'teacher' custom_user.pk %}" class="btn btn-primary">Написати</a>
+                        </td>
+                        {% endif %}
+                        {% if request.user.role == "super_administrator" %}
                         <td>{% if custom_user.last_login %}{{ custom_user.last_login }}{% else %}-{% endif %}</td>
                         <td>
                             {% if page == "teachers" %}
@@ -46,6 +60,7 @@
                                     data-user-id="{{ custom_user.pk }}">Змінити Telegram
                             </button>
                         </td>
+                        {% endif%}
                     </tr>
                     <tr id="telegram-form-{{ custom_user.pk }}" class="d-none">
                         <td colspan="6">

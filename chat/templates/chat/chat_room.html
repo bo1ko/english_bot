@@ -125,6 +125,52 @@
                               <hr>
                           </div>
                         {% endfor %}
+                      {% elif chat_with == "teacher" %}
+                        {% for message in obj_messages %}
+                          <div class="chat-message" data-message-id="{{ message.message_id }}">
+                              <strong>{{ message.sender }}</strong>
+                              <div class="chat-inner mb-2">
+                                  <div class="d-flex justify-content-between">
+                                      <p class="p-0 m-0">{{ message.text }}</p>
+                                      <span class="timestamp">{{ message.created_at|date:"Y-m-d H:i:s" }}</span>
+                                  </div>
+                                  <div class="d-flex align-items-end flex-column">
+                                      {% if message.message_id and message.source == "site" %}
+                                      {% if message.sender_id == user.pk %}
+                                          <button class="btn btn-link p-0 m-0"
+                                                  style="font-size: 10px"
+                                                  onclick="edit_message({{ message.message_id }}, '{{ message.text|escapejs }}')">
+                                              Редагувати
+                                          </button>
+                                      {% endif %}
+                                          {% if message.edited_text %}
+                                              <button class="btn btn-link p-0 m-0"
+                                                      style="font-size: 10px"
+                                                      onclick="show_edits({{ message.message_id }})">
+                                                  Показати редагування
+                                              </button>
+                                          {% endif %}
+                                      {% endif %}
+                                      {% if message.source == "telegram" %}
+                                          <button class="btn btn-link p-0 m-0"
+                                                  style="font-size: 10px"
+                                                  onclick="reply_message({{ message.message_id }})">Reply</button>
+                                      {% endif %}
+                                  </div>
+                                  <div id="edit-list-{{ message.message_id }}" class="edit-list d-none">
+                                      <ul class="list-group">
+                                          {% for edit in message.edited_text reversed %}
+                                              <li class="list-group-item d-flex justify-content-between">
+                                                  <span>{{ edit.edit_text }}</span>
+                                                  <span class="timestamp">{{ edit.edit_time }}</span>
+                                              </li>
+                                          {% endfor %}
+                                      </ul>
+                                  </div>
+                              </div>
+                              <hr>
+                          </div>
+                        {% endfor %}
                       {% endif %}
                     {% else %}
                         <p>No messages yet.</p>

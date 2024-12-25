@@ -123,9 +123,10 @@ class TelegramUserAndAdminChat(models.Model):
 
 
 class SystemAction(models.Model):
-    telegram = ForeignKey(
-        "TelegramUser", on_delete=models.DO_NOTHING, null=False, blank=False
-    )
+    telegram = ForeignKey("TelegramUser",
+                          on_delete=models.DO_NOTHING,
+                          null=False,
+                          blank=False)
     action = models.JSONField(default=list, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -136,6 +137,7 @@ class SystemAction(models.Model):
     class Meta:
         verbose_name = "System Action"
         verbose_name_plural = "System Actions"
+
 
 class Question(models.Model):
     question = models.CharField(max_length=562, null=False, blank=False)
@@ -148,6 +150,7 @@ class Question(models.Model):
         verbose_name = "Question"
         verbose_name_plural = "Questions"
 
+
 class Rule(models.Model):
     rule = models.TextField(null=False, blank=False)
 
@@ -157,6 +160,7 @@ class Rule(models.Model):
     class Meta:
         verbose_name = "Rule"
         verbose_name_plural = "Rules"
+
 
 class Course(models.Model):
     name = models.CharField(max_length=562, null=False, blank=True)
@@ -169,3 +173,34 @@ class Course(models.Model):
     class Meta:
         verbose_name = "Course"
         verbose_name_plural = "Courses"
+
+
+class TeacherAndAdminChat(models.Model):
+    admin = models.ForeignKey(
+        CustomUser,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=False,
+        limit_choices_to={
+            "role": CustomUser.SITE_ADMIN,
+            "role": CustomUser.SUPER_ADMIN,
+        },
+        related_name="admin_teacher_chats",
+    )
+    teacher = models.ForeignKey(
+        CustomUser,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=False,
+        limit_choices_to={"role": CustomUser.TEACHER},
+        related_name="teacher_admin_chats",
+    )
+    admin_list = models.JSONField(blank=True, null=True)
+    messages = models.JSONField(default=list, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.pk} | Chat between teacher {self.teacher.username} and admin {self.admin.username}"
+
+    class Meta:
+        verbose_name = "Teacher And Admin Chat"
+        verbose_name_plural = "Teacher And Admin Chats"

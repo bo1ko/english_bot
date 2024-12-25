@@ -7,7 +7,8 @@ from .models import (
     SystemAction,
     Rule,
     Question,
-    Course
+    Course,
+    TeacherAndAdminChat
 )
 
 admin.site.register(
@@ -19,6 +20,7 @@ admin.site.register(
         SystemAction,
         Rule,
         Question,
-        Course
+        Course,
+        TeacherAndAdminChat
     ]
 )

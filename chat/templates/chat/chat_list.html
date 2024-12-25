@@ -33,6 +33,28 @@
                             </div>
                         </a>
                     {% endfor %}
+                {% elif chat_with == "teacher" and user.role == "teacher" %}
+                    {% for chat in chats %}
+                        <a href="{% url 'chat:chat_room' 'teacher' chat.pk %}" class="list-group-item list-group-item-action">
+                            <div>
+                                <strong>Адміністратор {{ chat.admin.first_name }} ({{ chat.admin.username }})</strong>
+                                <p>{{ chat.last_message }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                {% elif chat_with == "teacher" and user.role == "site_administrator" or user.role == "super_administrator" %}
+                    {% for chat in chats %}
+                        <a href="{% url 'chat:chat_room' 'teacher' chat.pk %}" class="list-group-item list-group-item-action">
+                            <div>
+                                {% if user.role == "site_administrator" %}
+                                    <strong>Вчитель {{ chat.teacher.first_name }}</strong>
+                                {% elif user.role == "super_administrator" %}
+                                    <strong>{{ chat.teacher.username }} ({{ chat.teacher.first_name }} {{ chat.teacher.last_name }})</strong>
+                                {% endif %}
+                                <p>{{ chat.last_message }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
                 {% endif %}
             {% else %}
                 <p>Вхідних повідомлень немає</p>

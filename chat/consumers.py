@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 
 from .models import (
     CustomUser,
+    TeacherAndAdminChat,
     TelegramUser,
     TelegramUserAndAdminChat,
     StudentAndTeacherChat,
@@ -36,7 +37,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             logger.info("Get receive", text_data)
             data = json.loads(text_data)
             message = data["message"]
-            user_id = data["user_id"]
+            user_id = data["user_id"]       
             source = data.get("source", "site")
             message_id = data.get("message_id")
             reply_message_id = data.get("reply_message_id", False)
@@ -53,11 +54,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     logger.error(f"User with ID {user_id} not found")
                     return
 
-                telegram_id = await self.get_telegram_user_id(chat, chat_with)
+                if chat_with != "teacher":
+                    telegram_id = await self.get_telegram_user_id(chat, chat_with)
 
-                if not telegram_id:
-                    logger.error(f"Telegram user ID not found for chat {self.chat_id}")
-                    return
+                    if not telegram_id:
+                        logger.error(f"Telegram user ID not found for chat {self.chat_id}")
+                        return
 
                 if user.role == "super_administrator":
                     telegram_text = f"<b><i>Головний адміністратор</i></b>"
@@ -83,13 +85,16 @@ class ChatConsumer(AsyncWebsocketConsumer):
                         and await self.is_teacher_none(chat)
                     ):
                         await self.assign_teacher(chat, user)
+                elif chat_with == "teacher":
+                    pass
                 else:
                     return
 
-                telegram_text += f"\n{message}"
-                message_id = await send_async_telegram_message(
-                    telegram_id, telegram_text, reply_message_id
-                )
+                if chat_with != "teacher":
+                    telegram_text += f"\n{message}"
+                    message_id = await send_async_telegram_message(
+                        telegram_id, telegram_text, reply_message_id
+                    )
             elif source == "telegram":
                 user = await self.get_telegram_user(user_id)
                 if not user:
@@ -195,6 +200,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 return TelegramUserAndAdminChat.objects.get(pk=chat_id)
             elif chat_with == "student":
                 return StudentAndTeacherChat.objects.get(pk=chat_id)
+            elif chat_with == "teacher":
+                return TeacherAndAdminChat.objects.get(pk=chat_id)
             else:
                 print('Exit')
                 return

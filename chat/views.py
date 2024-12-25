@@ -9,6 +9,7 @@ from django.contrib import messages
 from .decorators import role_required
 from .models import (
     CustomUser,
+    TeacherAndAdminChat,
     TelegramUserAndAdminChat,
     TelegramUser,
     StudentAndTeacherChat,
@@ -42,11 +43,13 @@ def index(request):
     return render(request, "chat/index.html")
 
 
-@role_required("super_administrator")
+@role_required(["super_administrator", "site_administrator"])
 @login_required
 def panel(request, page):
     context = {}
-    if page == "admins":
+    
+    
+    if page == "admins" and request.user.role == "super_administrator":
         custom_users = CustomUser.objects.filter(role="site_administrator")
         update_tg_form = ChangeTelegramForm()
 
@@ -61,7 +64,7 @@ def panel(request, page):
         context["update_tg_form"] = update_tg_form
         context["title"] = "вчителів"
         context["button_create_name"] = "Вчитель"
-    elif page == "students":
+    elif page == "students" and request.user.role == "super_administrator":
         custom_users = CustomUser.objects.filter(role="student")
         update_tg_form = ChangeTelegramForm()
         context["custom_users"] = custom_users
@@ -548,6 +551,19 @@ def chat_list(request, chat_with):
             return
 
         context["title"] = "Чати з телеграм користувачами"
+    elif chat_with == "teacher":
+        if request.user.role == "super_administrator":
+            chats = TeacherAndAdminChat.objects.all()
+        elif request.user.role == "site_administrator":
+            admin = CustomUser.objects.get(username=request.user.username)
+            chats = TeacherAndAdminChat.objects.filter(admin=admin)
+        elif request.user.role == "teacher":
+            teacher = CustomUser.objects.get(pk=request.user.pk)
+            chats = TeacherAndAdminChat.objects.filter(teacher=teacher)
+        else:
+            return
+    else:
+        return
 
     for chat in chats:
         if chat.messages:
@@ -572,6 +588,13 @@ def chat_room(request, chat_with, chat_id):
         )
     elif chat_with == "student":
         chat = get_object_or_404(StudentAndTeacherChat, pk=chat_id)
+    elif chat_with == "teacher":
+        if request.user.role == "teacher":
+            chat = get_object_or_404(TeacherAndAdminChat, pk=chat_id, teacher=request.user)
+        else:
+            admin = CustomUser.objects.get(pk=request.user.pk)
+            teacher = CustomUser.objects.get(pk=chat_id)
+            chat, _ = TeacherAndAdminChat.objects.get_or_create(teacher=teacher, admin=admin)
 
     obj_messages = chat.messages if chat.messages else []
 

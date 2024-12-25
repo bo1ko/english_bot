@@ -14,12 +14,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{% url 'chat:panel' 'teachers' %}" class="nav-link align-middle px-0 text-white">
-                    <i class="fs-4 bi-person-badge-fill"></i>
-                    <span class="ms-1 d-none d-sm-inline">Вчителі</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a href="{% url 'chat:panel' 'students' %}" class="nav-link align-middle px-0 text-white">
                     <i class="fs-4 bi-mortarboard-fill"></i>
                     <span class="ms-1 d-none d-sm-inline">Учні</span>
@@ -34,6 +28,12 @@
             {% endif %}
             {% if user.role == "site_administrator" or user.role == "super_administrator" %}
             <li class="nav-item">
+                <a href="{% url 'chat:panel' 'teachers' %}" class="nav-link align-middle px-0 text-white">
+                    <i class="fs-4 bi-person-badge-fill"></i>
+                    <span class="ms-1 d-none d-sm-inline">Вчителі</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{% url 'chat:system_actions' %}" class="nav-link align-middle px-0 text-white">
                     <i class="fs-4 bi-book-fill"></i>
                     <span class="ms-1 d-none d-sm-inline">Системні дії</span>
@@ -47,12 +47,22 @@
             </li>
             <li class="nav-item">
                 <a href="{% url 'chat:chat_list' 'telegram_users' %}" class="nav-link align-middle px-0 text-white">
-                    <i class="fs-4 bi-chat-fill"></i>
+                    <i class="fs-4 bi-chat-dots-fill"></i>
                     <span class="ms-1 d-none d-sm-inline">Чати з телеграм користувачами</span>
                 </a>
             </li>
             {% endif %}
             {% if user.role == "site_administrator" or user.role == "super_administrator" or user.role == "teacher" %}
+            <li class="nav-item">
+                <a href="{% url 'chat:chat_list' 'teacher' %}" class="nav-link align-middle px-0 text-white">
+                    <i class="fs-4 bi-chat-dots-fill"></i>
+                    {% if user.role == "site_administrator" or user.role == "super_administrator" %}
+                    <span class="ms-1 d-none d-sm-inline">Чати з вчителями</span>
+                    {% elif user.role == "teacher" %}
+                    <span class="ms-1 d-none d-sm-inline">Чати з адміністрацією</span>
+                    {% endif %}
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="{% url 'chat:chat_list' 'students' %}" class="nav-link align-middle px-0 text-white">
                     <i class="fs-4 bi-chat-dots-fill"></i>

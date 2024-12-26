@@ -65,7 +65,7 @@ class CustomUser(AbstractUser):
 
 
 class StudentAndTeacherChat(models.Model):
-    student = models.OneToOneField(
+    student = models.ForeignKey(
         CustomUser,
         on_delete=models.SET_NULL,
         null=True,
@@ -73,7 +73,7 @@ class StudentAndTeacherChat(models.Model):
         limit_choices_to={"role": CustomUser.STUDENT},
         related_name="student_teacher_chats",
     )
-    teacher = models.OneToOneField(
+    teacher = models.ForeignKey(
         CustomUser,
         on_delete=models.SET_NULL,
         null=True,
@@ -85,7 +85,7 @@ class StudentAndTeacherChat(models.Model):
     messages = models.JSONField(default=list, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.pk} | Chat between student {self.student.username} and teacher {self.teacher.username}"
+        return f"{self.pk} | Chat between student {self.student.username if self.student else None} and teacher {self.teacher.username if self.teacher else None}"
 
     class Meta:
         verbose_name = "Student And Teacher Chat"

@@ -5,7 +5,7 @@ import os
 from aiogram import Bot
 from aiogram.enums.parse_mode import ParseMode
 from dotenv import load_dotenv
-from .models import TelegramUserAndAdminChat
+from .models import TelegramUserAndAdminChat, StudentAndTeacherChat, TeacherAndAdminChat
 from telegram_bot.core.keyboards import get_callback_btns
 
 load_dotenv()
@@ -47,6 +47,15 @@ def reply_sync_telegram_message(chat_id, message_id, reply_text):
     except Exception as e:
         logging.error(f"Could not send reply: {e}")
         return False
+
+
+async def send_async_alert_message(tg_id: int, role: str, from_user: str):
+    try:
+        await aiogram_bot.send_message(chat_id=tg_id,
+                                       text=f"Вам прийшло нове повідомлення від {role} {from_user}.",
+                                       parse_mode=ParseMode.HTML)
+    except Exception as e:
+        logging.error(f"Error sending alert message: {e}")
 
 
 async def send_async_telegram_message(chat_id: int,

@@ -581,10 +581,8 @@ def chat_list(request, chat_with):
 @login_required
 def chat_room(request, chat_with, chat_id):
     if chat_with == "telegram_user":
-        admin = CustomUser.objects.get(pk=request.user.pk)
-        telegram = TelegramUser.objects.get(pk=chat_id)
         chat, _ = TelegramUserAndAdminChat.objects.get_or_create(
-            telegram_user=telegram, admin=admin
+            pk=chat_id
         )
     elif chat_with == "student":
         chat = get_object_or_404(StudentAndTeacherChat, pk=chat_id)
@@ -595,6 +593,7 @@ def chat_room(request, chat_with, chat_id):
             admin = CustomUser.objects.get(pk=request.user.pk)
             teacher = CustomUser.objects.get(pk=chat_id)
             chat, _ = TeacherAndAdminChat.objects.get_or_create(teacher=teacher, admin=admin)
+            print(chat)
 
     obj_messages = chat.messages if chat.messages else []
 

@@ -37,7 +37,6 @@ back_to_menu = {
     "Головне меню 🏠": "back",
 }
 
-
 # handlers
 
 
@@ -45,15 +44,15 @@ back_to_menu = {
 async def cmd_start(message: Message, state: FSMContext):
     await state.clear()
     await db_request.create_system_action(
-        await db_request.get_telegram_user(message.from_user.id), "/start"
-    )
-    photo = FSInputFile("media/images/placeholder-image.jpg", filename="image.jpg")
+        await db_request.get_telegram_user(message.from_user.id), "/start")
+    photo = FSInputFile("media/images/placeholder-image.jpg",
+                        filename="image.jpg")
     text = "Привітальне повідомлення"
 
     await message.answer_photo(
         photo=photo,
         caption=text,
-        reply_markup=get_callback_btns(btns=main_btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=main_btns, sizes=(1, )),
     )
 
 
@@ -61,41 +60,46 @@ async def cmd_start(message: Message, state: FSMContext):
 async def cmd_back(callback: CallbackQuery, state: FSMContext):
     await state.clear()
     await db_request.create_system_action(
-        await db_request.get_telegram_user(callback.from_user.id), "/start"
-    )
-    photo = FSInputFile("media/images/placeholder-image.jpg", filename="image.jpg")
+        await db_request.get_telegram_user(callback.from_user.id), "Назад")
+    photo = FSInputFile("media/images/placeholder-image.jpg",
+                        filename="image.jpg")
     text = "Привітальне повідомлення"
 
     await callback.message.delete()
     await callback.message.answer_photo(
         photo=photo,
         caption=text,
-        reply_markup=get_callback_btns(btns=main_btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=main_btns, sizes=(1, )),
     )
 
 
-@router.callback_query(or_f(F.data == "questions", F.data == "back_to_questions"))
+@router.callback_query(
+    or_f(F.data == "questions", F.data == "back_to_questions"))
 async def questions(callback: CallbackQuery):
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(callback.from_user.id), "questions")
     btns = await db_request.get_questions_btns()
     btns.update(back_btn)
 
     await callback.message.delete()
     await callback.message.answer(
         text="Популярні питання",
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
 @router.message(Command("questions"))
 async def questions(message: Message, state: FSMContext):
     await state.clear()
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(message.from_user.id), "/questions")
     btns = await db_request.get_questions_btns()
     btns.update(back_btn)
 
     await message.delete()
     await message.answer(
         text="Популярні питання",
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
@@ -111,40 +115,46 @@ async def question_info(callback: CallbackQuery, bot: Bot):
 
     await callback.message.edit_text(
         text=f"{question.question}\n\n{question.answer}",
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
 @router.callback_query(or_f(F.data == "courses", F.data == "back_to_courses"))
 async def courses(callback: CallbackQuery, bot: Bot):
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(callback.from_user.id), "courses")
     btns = await db_request.get_courses_btns()
     btns.update(back_btn)
 
     await callback.message.delete()
     await callback.message.answer(
         text="Оберіть мову і дізнайтеся більше про доступні курси 👇",
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
 @router.message(Command("courses"))
 async def courses(message: Message, state: FSMContext):
     await state.clear()
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(message.from_user.id), "/courses")
     btns = await db_request.get_courses_btns()
     btns.update(back_btn)
 
     await message.delete()
     await message.answer(
         text="Оберіть мову і дізнайтеся більше про доступні курси 👇",
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
 @router.callback_query(F.data.startswith("course_"))
 async def course_info(callback: CallbackQuery, bot: Bot):
     course_id = callback.data.split("_")[1]
-
     course = await db_request.get_course(int(course_id))
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(callback.from_user.id),
+        f"Course {course.name}")
     text = f"{course.name}\n\n{course.description}"
     btns = {
         "Для дорослих 👨‍🦰👩‍🦳": f"course_{course_id}_adults",
@@ -161,12 +171,14 @@ async def course_info(callback: CallbackQuery, bot: Bot):
             media=FSInputFile(course.image_url.path, filename="image.jpg"),
             caption=text,
         ),
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
 @router.callback_query(F.data == "about")
 async def cmd_about(callback: CallbackQuery, bot: Bot):
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(callback.from_user.id), f"About")
     text = """
     Ми українська онлайн школа UKnow. 🇺🇦Працюємо з 2022 року і допомагаємо українцям в різних куточках світу оволодіти мовою і інтегруватися в суспільство. Сьогодні ми пропонуємо уроки з англійської, іспанської, польської, французької, італійської, чеської, словацької, німецької та турецької мов 🌎
 
@@ -185,13 +197,15 @@ async def cmd_about(callback: CallbackQuery, bot: Bot):
         media=InputMediaPhoto(media=image_path, caption=text),
         chat_id=callback.message.chat.id,
         message_id=callback.message.message_id,
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
 @router.message(Command("about"))
 async def cmd_about(message: Message, bot: Bot, state: FSMContext):
     await state.clear()
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(message.from_user.id), f"/about")
     text = """
     Ми українська онлайн школа UKnow. 🇺🇦Працюємо з 2022 року і допомагаємо українцям в різних куточках світу оволодіти мовою і інтегруватися в суспільство. Сьогодні ми пропонуємо уроки з англійської, іспанської, польської, французької, італійської, чеської, словацької, німецької та турецької мов 🌎
 
@@ -210,7 +224,7 @@ async def cmd_about(message: Message, bot: Bot, state: FSMContext):
         media=InputMediaPhoto(media=image_path, caption=text),
         chat_id=message.chat.id,
         message_id=message.message_id,
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
@@ -226,17 +240,24 @@ class TeacherMessage(StatesGroup):
 async def admin(callback: CallbackQuery, state: FSMContext):
     await state.clear()
     await callback.answer()
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(callback.from_user.id), f"Admin")
 
     is_registered = await db_request.check_registration(callback.from_user.id)
     if is_registered is None:
-        await callback.message.answer("Виникла помилка при провірці на реєстрацію...")
+        await callback.message.answer(
+            "Виникла помилка при провірці на реєстрацію...")
         return
     elif is_registered is False:
+        await db_request.create_system_action(
+            await db_request.get_telegram_user(message.from_user.id),
+            f"Registration")
         await callback.message.answer("Для початку потрібно зареєструватись 👌")
         await registration(callback.message)
     else:
-        await callback.message.answer("Введіть повідомлення для адміністрації",
-                                      reply_markup=get_callback_btns(btns=back_to_menu))
+        await callback.message.answer(
+            "Введіть повідомлення для адміністрації",
+            reply_markup=get_callback_btns(btns=back_to_menu))
         await state.set_state(AdminMessage.message)
 
 
@@ -245,18 +266,23 @@ async def cmd_admin(message: Message, state: FSMContext, loop=False):
     if loop:
         await state.clear()
     else:
-        is_registered = await db_request.check_registration(message.from_user.id)
+        is_registered = await db_request.check_registration(
+            message.from_user.id)
         if is_registered is None:
-            await message.answer("Виникла помилка при провірці на реєстрацію...")
+            await message.answer(
+                "Виникла помилка при провірці на реєстрацію...")
             return
         elif is_registered is False:
+            await db_request.create_system_action(
+                await db_request.get_telegram_user(message.from_user.id),
+                f"Registration")
             await message.answer("Для початку потрібно зареєструватись 👌")
             await registration(message)
 
             return
 
         await message.answer("Введіть повідомлення для адміністрації",
-                                 reply_markup=get_callback_btns(btns=back_to_menu))
+                             reply_markup=get_callback_btns(btns=back_to_menu))
     await state.set_state(AdminMessage.message)
 
 
@@ -266,8 +292,7 @@ async def cmd_admin_first(message: Message, state: FSMContext):
     obj_tg_user = await db_request.get_telegram_user(message.from_user.id)
 
     obj_chat, chat_created = await db_request.get_or_create_communication_chat(
-        obj_tg_user, chat_with
-    )
+        obj_tg_user, chat_with)
 
     if chat_created is None:
         await message.answer("Не вдалося створити чат.")
@@ -286,8 +311,9 @@ async def cmd_admin_first(message: Message, state: FSMContext):
                              reply_markup=get_callback_btns(btns=back_to_menu))
         await cmd_admin(message, state, loop=True)
     else:
-        await message.answer("Не вдалося надіслати повідомлення адміністрації.",
-                             reply_markup=get_callback_btns(btns=back_to_menu))
+        await message.answer(
+            "Не вдалося надіслати повідомлення адміністрації.",
+            reply_markup=get_callback_btns(btns=back_to_menu))
 
 
 @router.callback_query(F.data == "teacher")
@@ -296,23 +322,36 @@ async def teacher(callback: CallbackQuery, state: FSMContext, loop=False):
         await state.clear()
     else:
         await callback.message.delete()
+        await db_request.create_system_action(
+            await db_request.get_telegram_user(callback.from_user.id),
+            f"teacher")
         result = await db_request.check_student(callback.from_user.id)
         if not result:
-            await callback.message.answer("Ви не є студентом нашої школи. Для початку потрібно зареєструватись 👌", reply_markup=get_callback_btns(btns=back_to_menu))
+            await callback.message.answer(
+                "Ви не є студентом нашої школи. Для початку потрібно зареєструватись 👌",
+                reply_markup=get_callback_btns(btns=back_to_menu))
             return
-        
-        await callback.message.answer("Введіть повідомлення для вчителя", reply_markup=get_callback_btns(btns=back_to_menu))
+
+        await callback.message.answer(
+            "Введіть повідомлення для вчителя",
+            reply_markup=get_callback_btns(btns=back_to_menu))
 
     await state.set_state(TeacherMessage.message)
+
 
 @router.message(Command("teacher"))
 async def cmd_teacher(message: Message, state: FSMContext, loop=False):
     if loop:
         await state.clear()
     else:
+        await db_request.create_system_action(
+            await db_request.get_telegram_user(message.from_user.id),
+            f"/teacher")
         result = await db_request.check_student(message.from_user.id)
         if not result:
-            await message.answer("Ви не є студентом нашої школи. Для початку потрібно зареєструватись 👌", reply_markup=get_callback_btns(btns=back_to_menu))
+            await message.answer(
+                "Ви не є студентом нашої школи. Для початку потрібно зареєструватись 👌",
+                reply_markup=get_callback_btns(btns=back_to_menu))
             return
         await message.answer("Введіть повідомлення для вчителя")
 
@@ -325,8 +364,7 @@ async def cmd_teacher_first(message: Message, state: FSMContext):
     obj_tg_user = await db_request.get_telegram_user(message.from_user.id)
 
     obj_chat, chat_created = await db_request.get_or_create_communication_chat(
-        obj_tg_user, chat_with
-    )
+        obj_tg_user, chat_with)
 
     if chat_created is None:
         await message.answer("Не вдалося створити чат.")
@@ -341,14 +379,18 @@ async def cmd_teacher_first(message: Message, state: FSMContext):
     )
 
     if socket_result:
-        await message.answer("Ваше повідомлення було надіслано вчителю.", reply_markup=get_callback_btns(btns=back_to_menu))
+        await message.answer("Ваше повідомлення було надіслано вчителю.",
+                             reply_markup=get_callback_btns(btns=back_to_menu))
         await cmd_teacher(message, state, loop=True)
     else:
-        await message.answer("Не вдалося надіслати повідомлення вчителю.", reply_markup=get_callback_btns(btns=back_to_menu))
+        await message.answer("Не вдалося надіслати повідомлення вчителю.",
+                             reply_markup=get_callback_btns(btns=back_to_menu))
 
 
 @router.callback_query(or_f(F.data == "rules"))
 async def rules(callback: CallbackQuery):
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(callback.from_user.id), f"Rules")
     text = "Правила школи 🚨\nз повним переліком правил роботи школи ви можете ознайомитися у договорі який вам надав ваш менеджер ✅\nДля вашої зручності додаємо сюди основні моменти:\n\n"
     text += await db_request.get_rules_txt()
 
@@ -359,13 +401,15 @@ async def rules(callback: CallbackQuery):
     await callback.message.delete()
     await callback.message.answer(
         text=text,
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
 @router.message(Command("rules"))
 async def rules(message: Message, state: FSMContext):
     await state.clear()
+    await db_request.create_system_action(
+        await db_request.get_telegram_user(message.from_user.id), f"/rules")
     text = "Правила школи 🚨\nз повним переліком правил роботи школи ви можете ознайомитися у договорі який вам надав ваш менеджер ✅\nДля вашої зручності додаємо сюди основні моменти:\n\n"
     text += await db_request.get_rules_txt()
 
@@ -376,7 +420,7 @@ async def rules(message: Message, state: FSMContext):
     await message.delete()
     await message.answer(
         text=text,
-        reply_markup=get_callback_btns(btns=btns, sizes=(1,)),
+        reply_markup=get_callback_btns(btns=btns, sizes=(1, )),
     )
 
 
@@ -390,6 +434,11 @@ async def registration(message: Message):
 async def registration_result(message: Message, state: FSMContext):
     result = await get_contact_info(message)
     if result:
-        await message.answer('Реєстрація пройшла успішно!', reply_markup=ReplyKeyboardRemove())
-        await message.answer('Введіть повідомлення для адміністрації', reply_markup=get_callback_btns(btns=back_to_menu))
+        await db_request.create_system_action(
+            await db_request.get_telegram_user(message.from_user.id),
+            f"Success Registration")
+        await message.answer('Реєстрація пройшла успішно!',
+                             reply_markup=ReplyKeyboardRemove())
+        await message.answer('Введіть повідомлення для адміністрації',
+                             reply_markup=get_callback_btns(btns=back_to_menu))
         await cmd_admin(message, state, True)

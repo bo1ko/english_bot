@@ -4,7 +4,7 @@ __pycache__
 .env
 bot.log
 debug.log
-media/images/*
+media/*
 static/
 migrations/
 .vscode/

@@ -25,4 +25,11 @@ urlpatterns = [
     path("inbox/", views.inbox, name="inbox"),
     path("edit-message/", views.edit_message, name="edit_message"),
     path("chat_list/<str:chat_with>", views.chat_list, name="chat_list"),
+    path("send_media/", views.send_media, name="send_media"),
 ]
+
+handler400 = views.custom_400
+handler403 = views.custom_403
+handler404 = views.custom_404
+handler500 = views.custom_500
+

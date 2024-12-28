@@ -1,9 +1,9 @@
+import base64
 from aiogram import Bot, Router, F
 from aiogram.filters import CommandStart, Command, or_f
 from aiogram.types import Message, FSInputFile, CallbackQuery, InputMediaPhoto, ReplyKeyboardRemove
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
-from twisted.python.test.deprecatedattributes import message
 
 import django_setup
 from telegram_bot.core import db_request
@@ -250,7 +250,7 @@ async def admin(callback: CallbackQuery, state: FSMContext):
         return
     elif is_registered is False:
         await db_request.create_system_action(
-            await db_request.get_telegram_user(message.from_user.id),
+            await db_request.get_telegram_user(callback.from_user.id),
             f"Registration")
         await callback.message.answer("Для початку потрібно зареєструватись 👌")
         await registration(callback.message)
@@ -442,3 +442,126 @@ async def registration_result(message: Message, state: FSMContext):
         await message.answer('Введіть повідомлення для адміністрації',
                              reply_markup=get_callback_btns(btns=back_to_menu))
         await cmd_admin(message, state, True)
+
+
+class SendMedia(StatesGroup):
+    data = State()
+
+
+@router.callback_query(F.data.startswith("send_"))
+async def send_media(callback: CallbackQuery, state: FSMContext):
+    data = callback.data.split("_")
+    media_type = data[1]
+    send_to_id = int(data[2])
+    chat_with = "_".join([data[3], data[4]])
+
+    await state.clear()
+    await callback.answer()
+
+    if media_type == "image":
+        await callback.message.answer("Відправте фото")
+    elif media_type == "video":
+        await callback.message.answer("Відправте відео")
+    elif media_type == "audio":
+        await callback.message.answer("Відправте аудіо")
+    else:
+        return
+
+    await state.set_state(SendMedia.data)
+    await state.update_data({
+        "file_type": media_type,
+        "send_to_id": send_to_id,
+        "chat_with": chat_with,
+    })
+
+
+@router.message(SendMedia.data)
+async def send_media_second(message: Message, state: FSMContext):
+    data = await state.get_data()
+    send_to_id = data["send_to_id"]
+    chat_with = data["chat_with"]
+    file_type = data["file_type"]
+    media_type = message.content_type
+
+    try:
+        if media_type == "photo":
+            photo = message.photo[-1]
+            file_id = photo.file_id
+            file_name = f"{photo.file_unique_id}.jpg"
+
+            file = await message.bot.get_file(file_id)
+            file_content = await message.bot.download_file(file.file_path)
+
+        elif media_type == "video":
+            video = message.video
+            file_id = video.file_id
+            file_name = f"{video.file_unique_id}.mp4"
+
+            file = await message.bot.get_file(file_id)
+            file_content = await message.bot.download_file(file.file_path)
+
+        elif media_type == "voice":
+            voice = message.voice
+            file_id = voice.file_id
+            file_name = f"{voice.file_unique_id}.ogg"
+
+            file = await message.bot.get_file(file_id)
+            file_content = await message.bot.download_file(file.file_path)
+
+        # Encode the file content to base64
+        encoded_file_content = base64.b64encode(file_content.read()).decode("utf-8")
+        files = [{"name": file_name, "data": encoded_file_content}]
+
+        obj_tg_user = await db_request.get_telegram_user(send_to_id)
+
+        if obj_tg_user:
+            result = await db_request.get_or_create_communication_chat(
+                obj_tg_user, chat_with)
+        else:
+            await message.answer("Помилка знаходження користувача.")
+            return 0
+
+        if result is None:
+            await message.answer("Не вдалося створити чат.")
+            return
+        
+        obj_chat, chat_created, sender_pk = result
+        
+        # Send data via websocket
+        socket_result = await send_to_websocket(
+            obj_chat.pk,
+            sender_pk,
+            message.text,
+            message.message_id,
+            chat_with=chat_with,
+            files=files,
+            file_type=file_type,
+            source="site"
+        )
+
+        if socket_result:
+            if media_type == "photo":
+                await message.bot.send_photo(chat_id=send_to_id,
+                                             photo=file_id,
+                                             caption=message.caption)
+            elif media_type == "video":
+                await message.bot.send_video(chat_id=send_to_id,
+                                             video=file_id,
+                                             caption=message.caption)
+            elif media_type == "voice":
+                await message.bot.send_voice(chat_id=send_to_id,
+                                             voice=file_id,
+                                             caption=message.caption)
+            else:
+                return
+
+            await message.answer(
+                "Надіслано.",
+                reply_markup=get_callback_btns(btns=back_to_menu))
+        else:
+            await message.answer(
+                "Помилка надсилання.",
+                reply_markup=get_callback_btns(btns=back_to_menu))
+
+    except Exception as e:
+        await message.answer(f"Виникла помилка при відправці медіа: {str(e)}")

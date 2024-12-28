@@ -115,7 +115,7 @@ class TelegramUserAndAdminChat(models.Model):
     messages = models.JSONField(default=list, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.pk} | Chat between telegram user {self.telegram_user.username} and admin {self.admin.username if self.admin else None}"
+        return f"{self.pk} | Chat between telegram user {self.telegram_user.username if self.telegram_user else None} and admin {self.admin.username if self.admin else None}"
 
     class Meta:
         verbose_name = "Telegram User And Admin Chat"
@@ -124,9 +124,9 @@ class TelegramUserAndAdminChat(models.Model):
 
 class SystemAction(models.Model):
     telegram = ForeignKey("TelegramUser",
-                          on_delete=models.DO_NOTHING,
+                          on_delete=models.SET_DEFAULT,
                           null=False,
-                          blank=False)
+                          blank=False, default=None)
     action = models.JSONField(default=list, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -5,6 +5,7 @@ from django.db import IntegrityError
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password, check_password
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from .decorators import role_required
 from .models import (
@@ -20,6 +21,7 @@ from .utils import (
     edit_sync_telegram_message,
     reply_sync_telegram_message,
     send_sync_telegram_message,
+    send_telegram_media
 )
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_protect
@@ -584,16 +586,19 @@ def chat_room(request, chat_with, chat_id):
         chat, _ = TelegramUserAndAdminChat.objects.get_or_create(
             pk=chat_id
         )
+        send_to_id = chat.telegram_user.tg_id
     elif chat_with == "student":
         chat = get_object_or_404(StudentAndTeacherChat, pk=chat_id)
+        send_to_id = chat.student.telegram.tg_id
     elif chat_with == "teacher":
         if request.user.role == "teacher":
             chat = get_object_or_404(TeacherAndAdminChat, pk=chat_id, teacher=request.user)
+            send_to_id = chat.admin.telegram.tg_id
         else:
             admin = CustomUser.objects.get(pk=request.user.pk)
             teacher = CustomUser.objects.get(pk=chat_id)
             chat, _ = TeacherAndAdminChat.objects.get_or_create(teacher=teacher, admin=admin)
-            print(chat)
+            send_to_id = chat.teacher.telegram.tg_id
 
     obj_messages = chat.messages if chat.messages else []
 
@@ -604,6 +609,40 @@ def chat_room(request, chat_with, chat_id):
         "obj_messages": obj_messages,
         "chat": chat,
         "chat_with": chat_with,
+        "send_to_id": send_to_id,
     }
 
     return render(request, "chat/chat_room.html", context)
+
+@csrf_protect
+@require_POST
+def send_media(request):
+    tg_id = request.POST.get("tg_id")
+    media = request.POST.get("type")
+    send_to_id = request.POST.get("send_to_id")
+    chat_with = request.POST.get("chat_with")
+    
+    if tg_id and media:
+        send_telegram_media(tg_id, send_to_id, media, chat_with)
+        return JsonResponse({"message": True}, status=200)
+    
+    return JsonResponse({"message": False}, status=500)
+
+def custom_error(request, exception=None, status_code=500, error_message="Internal Server Error"):
+    context = {
+        'status_code': status_code,
+        'error_message': error_message
+    }
+    return render(request, 'chat/error.html', context, status=status_code)
+
+def custom_400(request, exception):
+    return custom_error(request, exception, status_code=400, error_message="Bad Request")
+
+def custom_403(request, exception):
+    return custom_error(request, exception, status_code=403, error_message="Forbidden")
+
+def custom_404(request, exception):
+    return custom_error(request, exception, status_code=404, error_message="Page Not Found")
+
+def custom_500(request):
+    return custom_error(request, status_code=500, error_message="Internal Server Error")

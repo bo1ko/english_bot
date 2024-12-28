@@ -206,6 +206,13 @@
                             <button id="chat-message-submit" class="btn btn-primary">Надіслати</button>
                         </div>
                     </div>
+                    {% if user.telegram %}
+                    <div class="mt-2">
+                        <button class="btn btn-secondary" onclick="sendData({{ request.user.telegram.tg_id}}, {{ send_to_id }}, 'image')">Надіслати зображення</button>
+                        <button class="btn btn-secondary" onclick="sendData({{ request.user.telegram.tg_id}}, {{ send_to_id }}, 'video')">Надіслати відео</button>
+                        <button class="btn btn-secondary" onclick="sendData({{ request.user.telegram.tg_id}}, {{ send_to_id }}, 'audio')">Записати аудіо</button>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -374,5 +381,24 @@
         resetEditing();
         resetReplying();
       };
+      function sendData(tg_id, send_to_id, type) {
+        $.ajax({
+            url: '/send_media/',
+            method: 'POST',
+            data: {
+              type: type,
+              tg_id: tg_id,
+              send_to_id: send_to_id,
+              chat_with: chatWith,
+              csrfmiddlewaretoken: csrfToken,
+            },
+            success: function(data) {
+                console.log('Успішно надіслано:', data); // Обробляємо успішний результат
+            },
+            error: function(xhr, status, error) {
+                console.error('Помилка:', error); // Обробляємо помилку
+            }
+        });
+    }
     </script>
 {% endblock content %}

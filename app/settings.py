@@ -44,8 +44,7 @@ SECRET_KEY = "django-insecure-dkky_ge2mh+k%*5@b7d60u$&yha1l7*usx9cie3d^1a_+-5a4(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -162,3 +161,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "chat.CustomUser"
 LOGIN_URL = "chat:login"
+
+

@@ -1,10 +1,14 @@
+import os
+import base64
 import logging
 import json
+import uuid
 
 from channels.db import database_sync_to_async
 from channels.generic.websocket import AsyncWebsocketConsumer
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import get_user_model
+from django.conf import settings
 from datetime import datetime, timezone
 
 from .models import (
@@ -14,7 +18,7 @@ from .models import (
     TelegramUserAndAdminChat,
     StudentAndTeacherChat,
 )
-from .utils import send_async_alert_message, send_async_telegram_message
+from .utils import send_async_alert_message, send_async_telegram_message, send_telegram_media
 
 User = get_user_model()
 
@@ -37,22 +41,25 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     async def receive(self, text_data):
         try:
-            logger.info("Get receive", text_data)
+            logger.info("Received data: %s", text_data)
             data = json.loads(text_data)
-            message = data["message"]
+            message = data.get("message")
             user_id = data["user_id"]
             source = data.get("source", "site")
             message_id = data.get("message_id")
             reply_message_id = data.get("reply_message_id", False)
             chat_with = data.get("chat_with")
+            files = data.get("files", [])  # List of files
+            file_type = data.get("file_type")
+            file_urls = []
+
             chat = await self.get_chat(self.chat_id, chat_with)
-
-
 
             if not chat:
                 logger.error(f"Chat with ID {self.chat_id} not found")
                 return
 
+            # if message sent from website
             if source == "site":
                 user = await self.get_user(int(user_id))
                 if not user:
@@ -76,6 +83,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 elif user.role == "teacher":
                     telegram_text = f"<b><i>Вчитель {user.first_name}</i></b>"
                 else:
+                    logger.error("user.role exit")
                     return
 
                 if chat_with == "telegram_user":
@@ -92,14 +100,24 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 elif chat_with == "teacher":
                     pass
                 else:
+                    logger.error("chat_with exit")
                     return
 
                 if chat_with != "teacher":
-                    telegram_text += f"\n{message}"
-                    message_id = await send_async_telegram_message(
-                        telegram_id, telegram_text, reply_message_id)
+                    if message:
+                        telegram_text += f"\n{message}"
 
+                    #     for file_url in file_urls:
+                    #         message_id = await send_async_telegram_media(
+                    #             telegram_id, file_url, reply_message_id)
+
+                    if not files:
+                        message_id = await send_async_telegram_message(
+                            telegram_id, telegram_text, reply_message_id)
+
+            # if message sent from telegram
             elif source == "telegram":
+
                 user = await self.get_telegram_user(user_id)
 
                 if not user:
@@ -108,15 +126,29 @@ class ChatConsumer(AsyncWebsocketConsumer):
             else:
                 return
 
+            if files:
+                for file in files:
+                    file_data = file["data"]
+                    file_name = file["name"]
+                    file_path = self.save_file(file_data, file_name)
+                    if file_path:
+                        file_urls.append(file_path)
+
+            # set whom to send a notification about a new message on the website
             send_to = await self.get_data_for_alert(chat, user)
             if send_to:
                 await send_async_alert_message(*send_to)
 
-            new_message = await self.create_message(chat,
-                                                    user,
-                                                    message,
-                                                    source=source,
-                                                    message_id=message_id)
+            # make message body
+            new_message = await self.create_message(
+                chat,
+                user,
+                message,
+                source=source,
+                message_id=message_id,
+                files=file_urls,
+                file_type=file_type,
+            )
             if not new_message:
                 logger.error("Failed to create new message")
                 return
@@ -131,9 +163,11 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     "username": user.username,
                     "timestamp": new_message["created_at"],
                     "message_id": message_id,
+                    "file_urls": new_message.get("file_urls", []),
                 },
             )
         except Exception as e:
+            print(e)
             logger.error("Receive error", exc_info=True)
 
     async def chat_message(self, event):
@@ -144,6 +178,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             username = event["username"]
             timestamp = event["timestamp"]
             message_id = event.get("message_id")
+            file_urls = event.get("file_urls", [])
 
             await self.send(text_data=json.dumps({
                 "source": source,
@@ -152,6 +187,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 "username": username,
                 "timestamp": timestamp,
                 "message_id": message_id,
+                "file_urls": file_urls,
             }))
         except Exception as e:
             logger.info(e)
@@ -216,7 +252,16 @@ class ChatConsumer(AsyncWebsocketConsumer):
             return None
 
     @database_sync_to_async
-    def create_message(self, chat, user, message, source, message_id=None):
+    def create_message(
+        self,
+        chat,
+        user,
+        message,
+        source,
+        message_id=None,
+        files=None,
+        file_type=None,
+    ):
         try:
             new_message = {
                 "source":
@@ -230,8 +275,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 "message_id":
                 message_id,
                 "created_at":
-                datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
+                datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
             }
+
+            if files:
+                new_message["file_urls"] = files
+                new_message["file_type"] = file_type
 
             if chat.messages is None:
                 chat.messages = []
@@ -244,20 +293,54 @@ class ChatConsumer(AsyncWebsocketConsumer):
             logger.error(f"Error creating message: {e}")
             return None
 
+    def save_file(self, file_data, file_name):
+        try:
+            file_extension = file_name.split('.')[-1]
+            unique_name = f"{uuid.uuid4()}.{file_extension}"
+
+            if file_extension.lower() in ['jpg', 'jpeg', 'png', 'gif']:
+                directory = 'images'
+            elif file_extension.lower() in ['mp4', 'avi', 'mov']:
+                directory = 'videos'
+            elif file_extension.lower() in ['wav', 'mp3', 'aac', 'ogg']:
+                directory = 'audios'
+            else:
+                directory = 'others'
+
+            file_path = os.path.join(settings.MEDIA_ROOT, directory,
+                                     unique_name)
+
+            # Ensure the directory exists
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+            with open(file_path, "wb") as file:
+                file.write(base64.b64decode(file_data))
+
+            return os.path.join(settings.MEDIA_URL, directory, unique_name)
+        except Exception as e:
+            logger.error(f"Error saving file: {e}")
+            return None
+
     @database_sync_to_async
     def get_data_for_alert(self, chat, user):
         if type(chat) == TelegramUserAndAdminChat:
             if type(user) == TelegramUser and chat.admin.telegram is not None:
-                return (chat.admin.telegram.tg_id, "телеграм користувача", chat.telegram_user.first_name)
+                return (chat.admin.telegram.tg_id, "телеграм користувача",
+                        chat.telegram_user.first_name)
         elif type(chat) == StudentAndTeacherChat:
-            if type(user) == TelegramUser and chat.student.role == "student" and chat.teacher.telegram is not None:
-                return (chat.teacher.telegram.tg_id, "студента", user.first_name)
+            if type(
+                    user
+            ) == TelegramUser and chat.student.role == "student" and chat.teacher.telegram is not None:
+                return (chat.teacher.telegram.tg_id, "студента",
+                        user.first_name)
         elif type(chat) == TeacherAndAdminChat:
             if type(user) == CustomUser:
                 if user.username == chat.admin.username and chat.teacher.telegram is not None:
-                    return (chat.teacher.telegram.tg_id, "адміністратора", user.first_name)
+                    return (chat.teacher.telegram.tg_id, "адміністратора",
+                            user.first_name)
                 elif user.username == chat.teacher.username and chat.admin.telegram is not None:
-                    return (chat.admin.telegram.tg_id, "вчителя", user.first_name)
+                    return (chat.admin.telegram.tg_id, "вчителя",
+                            user.first_name)
 
     @database_sync_to_async
     def get_telegram_user_id(self, chat, chat_with):

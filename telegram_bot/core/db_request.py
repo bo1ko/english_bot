@@ -34,12 +34,12 @@ def get_or_create_communication_chat(
             obj, created = StudentAndTeacherChat.objects.get_or_create(
                 student=user
             )
-            return obj, created
+            return obj, created, obj.student.pk
         elif chat_with == "telegram_user":
             obj, created = TelegramUserAndAdminChat.objects.get_or_create(
                 telegram_user=telegram
             )
-            return obj, created
+            return obj, created, obj.telegram_user.pk
     except Exception as e:
         logger.error(f"Get or create chat student and admin: {e}")
         return None, None
